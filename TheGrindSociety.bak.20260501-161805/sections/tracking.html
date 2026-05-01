@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tracking · TheGrindSociety</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cdefs%3E%3ClinearGradient id=%27a%27 x1=%270%27 y1=%270%27 x2=%2764%27 y2=%2764%27%3E%3Cstop offset=%270%27 stop-color=%27%232F2FE4%27/%3E%3Cstop offset=%271%27 stop-color=%27%23162E93%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d=%27M32 3 L56 13 L56 36 Q56 50 32 61 Q8 50 8 36 L8 13 Z%27 fill=%27url(%23a)%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27sans-serif%27 font-size=%2728%27 fill=%27white%27 font-weight=%27bold%27%3EG%3C/text%3E%3C/svg%3E">
+</head>
+<body data-nav="tracking">
+<div class="bg-aurora"></div>
+<div id="nav-slot"></div>
+
+<div class="layout">
+  <div id="sidebar-slot"></div>
+
+  <main>
+    <!-- HERO BANNER -->
+    <section class="section-hero" data-fade>
+      <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=80');"></div>
+      <div class="inner">
+        <div>
+          <div class="pillar-tag">📊 Pillar 6 of 7</div>
+          <h1>Tracking & Coaching</h1>
+          <p class="lead">What gets measured gets managed. What gets coached gets accelerated.</p>
+        </div>
+        <div id="hero-quote-slot"></div>
+      </div>
+    </section>
+
+    <!-- SMART SEARCH -->
+    <div data-search-mount="tracking" data-fade></div>
+
+    <!-- Live dashboard preview -->
+    <div data-fade class="grid grid-3" style="margin-top:3rem;">
+      <div class="glass stat-tile"><div class="label">This Month</div><div class="value">−2.4 kg</div><div class="delta up">▼ On track</div></div>
+      <div class="glass stat-tile"><div class="label">Workouts</div><div class="value">19/24</div><div class="delta">79% adherence</div></div>
+      <div class="glass stat-tile"><div class="label">Avg Sleep</div><div class="value">7h 32m</div><div class="delta up">▲ 22 min</div></div>
+    </div>
+
+    <!-- Body chart -->
+    <div data-fade class="glass" style="padding:2rem;margin-top:1.5rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.4rem;">📈 12-Week Bodyweight Trend</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Trend &gt; daily fluctuations. Weigh daily, judge weekly.</p>
+      <svg viewBox="0 0 600 220" style="width:100%;height:auto;">
+        <defs>
+          <linearGradient id="g" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#2F2FE4" stop-opacity="0.6"/>
+            <stop offset="1" stop-color="#2F2FE4" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path d="M0,80 L50,90 L100,75 L150,95 L200,85 L250,110 L300,100 L350,125 L400,115 L450,140 L500,130 L550,155 L600,150 L600,220 L0,220 Z" fill="url(#g)"/>
+        <path d="M0,80 L50,90 L100,75 L150,95 L200,85 L250,110 L300,100 L350,125 L400,115 L450,140 L500,130 L550,155 L600,150" fill="none" stroke="#2F2FE4" stroke-width="3" stroke-linecap="round" style="filter:drop-shadow(0 0 6px rgba(47,47,228,0.6));"/>
+      </svg>
+      <div style="display:flex;justify-content:space-between;color:var(--muted);font-size:0.8rem;margin-top:0.5rem;">
+        <span>Wk 1</span><span>Wk 4</span><span>Wk 8</span><span>Wk 12</span>
+      </div>
+    </div>
+
+    <!-- VISUAL TOOLS -->
+    <div data-fade style="margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.5rem;">📸 Track Like a Pro</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Three signals — measured weekly — that don't lie.</p>
+      <div class="grid grid-3">
+        <div class="img-card" data-fade><div class="img-wrap"><div class="img-tag">DAILY</div><div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1535914254981-b5012eebbd15?w=800&q=80');"></div></div><div class="body"><h4>Bodyweight</h4><p>Same time, post-toilet, pre-food. Average week-over-week — never react to a single day.</p></div></div>
+        <div class="img-card" data-fade><div class="img-wrap"><div class="img-tag">WEEKLY</div><div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?w=800&q=80');"></div></div><div class="body"><h4>Lift PRs</h4><p>Top set + working sets logged. Strength = the most reliable proxy for progress.</p></div></div>
+        <div class="img-card" data-fade><div class="img-wrap"><div class="img-tag">BI-WEEKLY</div><div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80');"></div></div><div class="body"><h4>Photos</h4><p>Same lighting, time, pose. The mirror lies; side-by-side photos don't.</p></div></div>
+      </div>
+    </div>
+
+    <!-- QUOTE BREAK -->
+    <div id="quote-mid"></div>
+
+    <!-- ============ KPI / METRICS GUIDE ============ -->
+    <div data-fade style="margin-top:4rem;">
+      <h2 class="display" style="font-size:2.2rem;margin:0 0 0.3rem;">📚 The 12 Metrics That Matter</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Track these. Ignore the rest.</p>
+      <div class="grid grid-3">
+        <div class="glass" style="padding:1.4rem;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;"><h4 style="margin:0;">Bodyweight</h4><span class="tag">Daily</span></div><p style="color:var(--muted);font-size:0.88rem;margin:0;">Same time, post-toilet, pre-food. Average week-over-week.</p></div>
+        <div class="glass" style="padding:1.4rem;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;"><h4 style="margin:0;">Waist (navel)</h4><span class="tag">Weekly</span></div><p style="color:var(--muted);font-size:0.88rem;margin:0;">Best body-fat proxy without calipers. Aim &lt; 50% of height (cm).</p></div>
+        <div class="glass" style="padding:1.4rem;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;"><h4 style="margin:0;">Progress Photos</h4><span class="tag">Bi-weekly</span></div><p style="color:var(--muted);font-size:0.88rem;margin:0;">Front · side · back. Same lighting, time, pose.</p></div>
+        <div class="glass" style="padding:1.4rem;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;"><h4 style="margin:0;">Lift PRs</h4><span class="tag">Weekly</span></div><p style="color:var(--muted);font-size:0.88rem;margin:0;">Squat · bench · deadlift · OHP · pull-up. Track top set + volume.</p></div>
+        <div class="glass" style="padding:1.4rem;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;"><h4 style="margin:0;">Steps</h4><span class="tag">Daily</span></div><p style="color:var(--muted);font-size:0.88rem;margin:0;">Hidden NEAT lever. Aim 8K–12K. Crash diets stall here first.</p></div>
+        <div class="glass" style="padding:1.4rem;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;"><h4 style="margin:0;">Sleep Duration</h4><span class="tag">Daily</span></div><p style="color:var(--muted);font-size:0.88rem;margin:0;">Time in bed vs time asleep. 7+ hours non-negotiable.</p></div>
+        <div class="glass" style="padding:1.4rem;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;"><h4 style="margin:0;">Resting HR</h4><span class="tag">Daily</span></div><p style="color:var(--muted);font-size:0.88rem;margin:0;">Lower = fitter. Track morning. Spike = poor recovery.</p></div>
+        <div class="glass" style="padding:1.4rem;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;"><h4 style="margin:0;">HRV</h4><span class="tag">Daily</span></div><p style="color:var(--muted);font-size:0.88rem;margin:0;">Heart rate variability. Measures recovery state. Train hard if up.</p></div>
+        <div class="glass" style="padding:1.4rem;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;"><h4 style="margin:0;">Macro Adherence</h4><span class="tag">Daily</span></div><p style="color:var(--muted);font-size:0.88rem;margin:0;">% of days hitting calories ±100, protein +20g floor.</p></div>
+        <div class="glass" style="padding:1.4rem;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;"><h4 style="margin:0;">Workout Adherence</h4><span class="tag">Weekly</span></div><p style="color:var(--muted);font-size:0.88rem;margin:0;">Sessions completed / planned. Aim ≥ 85%.</p></div>
+        <div class="glass" style="padding:1.4rem;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;"><h4 style="margin:0;">Mood / Energy</h4><span class="tag">Daily</span></div><p style="color:var(--muted);font-size:0.88rem;margin:0;">1–10 scale, AM. Trends reveal overtraining or undereating.</p></div>
+        <div class="glass" style="padding:1.4rem;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;"><h4 style="margin:0;">Hydration</h4><span class="tag">Daily</span></div><p style="color:var(--muted);font-size:0.88rem;margin:0;">35ml/kg minimum. Urine straw-yellow.</p></div>
+      </div>
+    </div>
+
+    <!-- Measurements log -->
+    <div data-fade class="glass" style="padding:2rem;margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.4rem;">📏 Body Measurements (How To)</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Same place, same time, weekly. Inches don't lie when the scale stalls.</p>
+      <table class="table">
+        <thead><tr><th>Measure</th><th class="hide-mobile">Where</th><th>Start</th><th>Current</th><th>Δ</th></tr></thead>
+        <tbody>
+          <tr><td>Chest</td><td class="hide-mobile" style="color:var(--muted);font-size:0.88rem;">Across nipples, flat back, exhale</td><td>102 cm</td><td>104 cm</td><td style="color:#5dffaa;">+2.0</td></tr>
+          <tr><td>Waist</td><td class="hide-mobile" style="color:var(--muted);font-size:0.88rem;">At navel, relaxed, pre-meal</td><td>88 cm</td><td>83 cm</td><td style="color:#5dffaa;">−5.0</td></tr>
+          <tr><td>Hips</td><td class="hide-mobile" style="color:var(--muted);font-size:0.88rem;">Widest point, glutes max</td><td>98 cm</td><td>95 cm</td><td style="color:#5dffaa;">−3.0</td></tr>
+          <tr><td>Arms</td><td class="hide-mobile" style="color:var(--muted);font-size:0.88rem;">Mid-bicep, flexed</td><td>36 cm</td><td>37.5 cm</td><td style="color:#5dffaa;">+1.5</td></tr>
+          <tr><td>Thighs</td><td class="hide-mobile" style="color:var(--muted);font-size:0.88rem;">Mid-thigh, relaxed</td><td>58 cm</td><td>60 cm</td><td style="color:#5dffaa;">+2.0</td></tr>
+          <tr><td>Neck</td><td class="hide-mobile" style="color:var(--muted);font-size:0.88rem;">Just below larynx</td><td>38 cm</td><td>38.5 cm</td><td style="color:#5dffaa;">+0.5</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Photo guide -->
+    <div data-fade class="glass" style="padding:2rem;margin-top:1.5rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.4rem;">📸 Progress Photo Protocol</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Done right, photos are the most accurate progress signal.</p>
+      <ol class="steps">
+        <li><strong>Same time of day.</strong> First thing in the morning, post-toilet, pre-water.</li>
+        <li><strong>Same lighting.</strong> Natural daylight or same indoor light. No filters.</li>
+        <li><strong>Same outfit.</strong> Tight shorts/briefs. Women: sports bra + shorts. Same pose, no flexing on day 1, slight flex same way each time.</li>
+        <li><strong>Same poses.</strong> Front · side · back · front-flexed. Phone at chest height, 2m away.</li>
+        <li><strong>Same background.</strong> Plain wall. Reduces visual noise.</li>
+        <li><strong>Compare every 4 weeks.</strong> Side-by-side. Daily comparisons drive you crazy.</li>
+      </ol>
+    </div>
+
+    <!-- App integrations -->
+    <div data-fade style="margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.5rem;">🔌 App Integrations</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Plug in your existing tracking tools.</p>
+      <div class="grid grid-3">
+        <div class="glass" style="padding:1.4rem;display:flex;justify-content:space-between;align-items:center;"><div>⌚ Apple Health</div><span class="badge badge-pro">Connected</span></div>
+        <div class="glass" style="padding:1.4rem;display:flex;justify-content:space-between;align-items:center;"><div>💚 Fitbit</div><button class="btn btn-ghost" style="padding:0.4rem 0.9rem;font-size:0.8rem;">Connect</button></div>
+        <div class="glass" style="padding:1.4rem;display:flex;justify-content:space-between;align-items:center;"><div>🅶 Google Fit</div><button class="btn btn-ghost" style="padding:0.4rem 0.9rem;font-size:0.8rem;">Connect</button></div>
+        <div class="glass" style="padding:1.4rem;display:flex;justify-content:space-between;align-items:center;"><div>🔮 Whoop</div><button class="btn btn-ghost" style="padding:0.4rem 0.9rem;font-size:0.8rem;">Connect</button></div>
+        <div class="glass" style="padding:1.4rem;display:flex;justify-content:space-between;align-items:center;"><div>💍 Oura Ring</div><button class="btn btn-ghost" style="padding:0.4rem 0.9rem;font-size:0.8rem;">Connect</button></div>
+        <div class="glass" style="padding:1.4rem;display:flex;justify-content:space-between;align-items:center;"><div>🍎 MyFitnessPal</div><span class="badge badge-pro">Connected</span></div>
+      </div>
+    </div>
+
+    <!-- ============ PERSONALIZED PLAN ============ -->
+    <div data-fade class="personalize-panel" style="margin-top:3rem;">
+      <span class="ribbon">₹299</span>
+      <div style="font-size:0.78rem;color:#9aa6ff;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;">⚡ Personalized Plan</div>
+      <h2 class="display" style="font-size:2rem;margin:0.4rem 0 0.5rem;">Build My Tracking System</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;max-width:600px;">Your dashboard, weekly reports, automated alerts when you're plateauing or overtraining. Coached or self-driven.</p>
+
+      <form id="plan-form" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+        <div class="form-group"><label>Tracking Style</label>
+          <select name="style"><option value="minimal">Minimal (3 metrics)</option><option value="balanced" selected>Balanced (6 metrics)</option><option value="full">Full (12 metrics)</option></select>
+        </div>
+        <div class="form-group"><label>Coaching</label>
+          <select name="coach"><option value="self" selected>Self-driven + reports</option><option value="ai">AI weekly check-in</option><option value="human">Human coach (₹4,999/mo extra)</option></select>
+        </div>
+        <div class="form-group"><label>Report Day</label>
+          <select name="day"><option value="sun" selected>Sunday</option><option value="mon">Monday</option><option value="fri">Friday</option></select>
+        </div>
+        <div class="form-group"><label>Wearable</label>
+          <select name="wear"><option value="none">None</option><option value="apple" selected>Apple Watch</option><option value="oura">Oura</option><option value="whoop">Whoop</option></select>
+        </div>
+      </form>
+
+      <div id="plan-mount" style="margin-top:1.4rem;"></div>
+    </div>
+
+    <div id="pro-content" style="display:none;margin-top:1rem;">
+      <h3 class="display" style="font-size:1.6rem;margin:0 0 1rem;">Your Tracking System</h3>
+      <div id="track-output"></div>
+    </div>
+  </main>
+</div>
+
+<div id="footer-slot"></div>
+<script src="../js/app.js"></script>
+<script>
+  document.getElementById('sidebar-slot').innerHTML = TGS.renderModuleSidebar('tracking');
+
+  // Hero quote + mid-section quote break
+  document.getElementById('hero-quote-slot').innerHTML = TGS.Quotes.render(TGS.Quotes.forSection('tracking'));
+  document.getElementById('quote-mid').innerHTML = TGS.Quotes.renderBreak({ t: 'You can\'t manage what you don\'t measure.', a: 'Peter Drucker' });
+  const profile = TGS.Profile.get();
+  const planMount = document.getElementById('plan-mount');
+
+  function renderPlanCTA() {
+    planMount.innerHTML = `
+      <div class="result-block">
+        <div class="locked-preview">
+          <div class="blur-bg" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80');"></div>
+          <div class="blur-overlay"></div>
+          <div class="content">
+            <div class="lock-circle">🔒</div>
+            <h3 style="margin:0;font-family:'Bebas Neue';font-size:1.8rem;letter-spacing:0.02em;">Your Tracking System Awaits</h3>
+            <p style="color:var(--muted);max-width:440px;margin:0.5rem auto 0;">Custom dashboard, plateau alerts, wearable sync, weekly reviews.</p>
+            <div class="features-row">
+              <span class="tag">Custom Dashboard</span><span class="tag">Weekly Reports</span><span class="tag">Plateau Alerts</span><span class="tag">Wearable Sync</span>
+            </div>
+            <button class="btn btn-primary pulse" onclick="TGS.showSubscribeModal('tracking','Tracking',299)">
+              🔓 Unlock Your Personalized Plan — ₹299
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderProTrack() {
+    const fd = new FormData(document.getElementById('plan-form'));
+    const style = fd.get('style') || 'balanced';
+    const day = fd.get('day') || 'sun';
+
+    const metricsByStyle = {
+      minimal: ['Bodyweight (daily)', 'Workout adherence (weekly)', 'Sleep hours (daily)'],
+      balanced: ['Bodyweight (daily)', 'Waist (weekly)', 'Lift PRs (weekly)', 'Steps (daily)', 'Sleep (daily)', 'Macro adherence (daily)'],
+      full: ['Bodyweight', 'Waist', 'Hips', 'Arms', 'Lift PRs', 'Steps', 'Sleep', 'Resting HR', 'HRV', 'Macro adherence', 'Mood/Energy', 'Hydration']
+    };
+
+    document.getElementById('track-output').innerHTML = `
+      <div class="grid grid-2">
+        <div class="glass" style="padding:1.8rem;">
+          <h4 style="margin:0 0 1rem;">📊 Your Metrics</h4>
+          <ul class="checklist">${metricsByStyle[style].map(m => `<li><span class="box"></span><span>${m}</span></li>`).join('')}</ul>
+        </div>
+        <div class="glass" style="padding:1.8rem;">
+          <h4 style="margin:0 0 1rem;">📅 This Week's Report (${day.toUpperCase()})</h4>
+          <p style="color:var(--muted);font-size:0.92rem;">You're 3 weeks into a cut. Down 1.8kg. Bench +5kg. Sleep dipped Tue/Wed — review caffeine timing.</p>
+          <div style="margin-top:1rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.6rem;">
+            <div class="glass stat-tile" style="padding:0.8rem;"><div class="label">Adherence</div><div class="value" style="font-size:1.4rem;">87%</div></div>
+            <div class="glass stat-tile" style="padding:0.8rem;"><div class="label">Steps</div><div class="value" style="font-size:1.4rem;">9,840</div></div>
+            <div class="glass stat-tile" style="padding:0.8rem;"><div class="label">Macros</div><div class="value" style="font-size:1.4rem;">5/7</div></div>
+          </div>
+        </div>
+      </div>
+    `;
+    document.querySelectorAll('.checklist li').forEach(li => li.addEventListener('click', () => li.classList.toggle('done')));
+  }
+
+  if (TGS.Subs.has('tracking')) {
+    planMount.innerHTML = `<div class="glass" style="padding:1.4rem;display:flex;justify-content:space-between;align-items:center;"><div><strong>✓ Tracking Pro active</strong><div style="color:var(--muted);font-size:0.9rem;">Your system is below.</div></div><span class="badge badge-pro">PRO</span></div>`;
+    document.getElementById('pro-content').style.display = 'block';
+    renderProTrack();
+    document.getElementById('plan-form').addEventListener('change', renderProTrack);
+  } else {
+    renderPlanCTA();
+  }
+</script>
+</body>
+</html>

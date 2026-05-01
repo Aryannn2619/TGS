@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trainer Admin · TheGrindSociety</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='64' y2='64'%3E%3Cstop offset='0' stop-color='%232F2FE4'/%3E%3Cstop offset='1' stop-color='%23162E93'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M32 3 L56 13 L56 36 Q56 50 32 61 Q8 50 8 36 L8 13 Z' fill='url(%23a)'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='sans-serif' font-size='28' fill='white' font-weight='bold'%3EG%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<div class="bg-aurora"></div>
+<div id="nav-slot"></div>
+
+<section style="padding:3rem 1.5rem;">
+  <div class="container">
+    <div data-fade style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <div style="color:#A5B4FC;letter-spacing:0.2em;text-transform:uppercase;font-size:0.85rem;font-weight:600;">⚙️ Admin Panel · Mock</div>
+        <h1 class="display" style="font-size:2.6rem;margin:0.3rem 0 0;">Trainer Applications</h1>
+      </div>
+      <div style="display:flex;gap:0.8rem;flex-wrap:wrap;">
+        <div class="glass stat-tile" style="padding:0.8rem 1.2rem;"><div class="label">Pending</div><div class="value" style="font-size:1.6rem;color:#ffc850;" id="stat-pending">0</div></div>
+        <div class="glass stat-tile" style="padding:0.8rem 1.2rem;"><div class="label">Approved</div><div class="value" style="font-size:1.6rem;color:#4ADE80;" id="stat-approved">0</div></div>
+        <div class="glass stat-tile" style="padding:0.8rem 1.2rem;"><div class="label">Rejected</div><div class="value" style="font-size:1.6rem;color:#ff7a90;" id="stat-rejected">0</div></div>
+      </div>
+    </div>
+
+    <div class="tabs" id="status-tabs">
+      <div class="tab active" data-status="">All</div>
+      <div class="tab" data-status="review">Pending</div>
+      <div class="tab" data-status="interview">Interview</div>
+      <div class="tab" data-status="approved">Approved</div>
+      <div class="tab" data-status="rejected">Rejected</div>
+    </div>
+
+    <div id="apps-mount" data-fade></div>
+
+    <div class="glass" data-fade style="padding:1.5rem;margin-top:2rem;font-size:0.85rem;color:var(--muted);">
+      <strong>Demo notes:</strong> This is a mock admin UI. Applications are stored in localStorage (<code>tgs_apps</code>). In production this would be gated by an admin role + connected to a backend.
+    </div>
+  </div>
+</section>
+
+<div id="footer-slot"></div>
+<script src="js/app.js"></script>
+<script>
+  let filter = '';
+  document.querySelectorAll('#status-tabs .tab').forEach(t => t.addEventListener('click', () => {
+    document.querySelectorAll('#status-tabs .tab').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    filter = t.dataset.status;
+    render();
+  }));
+
+  function render() {
+    const apps = TGS.Applications.all();
+    document.getElementById('stat-pending').textContent = apps.filter(a => a.status === 'review' || a.status === 'interview').length;
+    document.getElementById('stat-approved').textContent = apps.filter(a => a.status === 'approved').length;
+    document.getElementById('stat-rejected').textContent = apps.filter(a => a.status === 'rejected').length;
+
+    const list = filter ? apps.filter(a => a.status === filter) : apps;
+    if (list.length === 0) {
+      document.getElementById('apps-mount').innerHTML = `<div class="glass" style="padding:3rem;text-align:center;color:var(--muted);">No applications ${filter ? 'in this status' : 'yet'}. <a href="become-trainer.html" style="color:#A5B4FC;">Test by submitting one →</a></div>`;
+      return;
+    }
+    document.getElementById('apps-mount').innerHTML = list.map(a => card(a)).join('');
+  }
+
+  function card(a) {
+    const isReview = a.status === 'review';
+    const isInterview = a.status === 'interview';
+    const isApproved = a.status === 'approved';
+    const isRejected = a.status === 'rejected';
+    const pillClass = isReview ? 'review pulse-dot' : isInterview ? 'review' : isApproved ? 'approved' : 'rejected';
+    const pillText = isReview ? 'Pending Review' : isInterview ? 'Interview' : isApproved ? 'Approved' : 'Rejected';
+    return `
+      <div class="glass" style="padding:1.6rem;margin-bottom:1rem;">
+        <div style="display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:start;">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.6rem;">
+              <h3 style="margin:0;">${a.name}</h3>
+              <span class="status-pill ${pillClass}">${pillText}</span>
+            </div>
+            <div style="color:var(--muted);font-size:0.88rem;margin-top:0.3rem;">${a.email} · ${a.phone || '—'} · ${a.city || '—'}</div>
+            <div style="margin-top:0.8rem;display:flex;flex-wrap:wrap;gap:0.4rem;">
+              <span class="tag">${a.exp} yrs exp</span>
+              ${(a.specs || '').split(',').filter(Boolean).slice(0,4).map(s => `<span class="tag">${s.trim()}</span>`).join('')}
+            </div>
+            <div style="margin-top:0.8rem;font-size:0.92rem;">
+              <strong style="color:#A5B4FC;">Certs:</strong> <span style="color:var(--muted);">${a.certs || '—'}</span>
+            </div>
+            ${a.bio ? `<div style="margin-top:0.6rem;color:var(--muted);font-size:0.92rem;font-style:italic;">"${a.bio}"</div>` : ''}
+            <div style="margin-top:0.8rem;color:var(--muted);font-size:0.82rem;">
+              ${a.ig ? `IG: ${a.ig} · ` : ''}${a.followers ? `${a.followers}K followers · ` : ''}${a.clients ? `${a.clients}+ clients · ` : ''}Submitted ${new Date(a.submittedAt).toLocaleDateString()}
+            </div>
+          </div>
+        </div>
+        ${(isReview || isInterview) ? `
+          <div style="display:flex;gap:0.6rem;margin-top:1.2rem;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:1rem;">
+            ${isReview ? `<button class="btn btn-ghost" onclick="setStatus('${a.id}','interview')">→ Interview</button>` : ''}
+            <button class="btn btn-primary" onclick="approve('${a.id}')">✓ Approve</button>
+            <button class="btn btn-ghost" style="color:#ff7a90;border-color:rgba(255,120,140,0.3);" onclick="reject('${a.id}')">✗ Reject</button>
+          </div>
+        ` : ''}
+      </div>
+    `;
+  }
+
+  window.setStatus = (id, status) => { TGS.Applications.update(id, { status }); render(); TGS.toast('Status updated'); };
+  window.approve = (id) => {
+    TGS.Applications.update(id, { status: 'approved', profileId: 't1' });
+    TGS.toast('✓ Approved');
+    render();
+  };
+  window.reject = (id) => {
+    const reason = prompt('Reason (optional):') || 'Insufficient certifications.';
+    TGS.Applications.update(id, { status: 'rejected', reason });
+    TGS.toast('Application rejected');
+    render();
+  };
+
+  render();
+</script>
+</body>
+</html>

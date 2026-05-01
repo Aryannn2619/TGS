@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hire a Trainer · TheGrindSociety</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='64' y2='64'%3E%3Cstop offset='0' stop-color='%232F2FE4'/%3E%3Cstop offset='1' stop-color='%23162E93'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M32 3 L56 13 L56 36 Q56 50 32 61 Q8 50 8 36 L8 13 Z' fill='url(%23a)'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='sans-serif' font-size='28' fill='white' font-weight='bold'%3EG%3C/text%3E%3C/svg%3E">
+</head>
+<body data-nav="trainers">
+<div class="bg-aurora"></div>
+<div id="nav-slot"></div>
+
+<section style="padding:3rem 1.5rem;">
+  <div class="container">
+    <!-- HERO -->
+    <div data-fade style="text-align:center;margin-bottom:2.5rem;">
+      <div style="color:#9aa6ff;letter-spacing:0.2em;text-transform:uppercase;font-size:0.85rem;font-weight:600;">🧑‍🏫 Hire a Trainer</div>
+      <h1 class="display" style="font-size:clamp(2.4rem,5vw,3.6rem);margin:0.5rem 0;">Find Your Coach</h1>
+      <p style="color:var(--muted);max-width:600px;margin:0 auto;">India's most-vetted fitness trainers. Online · plans-only · in-person — at your gym, your home, or your phone.</p>
+    </div>
+
+    <!-- AI SUGGESTION -->
+    <div id="ai-suggestion" data-fade></div>
+
+    <!-- TOP TRAINERS CAROUSEL -->
+    <div data-fade style="margin:3rem 0 2.5rem;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+        <h2 class="display" style="font-size:1.6rem;margin:0;">⭐ Top Trainers</h2>
+        <span style="color:var(--muted);font-size:0.85rem;">Highest rated · verified ✓</span>
+      </div>
+      <div class="carousel-wrap">
+        <button class="carousel-arrow prev" data-dir="-1">‹</button>
+        <button class="carousel-arrow next" data-dir="1">›</button>
+        <div class="carousel-track" id="top-track"></div>
+      </div>
+    </div>
+
+    <!-- CATEGORIES -->
+    <div data-fade>
+      <h2 class="display" style="font-size:1.6rem;margin:0 0 0.5rem;">Browse by Style</h2>
+      <p style="color:var(--muted);margin:0 0 1.2rem;">Pick the format that fits your life.</p>
+      <div class="tabs" id="mode-tabs">
+        <div class="tab active" data-mode="">All Modes</div>
+        <div class="tab" data-mode="online">🌐 Online Coaching</div>
+        <div class="tab" data-mode="plans">📋 Plans Only</div>
+        <div class="tab" data-mode="offline">📍 Offline / Home Visit</div>
+      </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filter-bar" data-fade>
+      <label>Goal</label>
+      <select id="f-goal">
+        <option value="">All</option>
+        <option value="fat-loss">Fat Loss</option>
+        <option value="muscle-gain">Muscle Gain</option>
+        <option value="hypertrophy">Hypertrophy</option>
+        <option value="strength">Strength</option>
+        <option value="powerlifting">Powerlifting</option>
+        <option value="yoga">Yoga</option>
+        <option value="rehab">Rehab</option>
+        <option value="women-fitness">Women's Fitness</option>
+        <option value="cardio">Cardio / Endurance</option>
+        <option value="calisthenics">Calisthenics</option>
+        <option value="nutrition">Nutrition</option>
+        <option value="mental">Mental Fitness</option>
+      </select>
+      <label>Budget</label>
+      <select id="f-budget">
+        <option value="">Any</option>
+        <option value="500">≤ ₹500</option>
+        <option value="1000">≤ ₹1,000</option>
+        <option value="1500">≤ ₹1,500</option>
+        <option value="3000">≤ ₹3,000</option>
+        <option value="5000">≤ ₹5,000</option>
+      </select>
+      <label>Rating</label>
+      <select id="f-rating">
+        <option value="0">Any</option>
+        <option value="4.5">4.5+</option>
+        <option value="4.7">4.7+</option>
+        <option value="4.9">4.9+</option>
+      </select>
+      <label>Verified</label>
+      <select id="f-verified">
+        <option value="">Any</option>
+        <option value="1">Verified ✓ only</option>
+      </select>
+      <label>Search</label>
+      <input id="f-search" type="search" placeholder="Name, city, specialty…" style="padding:0.4rem 0.7rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:inherit;font-size:0.85rem;min-width:160px;" />
+      <button class="btn btn-ghost" style="padding:0.45rem 1rem;font-size:0.85rem;margin-left:auto;" onclick="resetFilters()">Reset</button>
+    </div>
+
+    <!-- COUNT -->
+    <div data-fade style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:1rem;">
+      <div id="result-count" style="color:var(--muted);font-size:0.9rem;"></div>
+      <div style="display:flex;gap:0.5rem;align-items:center;">
+        <span style="color:var(--muted);font-size:0.85rem;">Sort:</span>
+        <select id="f-sort" style="padding:0.4rem 0.7rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:inherit;font-size:0.85rem;">
+          <option value="rating">Rating</option>
+          <option value="price-low">Price: Low → High</option>
+          <option value="price-high">Price: High → Low</option>
+          <option value="exp">Experience</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- GRID -->
+    <div class="trainer-grid" id="grid" data-fade></div>
+
+    <!-- BECOME TRAINER CTA -->
+    <div data-fade class="glass" style="margin-top:4rem;padding:3rem 2rem;text-align:center;background:linear-gradient(135deg,rgba(47,47,228,0.18),rgba(22,46,147,0.06));">
+      <h2 class="display" style="font-size:2rem;margin:0 0 0.5rem;">Are You a Coach?</h2>
+      <p style="color:var(--muted);max-width:560px;margin:0 auto 1.5rem;">Join 200+ certified trainers earning on TheGrindSociety. Apply once, build your roster, run your business.</p>
+      <a href="become-trainer.html" class="btn btn-primary pulse">Become a Trainer →</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-slot"></div>
+<script src="js/app.js"></script>
+<script>
+  // ============ AI Suggestion ============
+  const profile = TGS.Profile.get();
+  if (profile?.goal) {
+    const suggested = TGS.Trainers.suggestForUser(profile);
+    const top = suggested[0];
+    document.getElementById('ai-suggestion').innerHTML = `
+      <div class="glass" style="padding:1.5rem;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.2rem;background:linear-gradient(135deg,rgba(47,47,228,0.14),rgba(22,46,147,0.04));">
+        <div style="width:80px;height:80px;border-radius:50%;background-image:url('${top.t.photo}');background-size:cover;background-position:center 20%;border:2px solid rgba(120,120,255,0.4);"></div>
+        <div>
+          <div style="display:flex;align-items:center;gap:0.5rem;color:#9aa6ff;font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;">🤖 AI Pick · Best Match for You</div>
+          <h3 style="margin:0.2rem 0;font-size:1.4rem;">${top.t.name} <span style="color:var(--muted);font-size:0.85rem;font-weight:400;">· ${top.t.city}</span></h3>
+          <div style="color:var(--muted);font-size:0.92rem;">${top.t.bio}</div>
+          <div class="match-meter" style="max-width:220px;"><span style="width:${Math.min(100, 60 + top.matches * 15)}%;"></span></div>
+          <div style="font-size:0.78rem;color:#5dffaa;margin-top:0.3rem;">${Math.min(98, 60 + top.matches * 15)}% match for ${profile.goal}</div>
+        </div>
+        <a class="btn btn-primary" href="trainer-profile.html?id=${top.t.id}">View Profile →</a>
+      </div>
+    `;
+  } else {
+    document.getElementById('ai-suggestion').innerHTML = `
+      <div class="glass" style="padding:1.2rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
+        <div><strong style="color:white;">🤖 Get AI-matched to a trainer</strong> — <span style="color:var(--muted);">complete your profile in 60s.</span></div>
+        <a href="onboarding.html" class="btn btn-primary" style="padding:0.5rem 1.2rem;font-size:0.85rem;">Personalize</a>
+      </div>
+    `;
+  }
+
+  // ============ Top Trainers Carousel ============
+  const top = TGS.Trainers.all().filter(t => t.verified).sort((a, b) => b.rating - a.rating).slice(0, 8);
+  document.getElementById('top-track').innerHTML = top.map(t => trainerCard(t)).join('');
+  document.querySelectorAll('.carousel-arrow').forEach(a => a.addEventListener('click', () => {
+    const dir = +a.dataset.dir;
+    document.getElementById('top-track').scrollBy({ left: dir * 320, behavior: 'smooth' });
+  }));
+
+  // ============ Filters / Grid ============
+  const state = { mode: '', goal: '', budget: 0, rating: 0, verified: false, search: '', sort: 'rating' };
+
+  function resetFilters() {
+    state.mode = ''; state.goal = ''; state.budget = 0; state.rating = 0; state.verified = false; state.search = ''; state.sort = 'rating';
+    document.querySelectorAll('#mode-tabs .tab').forEach(t => t.classList.toggle('active', !t.dataset.mode));
+    document.getElementById('f-goal').value = '';
+    document.getElementById('f-budget').value = '';
+    document.getElementById('f-rating').value = '0';
+    document.getElementById('f-verified').value = '';
+    document.getElementById('f-search').value = '';
+    document.getElementById('f-sort').value = 'rating';
+    render();
+  }
+  window.resetFilters = resetFilters;
+
+  document.querySelectorAll('#mode-tabs .tab').forEach(t => t.addEventListener('click', () => {
+    document.querySelectorAll('#mode-tabs .tab').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    state.mode = t.dataset.mode;
+    render();
+  }));
+  document.getElementById('f-goal').addEventListener('change', e => { state.goal = e.target.value; render(); });
+  document.getElementById('f-budget').addEventListener('change', e => { state.budget = +e.target.value; render(); });
+  document.getElementById('f-rating').addEventListener('change', e => { state.rating = +e.target.value; render(); });
+  document.getElementById('f-verified').addEventListener('change', e => { state.verified = !!e.target.value; render(); });
+  document.getElementById('f-search').addEventListener('input', e => { state.search = e.target.value; render(); });
+  document.getElementById('f-sort').addEventListener('change', e => { state.sort = e.target.value; render(); });
+
+  function render() {
+    let list = TGS.Trainers.filter({
+      mode: state.mode, goal: state.goal, minRating: state.rating,
+      maxBudget: state.budget || undefined, verifiedOnly: state.verified, search: state.search
+    });
+    if (state.sort === 'rating') list.sort((a,b) => b.rating - a.rating);
+    if (state.sort === 'price-low') list.sort((a,b) => minPrice(a) - minPrice(b));
+    if (state.sort === 'price-high') list.sort((a,b) => minPrice(b) - minPrice(a));
+    if (state.sort === 'exp') list.sort((a,b) => b.exp - a.exp);
+
+    document.getElementById('result-count').innerHTML = list.length === 0
+      ? `<strong>0 trainers match.</strong> Try widening your filters.`
+      : `<strong>${list.length}</strong> ${list.length === 1 ? 'trainer' : 'trainers'} found.`;
+    document.getElementById('grid').innerHTML = list.length === 0
+      ? `<div class="glass" style="padding:2rem;text-align:center;color:var(--muted);grid-column:1/-1;">No trainers match these filters. <button class="btn btn-ghost" onclick="resetFilters()" style="margin-left:0.5rem;padding:0.4rem 0.9rem;font-size:0.85rem;">Clear filters</button></div>`
+      : list.map(t => trainerCard(t)).join('');
+  }
+  function minPrice(t) {
+    return Math.min(...Object.values(t.pricing).filter(p => p > 0));
+  }
+
+  function trainerCard(t) {
+    const minP = minPrice(t);
+    const modes = t.modes.map(m => m === 'online' ? 'Online' : m === 'plans' ? 'Plans' : 'Offline').join(' · ');
+    const SPEC_LABEL = { 'fat-loss':'Fat Loss','muscle-gain':'Muscle Gain','hypertrophy':'Hypertrophy','strength':'Strength','powerlifting':'Powerlifting','yoga':'Yoga','rehab':'Rehab','women-fitness':'Women','men-aesthetics':'Aesthetics','calisthenics':'Calisthenics','crossfit':'CrossFit','nutrition':'Nutrition','mental':'Mental','meditation':'Meditation','breathwork':'Breathwork','flexibility':'Flexibility','mobility':'Mobility','running':'Running','marathon':'Marathon','endurance':'Endurance','cardio':'Cardio','hiit':'HIIT','contest-prep':'Contest Prep','bodybuilding':'Bodybuilding','functional':'Functional','dance-fitness':'Dance','bodyweight':'Bodyweight','physiotherapy':'Physio' };
+    return `
+      <article class="trainer-card">
+        <div class="photo-wrap">
+          ${t.verified ? `<span class="verified-badge">✓ Verified</span>` : ''}
+          <span class="price-pill">From ₹${minP}</span>
+          <div class="photo" style="background-image:url('${t.photo}');"></div>
+        </div>
+        <div class="body">
+          <h4>${t.name}</h4>
+          <div class="city">${t.city} · ${modes}</div>
+          <div class="specs">
+            ${t.specs.slice(0,3).map(s => `<span class="tag">${SPEC_LABEL[s] || s}</span>`).join('')}
+          </div>
+          <div class="rating-row">
+            <span><span class="stars">${TGS.Trainers.stars(t.rating)}</span> ${t.rating} <span style="color:var(--muted);">(${t.reviews})</span></span>
+            <span style="color:var(--muted);">${t.exp} yrs</span>
+          </div>
+          <div class="actions">
+            <a href="trainer-profile.html?id=${t.id}" class="btn btn-ghost">View</a>
+            <a href="trainer-profile.html?id=${t.id}#book" class="btn btn-primary">Hire Now</a>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  render();
+</script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+// TheGrindSociety — production schema.
+// Provider is sqlite for zero-setup local dev. For prod, change to "postgresql"
+// and update DATABASE_URL. Schema avoids provider-specific types so it ports cleanly.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String    @id @default(cuid())
+  name         String
+  email        String    @unique
+  passwordHash String
+  role         String    @default("client") // client | trainer | admin
+  phone        String?
+  gender       String?
+  dateOfBirth  DateTime?
+  profileImage String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  fitnessProfile   FitnessProfile?
+  trainerProfile   TrainerProfile?
+  userChallenges   UserChallenge[]
+  payments         Payment[]
+  bookingsAsClient TrainerBooking[] @relation("ClientBookings")
+  progressLogs     ProgressLog[]
+  workoutPlans     WorkoutPlan[]
+  dietPlans        DietPlan[]
+  subscriptions    Subscription[]
+  reviewsWritten   Review[]         @relation("ClientReviews")
+  bodyMeasurements BodyMeasurement[]
+  progressPhotos   ProgressPhoto[]
+  workoutLogs      WorkoutLog[]
+  personalRecords  PersonalRecord[]
+
+  @@index([role])
+}
+
+model FitnessProfile {
+  id                    String   @id @default(cuid())
+  userId                String   @unique
+  user                  User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  height                Float?   // cm
+  weight                Float?   // kg
+  bodyType              String?
+  goal                  String?  // fat-loss | muscle-gain | recomp | endurance
+  activityLevel         String?  // sedentary | light | moderate | active | very-active
+  dietType              String?  // veg | non-veg | vegan | eggetarian
+  gymAccess             Boolean  @default(false)
+  injuryHistory         String?
+  experienceLevel       String?
+  preferredTrainingTime String?
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+}
+
+model TrainerProfile {
+  id                 String   @id @default(cuid())
+  userId             String   @unique
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bio                String?
+  specialization     String?  // CSV: fat-loss,hypertrophy,...
+  experienceYears    Int      @default(0)
+  certifications     String?
+  certificateFiles   String?  // JSON array of URLs
+  interviewStatus    String   @default("pending") // pending | scheduled | completed
+  verificationStatus String   @default("pending") // pending | under_review | approved | rejected
+  rating             Float    @default(0)
+  totalClients       Int      @default(0)
+  location           String?
+  onlineAvailable    Boolean  @default(true)
+  offlineAvailable   Boolean  @default(false)
+  basePrice          Int      @default(0) // paise
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  services     TrainerService[]
+  bookings     TrainerBooking[]
+  earnings     TrainerEarning[]
+  reviews      Review[]
+  workoutPlans WorkoutPlan[]
+  dietPlans    DietPlan[]
+
+  @@index([verificationStatus])
+}
+
+model TrainerService {
+  id           String   @id @default(cuid())
+  trainerId    String
+  trainer      TrainerProfile @relation(fields: [trainerId], references: [id], onDelete: Cascade)
+  serviceName  String
+  serviceType  String   // online-coaching | workout-plan | diet-plan | offline-training
+  description  String?
+  price        Int      // paise
+  durationDays Int
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+
+  bookings TrainerBooking[]
+}
+
+model TrainerBooking {
+  id                 String   @id @default(cuid())
+  clientId           String
+  client             User     @relation("ClientBookings", fields: [clientId], references: [id])
+  trainerId          String
+  trainer            TrainerProfile @relation(fields: [trainerId], references: [id])
+  serviceId          String
+  service            TrainerService @relation(fields: [serviceId], references: [id])
+  bookingStatus      String   @default("pending") // pending | active | completed | cancelled
+  paymentStatus      String   @default("pending") // pending | paid | refunded
+  startDate          DateTime?
+  endDate            DateTime?
+  sessionTime        String?
+  amountPaid         Int      @default(0)
+  trainerEarning     Int      @default(0)
+  platformCommission Int      @default(0)
+  createdAt          DateTime @default(now())
+
+  payments        Payment[]
+  trainerEarnings TrainerEarning[]
+
+  @@index([clientId])
+  @@index([trainerId])
+  @@index([bookingStatus])
+}
+
+model Payment {
+  id                String   @id @default(cuid())
+  userId            String
+  user              User     @relation(fields: [userId], references: [id])
+  bookingId         String?
+  booking           TrainerBooking? @relation(fields: [bookingId], references: [id])
+  challengeId       String?
+  challenge         Challenge? @relation(fields: [challengeId], references: [id])
+  planId            String?
+  amount            Int      // paise
+  paymentType       String   // challenge | booking | plan | subscription
+  paymentStatus     String   @default("created") // created | paid | failed | refunded
+  paymentGateway    String   @default("razorpay")
+  razorpayOrderId   String?  @unique
+  razorpayPaymentId String?  @unique
+  razorpaySignature String?
+  createdAt         DateTime @default(now())
+
+  @@index([userId])
+  @@index([paymentStatus])
+}
+
+model TrainerEarning {
+  id            String   @id @default(cuid())
+  trainerId     String
+  trainer       TrainerProfile @relation(fields: [trainerId], references: [id])
+  bookingId     String?
+  booking       TrainerBooking? @relation(fields: [bookingId], references: [id])
+  totalAmount   Int
+  trainerShare  Int
+  platformShare Int
+  payoutStatus  String   @default("pending") // pending | requested | paid
+  payoutDate    DateTime?
+  createdAt     DateTime @default(now())
+
+  @@index([trainerId])
+  @@index([payoutStatus])
+}
+
+model Challenge {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  title         String
+  description   String
+  durationDays  Int
+  price         Int      // paise
+  challengeType String   // fat-loss | transformation | strength
+  imageUrl      String?
+  active        Boolean  @default(true)
+  createdAt     DateTime @default(now())
+
+  userChallenges UserChallenge[]
+  payments       Payment[]
+}
+
+model UserChallenge {
+  id                 String   @id @default(cuid())
+  userId             String
+  user               User     @relation(fields: [userId], references: [id])
+  challengeId        String
+  challenge          Challenge @relation(fields: [challengeId], references: [id])
+  startDate          DateTime?
+  endDate            DateTime?
+  currentDay         Int      @default(0)
+  progressPercentage Float    @default(0)
+  status             String   @default("locked") // locked | active | completed | abandoned
+  paymentStatus      String   @default("pending") // pending | paid
+  createdAt          DateTime @default(now())
+
+  dailyGoals DailyGoal[]
+
+  @@unique([userId, challengeId])
+  @@index([userId])
+}
+
+model DailyGoal {
+  id              String   @id @default(cuid())
+  userChallengeId String
+  userChallenge   UserChallenge @relation(fields: [userChallengeId], references: [id], onDelete: Cascade)
+  date            DateTime
+  caloriesTarget  Int
+  proteinTarget   Int
+  stepsTarget     Int
+  workoutTask     String
+  waterTarget     Int      // litres x 100
+  sleepTarget     Float
+  completed       Boolean  @default(false)
+  completedAt     DateTime?
+
+  @@index([userChallengeId, date])
+}
+
+model ProgressLog {
+  // Daily activity log (calories, steps, workout-completed flag, sleep).
+  // Body-measurement tracking moved to BodyMeasurement (see below).
+  // Photo tracking moved to ProgressPhoto.
+  id               String   @id @default(cuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id])
+  date             DateTime
+  weight           Float?
+  caloriesConsumed Int?
+  proteinConsumed  Int?
+  steps            Int?
+  workoutCompleted Boolean  @default(false)
+  sleepHours       Float?
+  notes            String?
+  createdAt        DateTime @default(now())
+
+  @@index([userId, date])
+}
+
+model BodyMeasurement {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date      DateTime @default(now())
+  weight    Float?
+  bodyFat   Float?   // %
+  chest     Float?   // cm
+  waist     Float?
+  hips      Float?
+  arms      Float?
+  thighs    Float?
+  shoulders Float?
+  neck      Float?
+  notes     String?
+  createdAt DateTime @default(now())
+
+  @@index([userId, date])
+}
+
+model ProgressPhoto {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  photoUrl   String
+  angle      String   // front | side | back
+  visibility String   @default("private") // private | trainer | leaderboard
+  uploadedAt DateTime @default(now())
+
+  @@index([userId, uploadedAt])
+}
+
+model WorkoutLog {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  workoutDate  DateTime @default(now())
+  workoutName  String
+  durationMin  Int?
+  notes        String?
+  createdAt    DateTime @default(now())
+
+  exerciseLogs ExerciseLog[]
+
+  @@index([userId, workoutDate])
+}
+
+model ExerciseLog {
+  id            String   @id @default(cuid())
+  workoutLogId  String
+  workoutLog    WorkoutLog @relation(fields: [workoutLogId], references: [id], onDelete: Cascade)
+  exerciseName  String
+  muscleGroup   String   // chest | back | shoulders | biceps | triceps | legs | core
+  sets          Int
+  reps          Int
+  weight        Float    // kg
+  restSec       Int?
+  rpe           Float?   // 1-10
+  notes         String?
+  createdAt     DateTime @default(now())
+
+  @@index([workoutLogId])
+  @@index([exerciseName])
+}
+
+model PersonalRecord {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  exerciseName String
+  recordType   String   // 1RM | max-weight | max-reps | max-volume
+  value        Float
+  date         DateTime @default(now())
+  createdAt    DateTime @default(now())
+
+  @@unique([userId, exerciseName, recordType])
+  @@index([userId])
+}
+
+model WorkoutPlan {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id])
+  trainerId     String?
+  trainer       TrainerProfile? @relation(fields: [trainerId], references: [id])
+  planName      String
+  goal          String
+  difficulty    String
+  weeklySplit   String   // JSON
+  exercisesJson String   // JSON
+  createdAt     DateTime @default(now())
+}
+
+model DietPlan {
+  id               String   @id @default(cuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id])
+  trainerId        String?
+  trainer          TrainerProfile? @relation(fields: [trainerId], references: [id])
+  calories         Int
+  protein          Int
+  carbs            Int
+  fats             Int
+  mealsJson        String
+  shoppingListJson String
+  createdAt        DateTime @default(now())
+}
+
+model Subscription {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  planName  String
+  price     Int
+  status    String   @default("active") // active | cancelled | expired
+  startDate DateTime @default(now())
+  endDate   DateTime
+  autoRenew Boolean  @default(false)
+}
+
+model Review {
+  id         String   @id @default(cuid())
+  clientId   String
+  client     User     @relation("ClientReviews", fields: [clientId], references: [id])
+  trainerId  String
+  trainer    TrainerProfile @relation(fields: [trainerId], references: [id])
+  rating     Int
+  reviewText String?
+  createdAt  DateTime @default(now())
+
+  @@index([trainerId])
+}

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lifestyle · TheGrindSociety</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cdefs%3E%3ClinearGradient id=%27a%27 x1=%270%27 y1=%270%27 x2=%2764%27 y2=%2764%27%3E%3Cstop offset=%270%27 stop-color=%27%232F2FE4%27/%3E%3Cstop offset=%271%27 stop-color=%27%23162E93%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d=%27M32 3 L56 13 L56 36 Q56 50 32 61 Q8 50 8 36 L8 13 Z%27 fill=%27url(%23a)%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27sans-serif%27 font-size=%2728%27 fill=%27white%27 font-weight=%27bold%27%3EG%3C/text%3E%3C/svg%3E">
+</head>
+<body data-nav="lifestyle">
+<div class="bg-aurora"></div>
+<div id="nav-slot"></div>
+
+<div class="layout">
+  <div id="sidebar-slot"></div>
+
+  <main>
+    <!-- HERO BANNER -->
+    <section class="section-hero" data-fade>
+      <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1600&q=80');"></div>
+      <div class="inner">
+        <div>
+          <div class="pillar-tag">🏃 Pillar 7 of 7</div>
+          <h1>Lifestyle Habits</h1>
+          <p class="lead">Your habits compound into a life. Get the small ones right and the big ones get easier.</p>
+        </div>
+        <div id="hero-quote-slot"></div>
+      </div>
+    </section>
+
+    <!-- SMART SEARCH -->
+    <div data-search-mount="lifestyle" data-fade></div>
+
+    <!-- Habit checklist -->
+    <div data-fade class="glass" style="padding:2rem;margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.4rem;">Today's Checklist</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Tap to mark done. Streak resets at midnight.</p>
+      <ul class="checklist" id="habits">
+        <li><span class="box"></span><span>💧 Drink 3 L of water</span></li>
+        <li><span class="box"></span><span>👟 10,000 steps</span></li>
+        <li><span class="box"></span><span>🪑 Posture check every hour</span></li>
+        <li><span class="box"></span><span>🌬️ 5 min breathwork / meditation</span></li>
+        <li><span class="box"></span><span>☀️ 10 min sunlight</span></li>
+        <li><span class="box"></span><span>📵 No phone first 30 min after waking</span></li>
+        <li><span class="box"></span><span>🚫 No alcohol</span></li>
+      </ul>
+      <div style="margin-top:1.5rem;display:flex;justify-content:space-between;align-items:center;">
+        <div><span style="color:var(--muted);font-size:0.85rem;">Today: </span><strong id="habit-count">0/7</strong></div>
+        <div><span style="color:var(--muted);font-size:0.85rem;">Current streak: </span><strong style="color:#5dffaa;">🔥 12 days</strong></div>
+      </div>
+    </div>
+
+    <!-- Live rings -->
+    <div data-fade class="grid grid-3" style="margin-top:1.5rem;">
+      <div class="glass" style="padding:2rem;text-align:center;">
+        <div style="display:grid;place-items:center;">
+          <svg width="160" height="160" viewBox="0 0 160 160">
+            <circle cx="80" cy="80" r="68" fill="none" stroke="rgba(120,120,255,0.12)" stroke-width="14"></circle>
+            <circle cx="80" cy="80" r="68" fill="none" stroke="#2F2FE4" stroke-width="14" stroke-linecap="round"
+              stroke-dasharray="427" stroke-dashoffset="115" transform="rotate(-90 80 80)"
+              style="filter:drop-shadow(0 0 12px rgba(47,47,228,0.6));"></circle>
+            <text x="80" y="78" text-anchor="middle" fill="white" font-family="Bebas Neue" font-size="32">7,820</text>
+            <text x="80" y="98" text-anchor="middle" fill="#8a8ab8" font-size="11" letter-spacing="2">/ 10,000 STEPS</text>
+          </svg>
+        </div>
+        <div style="margin-top:0.6rem;color:var(--muted);font-size:0.85rem;">2,180 to go · ~22 min walk</div>
+      </div>
+      <div class="glass" style="padding:2rem;text-align:center;">
+        <div style="display:grid;place-items:center;">
+          <svg width="160" height="160" viewBox="0 0 160 160">
+            <circle cx="80" cy="80" r="68" fill="none" stroke="rgba(120,120,255,0.12)" stroke-width="14"></circle>
+            <circle cx="80" cy="80" r="68" fill="none" stroke="#5dffaa" stroke-width="14" stroke-linecap="round"
+              stroke-dasharray="427" stroke-dashoffset="170" transform="rotate(-90 80 80)"
+              style="filter:drop-shadow(0 0 12px rgba(93,255,170,0.5));"></circle>
+            <text x="80" y="78" text-anchor="middle" fill="white" font-family="Bebas Neue" font-size="32">2.1L</text>
+            <text x="80" y="98" text-anchor="middle" fill="#8a8ab8" font-size="11" letter-spacing="2">/ 3.0 L WATER</text>
+          </svg>
+        </div>
+        <div style="margin-top:0.6rem;color:var(--muted);font-size:0.85rem;">3 glasses to go</div>
+      </div>
+      <div class="glass" style="padding:2rem;text-align:center;">
+        <div style="display:grid;place-items:center;">
+          <svg width="160" height="160" viewBox="0 0 160 160">
+            <circle cx="80" cy="80" r="68" fill="none" stroke="rgba(120,120,255,0.12)" stroke-width="14"></circle>
+            <circle cx="80" cy="80" r="68" fill="none" stroke="#9aa6ff" stroke-width="14" stroke-linecap="round"
+              stroke-dasharray="427" stroke-dashoffset="60" transform="rotate(-90 80 80)"
+              style="filter:drop-shadow(0 0 12px rgba(154,166,255,0.5));"></circle>
+            <text x="80" y="78" text-anchor="middle" fill="white" font-family="Bebas Neue" font-size="32">86%</text>
+            <text x="80" y="98" text-anchor="middle" fill="#8a8ab8" font-size="11" letter-spacing="2">HABIT SCORE</text>
+          </svg>
+        </div>
+        <div style="margin-top:0.6rem;color:var(--muted);font-size:0.85rem;">Last 7 days average</div>
+      </div>
+    </div>
+
+    <!-- VISUAL HABITS -->
+    <div data-fade style="margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.5rem;">📸 Compound the Small Things</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">1% daily for 365 days = 37x. The math is brutal — and beautiful.</p>
+      <div class="grid grid-3">
+        <div class="img-card" data-fade><div class="img-wrap"><div class="img-tag">DAILY</div><div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=800&q=80');"></div></div><div class="body"><h4>Move Outside</h4><p>10K steps · sunlight · fresh air. The cheapest, most overlooked health intervention.</p></div></div>
+        <div class="img-card" data-fade><div class="img-wrap"><div class="img-tag">DAILY</div><div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&q=80');"></div></div><div class="body"><h4>Hydrate</h4><p>3 L · sip throughout the day · electrolytes when training. Your brain runs on water.</p></div></div>
+        <div class="img-card" data-fade><div class="img-wrap"><div class="img-tag">RITUAL</div><div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=800&q=80');"></div></div><div class="body"><h4>Wind-Down</h4><p>No screens · low light · cool room. The hour before bed shapes the next day.</p></div></div>
+      </div>
+    </div>
+
+    <!-- QUOTE BREAK -->
+    <div id="quote-mid"></div>
+
+    <!-- ============ HABIT SCIENCE / DB ============ -->
+    <div data-fade style="margin-top:4rem;">
+      <h2 class="display" style="font-size:2.2rem;margin:0 0 0.3rem;">📚 The Habit Lab</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Each habit, why it matters, and the protocol to install it.</p>
+      <div class="grid grid-2">
+        <div class="glass" style="padding:1.6rem;">
+          <h4>💧 Hydration</h4>
+          <div class="tag" style="margin-bottom:0.6rem;">Daily · Multiplier</div>
+          <p style="color:var(--muted);font-size:0.92rem;margin:0;"><strong>Formula:</strong> 35 ml/kg bodyweight + 500 ml per hour of training. Pee should be straw-colored. <strong>Install:</strong> 500ml on wake. Keep a 1L bottle visible. Add electrolytes if &gt;90 min training.</p>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <h4>👟 10,000 Steps</h4>
+          <div class="tag" style="margin-bottom:0.6rem;">Daily · NEAT</div>
+          <p style="color:var(--muted);font-size:0.92rem;margin:0;"><strong>Why:</strong> Boosts non-exercise calorie burn (NEAT) by 300–500 kcal/day. Mood, BP, blood sugar. <strong>Install:</strong> 10-min walks after meals. Walking calls. Park far. Take stairs.</p>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <h4>🪑 Posture</h4>
+          <div class="tag" style="margin-bottom:0.6rem;">Hourly</div>
+          <p style="color:var(--muted);font-size:0.92rem;margin:0;"><strong>Best fix:</strong> Daily T-spine extensions, wall slides, face pulls 3×/week. <strong>Install:</strong> Stand-up alarm every hour. Standing desk. Phone at eye level. Pull-up bar in doorway.</p>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <h4>🌪️ Stress Management</h4>
+          <div class="tag" style="margin-bottom:0.6rem;">Daily</div>
+          <p style="color:var(--muted);font-size:0.92rem;margin:0;"><strong>Tools:</strong> Box breathing, 120 min/wk in nature, social connection, news fast. <strong>Install:</strong> Schedule worry-free hours. Do hard thing first. Say no more often.</p>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <h4>🚫 Alcohol Reduction</h4>
+          <div class="tag" style="margin-bottom:0.6rem;">Critical</div>
+          <p style="color:var(--muted);font-size:0.92rem;margin:0;"><strong>Cost:</strong> Each drink kills 90 min REM, lowers protein synthesis 24%, raises cortisol. <strong>Install:</strong> Limit 2/week. Order non-alcoholic first. Keep zero in fridge.</p>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <h4>📵 Digital Hygiene</h4>
+          <div class="tag" style="margin-bottom:0.6rem;">Daily</div>
+          <p style="color:var(--muted);font-size:0.92rem;margin:0;"><strong>Why:</strong> Phone in 1st 30 min wrecks dopamine baseline. Phone in last 60 min wrecks REM. <strong>Install:</strong> Phone outside bedroom. Notifications off. Greyscale mode after 8 PM.</p>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <h4>☀️ Morning Sunlight</h4>
+          <div class="tag" style="margin-bottom:0.6rem;">Daily</div>
+          <p style="color:var(--muted);font-size:0.92rem;margin:0;"><strong>Why:</strong> Sets cortisol peak + melatonin onset 14h later. <strong>Install:</strong> Coffee outdoors. 10-min walk. No sunglasses (don't stare at sun).</p>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <h4>🍎 Whole Food First</h4>
+          <div class="tag" style="margin-bottom:0.6rem;">Per meal</div>
+          <p style="color:var(--muted);font-size:0.92rem;margin:0;"><strong>Rule:</strong> Eat protein + veg before anything processed. <strong>Install:</strong> Fruit visible, junk hidden. 80/20 rule. Cook 5 nights/week.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 30-day install plan -->
+    <div data-fade class="glass" style="padding:2rem;margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.4rem;">🧠 The Atomic Habits Framework</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">James Clear's 4 laws · Use these to install or break any habit.</p>
+      <div class="grid grid-4">
+        <div class="glass" style="padding:1.4rem;"><h4 style="margin:0 0 0.5rem;color:#5dffaa;">1. Make it Obvious</h4><p style="color:var(--muted);font-size:0.88rem;margin:0;">Cue visible. Habit-stack: "After I [current habit], I will [new habit]."</p></div>
+        <div class="glass" style="padding:1.4rem;"><h4 style="margin:0 0 0.5rem;color:#9aa6ff;">2. Make it Attractive</h4><p style="color:var(--muted);font-size:0.88rem;margin:0;">Pair with something you enjoy. Join a community doing the same.</p></div>
+        <div class="glass" style="padding:1.4rem;"><h4 style="margin:0 0 0.5rem;color:#ffc850;">3. Make it Easy</h4><p style="color:var(--muted);font-size:0.88rem;margin:0;">2-minute rule. Reduce friction to start. Prep gear the night before.</p></div>
+        <div class="glass" style="padding:1.4rem;"><h4 style="margin:0 0 0.5rem;color:#ff7a90;">4. Make it Satisfying</h4><p style="color:var(--muted);font-size:0.88rem;margin:0;">Track streaks. Visual chain. Celebrate small wins immediately.</p></div>
+      </div>
+    </div>
+
+    <!-- Posture exercises -->
+    <div data-fade style="margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.5rem;">🪑 5-Min Posture Reset</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">For desk warriors. Run twice daily.</p>
+      <ol class="steps">
+        <li><strong>Chin Tucks</strong> · 10 reps · counters forward head posture</li>
+        <li><strong>Wall Angels</strong> · 10 reps · upper back, scapula control</li>
+        <li><strong>T-Spine Foam Roll</strong> · 60s · undoes hunching</li>
+        <li><strong>Hip Flexor Stretch</strong> · 60s each · sitting shortens these</li>
+        <li><strong>Glute Bridges</strong> · 15 reps · activates dormant glutes</li>
+      </ol>
+    </div>
+
+    <!-- ============ PERSONALIZED PLAN ============ -->
+    <div data-fade class="personalize-panel" style="margin-top:3rem;">
+      <span class="ribbon">₹299</span>
+      <div style="font-size:0.78rem;color:#9aa6ff;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;">⚡ Personalized Plan</div>
+      <h2 class="display" style="font-size:2rem;margin:0.4rem 0 0.5rem;">Build My Lifestyle Plan</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;max-width:600px;">A 30-day habit-stacking blueprint built around your current life — start small, build the chain, never break it.</p>
+
+      <form id="plan-form" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+        <div class="form-group"><label>Schedule</label>
+          <select name="sched"><option value="9to5" selected>Desk job (9–5)</option><option value="shift">Shift work</option><option value="flex">Flexible / WFH</option><option value="active">Already active</option></select>
+        </div>
+        <div class="form-group"><label>Biggest Block</label>
+          <select name="block">
+            <option value="energy">Low energy</option>
+            <option value="discipline" selected>Discipline / consistency</option>
+            <option value="time">Time constraints</option>
+            <option value="stress">Stress</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Alcohol</label>
+          <select name="alc"><option value="none">Don't drink</option><option value="social" selected>Social only</option><option value="frequent">3+/week</option></select>
+        </div>
+        <div class="form-group"><label>Sleep Quality</label>
+          <select name="sleep"><option value="poor">Poor</option><option value="ok" selected>Ok</option><option value="good">Good</option></select>
+        </div>
+      </form>
+
+      <div id="plan-mount" style="margin-top:1.4rem;"></div>
+    </div>
+
+    <div id="pro-content" style="display:none;margin-top:1rem;">
+      <h3 class="display" style="font-size:1.6rem;margin:0 0 1rem;">Your 30-Day Lifestyle Plan</h3>
+      <div id="lifestyle-output"></div>
+    </div>
+  </main>
+</div>
+
+<div id="footer-slot"></div>
+<script src="../js/app.js"></script>
+<script>
+  document.getElementById('sidebar-slot').innerHTML = TGS.renderModuleSidebar('lifestyle');
+
+  // Hero quote + mid-section quote break
+  document.getElementById('hero-quote-slot').innerHTML = TGS.Quotes.render(TGS.Quotes.forSection('lifestyle'));
+  document.getElementById('quote-mid').innerHTML = TGS.Quotes.renderBreak({ t: 'You\'ll never change your life until you change something you do daily.', a: 'John C. Maxwell' });
+
+  // Habit checklist
+  const STORAGE_KEY = 'tgs_habits_' + new Date().toDateString();
+  const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+  const items = document.querySelectorAll('#habits li');
+  items.forEach((li, i) => {
+    if (stored.includes(i)) li.classList.add('done');
+    li.addEventListener('click', () => {
+      li.classList.toggle('done');
+      const done = [...items].map((x, idx) => x.classList.contains('done') ? idx : null).filter(x => x !== null);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(done));
+      document.getElementById('habit-count').textContent = `${done.length}/${items.length}`;
+    });
+  });
+  document.getElementById('habit-count').textContent = `${stored.length}/${items.length}`;
+
+  // ============ PERSONALIZED PLAN ============
+  const profile = TGS.Profile.get();
+  const planMount = document.getElementById('plan-mount');
+
+  function renderPlanCTA() {
+    planMount.innerHTML = `
+      <div class="result-block">
+        <div class="locked-preview">
+          <div class="blur-bg" style="background-image:url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1200&q=80');"></div>
+          <div class="blur-overlay"></div>
+          <div class="content">
+            <div class="lock-circle">🔒</div>
+            <h3 style="margin:0;font-family:'Bebas Neue';font-size:1.8rem;letter-spacing:0.02em;">Your 30-Day Lifestyle Plan Awaits</h3>
+            <p style="color:var(--muted);max-width:440px;margin:0.5rem auto 0;">Habit stacks built around your schedule, blocks, and sleep quality.</p>
+            <div class="features-row">
+              <span class="tag">30-Day Plan</span><span class="tag">Habit Stacking</span><span class="tag">Streak Tracker</span><span class="tag">Weekly Reviews</span>
+            </div>
+            <button class="btn btn-primary pulse" onclick="TGS.showSubscribeModal('lifestyle','Lifestyle',299)">
+              🔓 Unlock Your Personalized Plan — ₹299
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderProLifestyle() {
+    const fd = new FormData(document.getElementById('plan-form'));
+    const block = fd.get('block') || 'discipline';
+    const sleep = fd.get('sleep') || 'ok';
+
+    const weeks = {
+      discipline: [
+        ['Days 1–7 · FOUNDATION', ['Wake same time daily', '10 min sunlight', '2L water', 'Bed by 11 PM']],
+        ['Days 8–14 · ADD', ['7K steps', '5 min breathwork AM', 'Phone out of bedroom']],
+        ['Days 15–21 · STACK', ['10K steps', 'Alcohol-free', 'Journal nightly (3 wins)']],
+        ['Days 22–30 · LOCK-IN', ['Full stack', 'Track habit score', 'Plan tomorrow tonight']]
+      ],
+      energy: [
+        ['Days 1–7 · BASELINE', ['Bed before 11 PM', 'Sunlight in 30 min of waking', 'Drop alcohol']],
+        ['Days 8–14 · BUILD', ['No caffeine after 2 PM', '10 min walks post-meals', 'Whole food breakfast']],
+        ['Days 15–21 · OPTIMIZE', ['NSDR midday', 'Cut sugar 80%', 'Daily protein floor']],
+        ['Days 22–30 · COMPOUND', ['Add cold shower', 'Sauna 2×/wk if available', 'Evaluate energy 1–10']]
+      ],
+      time: [
+        ['Days 1–7 · 5 MIN ONLY', ['5 min breathwork', '5 min stretch', 'Walking calls']],
+        ['Days 8–14 · STACK', ['Habit-stack to existing routines', '2-min rule for everything']],
+        ['Days 15–21 · BATCH', ['Meal prep Sundays', 'Workouts at fixed time', 'No-meeting blocks']],
+        ['Days 22–30 · INTEGRATE', ['Audit week', 'Drop 3 low-value tasks', 'Lock the routine']]
+      ],
+      stress: [
+        ['Days 1–7 · NERVOUS SYSTEM', ['10 min sunlight', 'Box breathing 2×/day', 'Bed by 10:30']],
+        ['Days 8–14 · INPUT DIET', ['News fast', 'Phone after coffee, not before', 'Journal worries']],
+        ['Days 15–21 · MOVEMENT', ['Daily walk in nature', 'Z2 cardio 3×/wk', 'Yoga 1×/wk']],
+        ['Days 22–30 · CONNECTION', ['1 social call/week', 'Hobby 30 min/day', 'Therapy if needed']]
+      ]
+    };
+    const plan = weeks[block];
+
+    document.getElementById('lifestyle-output').innerHTML = `
+      <div class="grid grid-2">
+        ${plan.map(w => `
+          <div class="glass" style="padding:1.6rem;">
+            <h4 style="margin:0 0 0.8rem;color:#9aa6ff;">${w[0]}</h4>
+            <ul class="checklist">${w[1].map(h => `<li><span class="box"></span><span>${h}</span></li>`).join('')}</ul>
+          </div>
+        `).join('')}
+      </div>
+      <div class="glass" style="padding:1.4rem;margin-top:1rem;">
+        <strong>Sleep priority:</strong> ${sleep === 'poor' ? 'Sleep is your #1 lever — fix this first. No screens 60 min before bed, magnesium glycinate 400mg, dark cool room.' : sleep === 'ok' ? 'You\'re close. Tighten your bedtime ±30 min, kill caffeine after 2 PM, and add 10 min of mobility before bed.' : 'You\'re doing well. Maintain consistency over duration.'}
+      </div>
+    `;
+    document.querySelectorAll('.checklist li').forEach(li => li.addEventListener('click', () => li.classList.toggle('done')));
+  }
+
+  if (TGS.Subs.has('lifestyle')) {
+    planMount.innerHTML = `<div class="glass" style="padding:1.4rem;display:flex;justify-content:space-between;align-items:center;"><div><strong>✓ Lifestyle Pro active</strong><div style="color:var(--muted);font-size:0.9rem;">Your 30-day plan is below.</div></div><span class="badge badge-pro">PRO</span></div>`;
+    document.getElementById('pro-content').style.display = 'block';
+    renderProLifestyle();
+    document.getElementById('plan-form').addEventListener('change', renderProLifestyle);
+  } else {
+    renderPlanCTA();
+  }
+</script>
+</body>
+</html>

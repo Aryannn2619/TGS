@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>I'm New to Gym · TheGrindSociety</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="Logo.png">
+</head>
+<body>
+<div class="bg-aurora"></div>
+<div id="nav-slot"></div>
+
+<section style="padding:3rem 1.5rem;">
+  <div class="container" style="max-width:680px;">
+    <div data-fade style="text-align:center;margin-bottom:1.6rem;">
+      <div style="color:#9aa6ff;letter-spacing:0.22em;text-transform:uppercase;font-size:0.78rem;font-weight:700;">Beginner Wizard</div>
+      <h2 class="display gradient-text" style="font-size:clamp(2.2rem,5vw,3.4rem);margin:0.4rem 0 0.6rem;">Let's Build Your Path</h2>
+      <p style="color:var(--muted);">5 quick questions. No jargon. We'll do the rest.</p>
+    </div>
+
+    <div class="wiz-progress"><div class="wiz-progress-fill" id="wiz-bar" style="width:20%;"></div></div>
+
+    <div class="glass" style="padding:2rem;">
+      <!-- Step 1 -->
+      <div class="wiz-step active" data-step="1">
+        <h3 style="margin:0 0 0.4rem;">Have you ever worked out before?</h3>
+        <p style="color:var(--muted);margin:0 0 0.5rem;font-size:0.92rem;">Honest answers only. There's no wrong one.</p>
+        <div class="wiz-options">
+          <button class="wiz-opt" data-key="experience" data-val="never"><span class="wiz-opt-icon">🌱</span>Never. This is genuinely my first time.</button>
+          <button class="wiz-opt" data-key="experience" data-val="tried"><span class="wiz-opt-icon">🤷</span>Tried once or twice. Didn't stick.</button>
+          <button class="wiz-opt" data-key="experience" data-val="returning"><span class="wiz-opt-icon">🔄</span>Used to train. Coming back after a long break.</button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="wiz-step" data-step="2">
+        <h3 style="margin:0 0 0.4rem;">What's your main goal?</h3>
+        <p style="color:var(--muted);margin:0 0 0.5rem;font-size:0.92rem;">You can change this later.</p>
+        <div class="wiz-options">
+          <button class="wiz-opt" data-key="goal" data-val="fat-loss"><span class="wiz-opt-icon">🔥</span>Fat loss — I want to feel lighter and look leaner</button>
+          <button class="wiz-opt" data-key="goal" data-val="muscle-gain"><span class="wiz-opt-icon">💪</span>Muscle gain — I want to get bigger and stronger</button>
+          <button class="wiz-opt" data-key="goal" data-val="fitness"><span class="wiz-opt-icon">🌿</span>General fitness — feel better, more energy, healthier</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="wiz-step" data-step="3">
+        <h3 style="margin:0 0 0.4rem;">Where will you train?</h3>
+        <div class="wiz-options">
+          <button class="wiz-opt" data-key="where" data-val="gym"><span class="wiz-opt-icon">🏟️</span>A real gym — I have access to one</button>
+          <button class="wiz-opt" data-key="where" data-val="home"><span class="wiz-opt-icon">🏠</span>Home — bodyweight or basic equipment only</button>
+          <button class="wiz-opt" data-key="where" data-val="mix"><span class="wiz-opt-icon">🔀</span>Mix — sometimes gym, sometimes home</button>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="wiz-step" data-step="4">
+        <h3 style="margin:0 0 0.4rem;">How are you feeling about this?</h3>
+        <p style="color:var(--muted);margin:0 0 0.5rem;font-size:0.92rem;">We'll match the tone of your dashboard to where you're at.</p>
+        <div class="wiz-options">
+          <button class="wiz-opt" data-key="confidence" data-val="scared"><span class="wiz-opt-icon">😰</span>Honestly? Scared. The gym intimidates me.</button>
+          <button class="wiz-opt" data-key="confidence" data-val="okay"><span class="wiz-opt-icon">🙂</span>Okay. A bit nervous but ready to try.</button>
+          <button class="wiz-opt" data-key="confidence" data-val="confident"><span class="wiz-opt-icon">😎</span>Pretty confident. Just need a plan.</button>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="wiz-step" data-step="5">
+        <h3 style="margin:0 0 0.4rem;">One more thing — what's your name?</h3>
+        <p style="color:var(--muted);margin:0 0 0.5rem;font-size:0.92rem;">So your buddy can address you by name. Skip if you'd rather not.</p>
+        <div class="form-group">
+          <input type="text" id="wiz-name" placeholder="Your first name (optional)" />
+        </div>
+        <button class="btn btn-primary pulse" id="wiz-finish" style="width:100%;margin-top:0.5rem;">Generate my path 🎯</button>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:1.2rem;">
+      <button id="wiz-back" class="btn btn-ghost" style="display:none;padding:0.5rem 1rem;font-size:0.85rem;">← Back</button>
+    </div>
+  </div>
+</section>
+
+<div id="footer-slot"></div>
+<script src="js/app.js"></script>
+<script>
+  const answers = {};
+  let step = 1;
+  const totalSteps = 5;
+
+  function go(n) {
+    step = Math.max(1, Math.min(totalSteps, n));
+    document.querySelectorAll('.wiz-step').forEach(s => s.classList.toggle('active', +s.dataset.step === step));
+    document.getElementById('wiz-bar').style.width = (step / totalSteps * 100) + '%';
+    document.getElementById('wiz-back').style.display = step === 1 ? 'none' : 'inline-flex';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.querySelectorAll('.wiz-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // visually mark selection within current step
+      btn.parentElement.querySelectorAll('.wiz-opt').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      answers[btn.dataset.key] = btn.dataset.val;
+      // brief pause so the user sees the selection register
+      setTimeout(() => go(step + 1), 220);
+    });
+  });
+
+  document.getElementById('wiz-back').addEventListener('click', () => go(step - 1));
+
+  document.getElementById('wiz-finish').addEventListener('click', () => {
+    const name = document.getElementById('wiz-name').value.trim();
+    if (name) answers.name = name;
+    answers.completedAt = new Date().toISOString();
+    TGS.Beginner.set(answers);
+    TGS.Badges.checkAll();
+    TGS.toast('🎯 Your path is ready!');
+    setTimeout(() => location.href = 'beginner.html', 600);
+  });
+
+  // Pre-fill if already answered
+  const existing = TGS.Beginner.get();
+  if (existing) {
+    Object.assign(answers, existing);
+    if (existing.name) document.getElementById('wiz-name').value = existing.name;
+  }
+</script>
+</body>
+</html>

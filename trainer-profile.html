@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trainer Profile · TheGrindSociety</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='64' y2='64'%3E%3Cstop offset='0' stop-color='%232F2FE4'/%3E%3Cstop offset='1' stop-color='%23162E93'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M32 3 L56 13 L56 36 Q56 50 32 61 Q8 50 8 36 L8 13 Z' fill='url(%23a)'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='sans-serif' font-size='28' fill='white' font-weight='bold'%3EG%3C/text%3E%3C/svg%3E">
+</head>
+<body data-nav="trainers">
+<div class="bg-aurora"></div>
+<div id="nav-slot"></div>
+
+<section style="padding:2.5rem 1.5rem;" id="root"></section>
+
+<div id="footer-slot"></div>
+<script src="js/app.js"></script>
+<script>
+  const id = new URLSearchParams(location.search).get('id') || 't1';
+  const t = TGS.Trainers.byId(id);
+  const root = document.getElementById('root');
+  if (!t) {
+    root.innerHTML = `<div class="container"><div class="glass" style="padding:3rem;text-align:center;"><h2>Trainer not found</h2><a href="trainers.html" class="btn btn-primary" style="margin-top:1rem;">Browse trainers</a></div></div>`;
+  } else {
+    render();
+  }
+
+  function render() {
+    const SPEC_LABEL = { 'fat-loss':'Fat Loss','muscle-gain':'Muscle Gain','hypertrophy':'Hypertrophy','strength':'Strength','powerlifting':'Powerlifting','yoga':'Yoga','rehab':'Rehab','women-fitness':'Women','men-aesthetics':'Aesthetics','calisthenics':'Calisthenics','crossfit':'CrossFit','nutrition':'Nutrition','mental':'Mental','meditation':'Meditation','breathwork':'Breathwork','flexibility':'Flexibility','mobility':'Mobility','running':'Running','marathon':'Marathon','endurance':'Endurance','cardio':'Cardio','hiit':'HIIT','contest-prep':'Contest Prep','bodybuilding':'Bodybuilding','functional':'Functional','dance-fitness':'Dance','bodyweight':'Bodyweight','physiotherapy':'Physio' };
+    const reviews = sampleReviews(id);
+    root.innerHTML = `
+      <div class="container">
+        <a href="trainers.html" style="color:var(--muted);text-decoration:none;font-size:0.9rem;">← Back to trainers</a>
+
+        <!-- HERO -->
+        <div class="trainer-hero" data-fade style="margin-top:1rem;">
+          <div class="avatar-lg" style="background-image:url('${t.photo}');"></div>
+          <div>
+            <div style="display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;">
+              ${t.verified ? `<span class="verified-badge" style="position:static;">✓ Verified</span>` : ''}
+              <span class="tag">${t.exp} years experience</span>
+            </div>
+            <h2>${t.name}</h2>
+            <div class="meta">📍 ${t.city} · 🗣️ ${t.langs.join(', ')} · 🕐 ${t.avail}</div>
+            <div style="display:flex;align-items:center;gap:0.8rem;margin:0.4rem 0 1rem;font-size:0.95rem;">
+              <span style="color:#ffc850;font-size:1.1rem;letter-spacing:0.05em;">${TGS.Trainers.stars(t.rating)}</span>
+              <strong>${t.rating}</strong>
+              <span style="color:var(--muted);">${t.reviews} reviews</span>
+            </div>
+            <p style="margin:0;color:var(--muted);max-width:560px;">${t.bio}</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem;">
+              ${t.specs.map(s => `<span class="tag">${SPEC_LABEL[s] || s}</span>`).join('')}
+            </div>
+            <div style="display:flex;gap:0.6rem;margin-top:1.4rem;flex-wrap:wrap;">
+              <a href="#book" class="btn btn-primary pulse">📅 Book Session</a>
+              <a href="#chat" class="btn btn-ghost">💬 Message</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- TWO COLUMN -->
+        <div class="grid grid-2" style="margin-top:2rem;align-items:start;">
+          <!-- LEFT: pricing + certs + availability -->
+          <div style="display:flex;flex-direction:column;gap:1.5rem;">
+            <div class="glass" style="padding:1.8rem;" id="book">
+              <h3 style="margin:0 0 1rem;">💰 Pricing & Plans</h3>
+              <div style="display:flex;flex-direction:column;gap:0.8rem;">
+                ${t.pricing.online > 0 ? plan('online', '🌐 Online Coaching', '1-on-1 video calls + chat support', t.pricing.online, '/month') : ''}
+                ${t.pricing.plans > 0 ? plan('plans', '📋 Plans Only', 'Custom workout + nutrition plan, no live sessions', t.pricing.plans, '/month') : ''}
+                ${t.pricing.offline > 0 ? plan('offline', '📍 Offline Sessions', 'Gym / home visit. ${t.city} only.', t.pricing.offline, '/session') : ''}
+              </div>
+              <button class="btn btn-primary pulse" style="width:100%;margin-top:1.2rem;" onclick="openBooking()">Book Session →</button>
+            </div>
+
+            <div class="glass" style="padding:1.8rem;">
+              <h3 style="margin:0 0 1rem;">🎓 Certifications</h3>
+              <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.5rem;">
+                ${t.certs.map(c => `<li style="display:flex;align-items:center;gap:0.6rem;"><span style="color:#4ADE80;">✓</span> ${c}</li>`).join('')}
+              </ul>
+            </div>
+
+            <div class="glass" style="padding:1.8rem;">
+              <h3 style="margin:0 0 0.6rem;">📅 Availability</h3>
+              <p style="margin:0;color:var(--muted);">${t.avail}</p>
+              <div style="margin-top:0.8rem;display:flex;gap:0.4rem;flex-wrap:wrap;">
+                ${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d => `<span class="tag" style="background:rgba(74,222,128,0.08);border-color:rgba(74,222,128,0.25);color:#4ADE80;">${d}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: reviews + chat -->
+          <div style="display:flex;flex-direction:column;gap:1.5rem;">
+            <div class="glass" style="padding:1.8rem;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem;">
+                <h3 style="margin:0;">⭐ Reviews</h3>
+                <span style="color:var(--muted);font-size:0.9rem;">${t.reviews} total</span>
+              </div>
+              ${reviews.map(r => `
+                <div style="padding:1rem 0;border-bottom:1px solid var(--border);">
+                  <div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.4rem;">
+                    <div class="avatar" style="width:32px;height:32px;font-size:0.8rem;">${r.name[0]}</div>
+                    <div>
+                      <strong>${r.name}</strong>
+                      <div style="color:#ffc850;font-size:0.85rem;letter-spacing:0.05em;">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)} <span style="color:var(--muted);font-size:0.78rem;">${r.when}</span></div>
+                    </div>
+                  </div>
+                  <p style="margin:0;color:var(--muted);font-size:0.92rem;">${r.text}</p>
+                </div>
+              `).join('')}
+            </div>
+
+            <div class="glass" style="padding:1.8rem;" id="chat">
+              <h3 style="margin:0 0 1rem;">💬 Chat with ${t.name.split(' ')[0]}</h3>
+              <div class="chat-window" id="chat-window">
+                <div class="chat-msgs" id="chat-msgs"></div>
+                <div class="chat-input">
+                  <input id="chat-input" placeholder="Ask a question…" />
+                  <button class="btn btn-primary" id="chat-send" style="padding:0.5rem 1rem;font-size:0.85rem;">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    `;
+    setupBookingFlow();
+    setupChat();
+  }
+
+  function plan(mode, label, desc, price, suffix) {
+    return `
+      <label style="display:grid;grid-template-columns:auto 1fr auto;gap:0.8rem;align-items:center;padding:1rem;border:1px solid var(--border);border-radius:12px;cursor:pointer;transition:all 0.2s;" class="plan-radio" data-mode="${mode}" data-price="${price}">
+        <input type="radio" name="plan" value="${mode}" data-price="${price}" style="width:18px;height:18px;accent-color:#4F46E5;" />
+        <div>
+          <strong>${label}</strong>
+          <div style="font-size:0.85rem;color:var(--muted);">${desc.replace('${t.city}', '')}</div>
+        </div>
+        <div style="font-family:'Bebas Neue';font-size:1.6rem;line-height:1;">₹${price}<span style="font-size:0.7rem;color:var(--muted);font-family:Inter;letter-spacing:0.05em;">${suffix}</span></div>
+      </label>
+    `;
+  }
+
+  function setupBookingFlow() {
+    const radios = document.querySelectorAll('.plan-radio input');
+    radios.forEach(r => r.addEventListener('change', () => {
+      document.querySelectorAll('.plan-radio').forEach(p => p.style.borderColor = 'var(--border)');
+      r.closest('.plan-radio').style.borderColor = 'rgba(79,70,229,0.5)';
+      r.closest('.plan-radio').style.background = 'rgba(79,70,229,0.08)';
+    }));
+  }
+
+  window.openBooking = function() {
+    const sel = document.querySelector('.plan-radio input:checked');
+    if (!sel) {
+      TGS.toast('Pick a plan first');
+      return;
+    }
+    const mode = sel.value;
+    const price = +sel.dataset.price;
+    const labels = { online: 'Online Coaching', plans: 'Plans Only', offline: 'Offline Session' };
+    const root = document.createElement('div');
+    root.className = 'modal-backdrop';
+    root.innerHTML = `
+      <div class="modal" style="position:relative;max-width:520px;">
+        <button class="close" aria-label="Close">×</button>
+        <h3 style="margin:0 0 0.4rem;">Book ${t.name.split(' ')[0]}</h3>
+        <p style="color:var(--muted);margin:0 0 1.2rem;">${labels[mode]} · ₹${price}${mode === 'offline' ? '/session' : '/month'}</p>
+        <form id="bk-form">
+          <div class="form-group">
+            <label>Duration</label>
+            <select name="weeks">
+              ${mode === 'offline' ?
+                '<option value="1">1 session</option><option value="4" selected>4 sessions</option><option value="8">8 sessions</option><option value="12">12 sessions</option>'
+                : '<option value="4">1 month</option><option value="12" selected>3 months</option><option value="24">6 months</option>'}
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Goal / Notes</label>
+            <textarea name="notes" rows="3" placeholder="Tell ${t.name.split(' ')[0]} about your goal…"></textarea>
+          </div>
+          <div class="glass" style="padding:1rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+            <span>Total</span>
+            <strong id="bk-total" style="font-family:'Bebas Neue';font-size:1.6rem;">₹${mode === 'offline' ? price * 4 : price * 3}</strong>
+          </div>
+          <button type="submit" class="btn btn-primary pulse" style="width:100%;">Confirm Booking</button>
+        </form>
+        <div style="font-size:0.75rem;color:var(--muted);margin-top:1rem;text-align:center;">🔒 Mock UI — no real payment is processed.</div>
+      </div>
+    `;
+    document.body.appendChild(root);
+    root.querySelector('.close').onclick = () => root.remove();
+    root.addEventListener('click', e => { if (e.target === root) root.remove(); });
+    const upd = () => {
+      const w = +root.querySelector('[name="weeks"]').value;
+      const total = mode === 'offline' ? price * w : Math.round(price * (w / 4));
+      root.querySelector('#bk-total').textContent = '₹' + total.toLocaleString('en-IN');
+    };
+    root.querySelector('[name="weeks"]').addEventListener('change', upd);
+    upd();
+    root.querySelector('#bk-form').onsubmit = e => {
+      e.preventDefault();
+      const w = +root.querySelector('[name="weeks"]').value;
+      const total = mode === 'offline' ? price * w : Math.round(price * (w / 4));
+      const notes = root.querySelector('[name="notes"]').value;
+      TGS.Bookings.create({ trainerId: t.id, mode, weeks: w, total, notes });
+      root.remove();
+      TGS.toast(`✓ Booked ${t.name} — ₹${total.toLocaleString('en-IN')}`);
+    };
+  };
+
+  function setupChat() {
+    const msgs = document.getElementById('chat-msgs');
+    const input = document.getElementById('chat-input');
+    const send = document.getElementById('chat-send');
+    let history = TGS.Chat.history(t.id);
+    if (history.length === 0) {
+      history = [
+        { from: 'them', text: `Hey! I'm ${t.name.split(' ')[0]}. Tell me your goal and I'll help you build a plan. 💪`, when: Date.now() }
+      ];
+      history.forEach(m => TGS.Chat.push(t.id, m));
+    }
+    function paint() {
+      msgs.innerHTML = history.map(m => `
+        <div class="chat-msg ${m.from === 'me' ? 'me' : 'them'}">
+          <span class="who">${m.from === 'me' ? 'You' : t.name.split(' ')[0]}</span>
+          ${escapeHtml(m.text)}
+        </div>
+      `).join('');
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+    paint();
+    function sendMsg() {
+      const text = input.value.trim();
+      if (!text) return;
+      const m = { from: 'me', text, when: Date.now() };
+      history.push(m); TGS.Chat.push(t.id, m);
+      input.value = '';
+      paint();
+      // Auto-reply
+      setTimeout(() => {
+        const replies = [
+          `Got it! Could you share your weight, height, and how many days/week you can train?`,
+          `Great question. For your goal, the first 4 weeks should focus on consistency over intensity.`,
+          `Let's hop on a quick call this week. I'll send you a Calendly link in 5 min.`,
+          `That's a common roadblock. Try habit-stacking it after an existing routine.`,
+          `Perfect — I'll draft a sample plan and share by tomorrow.`
+        ];
+        const reply = { from: 'them', text: replies[Math.floor(Math.random() * replies.length)], when: Date.now() };
+        history.push(reply); TGS.Chat.push(t.id, reply);
+        paint();
+      }, 900 + Math.random() * 1200);
+    }
+    send.addEventListener('click', sendMsg);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') sendMsg(); });
+  }
+
+  function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+  function sampleReviews(id) {
+    const pools = {
+      t1: [
+        { name: 'Ankit S.', stars: 5, when: '2 weeks ago', text: 'Lost 7kg in 8 weeks under Aarav. The macro tracking + check-ins kept me accountable. 10/10.' },
+        { name: 'Priya M.', stars: 5, when: '1 month ago', text: 'Best investment I\'ve made for my fitness. Aarav listens and adjusts the plan based on what works.' },
+        { name: 'Rohit K.', stars: 4, when: '2 months ago', text: 'Solid programming. Wish there were more video form checks but otherwise excellent.' }
+      ],
+      t2: [
+        { name: 'Anjali R.', stars: 5, when: '1 week ago', text: 'Priya helped me recover from a herniated disc through her gentle but progressive yoga programming.' },
+        { name: 'Karan D.', stars: 5, when: '3 weeks ago', text: 'Mobility transformed in 6 weeks. Touch toes for the first time at 38!' }
+      ]
+    };
+    return pools[id] || [
+      { name: 'Verified Member', stars: 5, when: '2 weeks ago', text: `Great experience training with ${TGS.Trainers.byId(id).name.split(' ')[0]}. Knowledgeable and patient.` },
+      { name: 'Verified Member', stars: 5, when: '1 month ago', text: 'Custom programming that actually fits my schedule. Highly recommend.' },
+      { name: 'Verified Member', stars: 4, when: '2 months ago', text: 'Solid plan and good communication. Will continue.' }
+    ];
+  }
+</script>
+</body>
+</html>

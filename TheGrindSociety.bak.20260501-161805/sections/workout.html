@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Workouts · TheGrindSociety</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cdefs%3E%3ClinearGradient id=%27a%27 x1=%270%27 y1=%270%27 x2=%2764%27 y2=%2764%27%3E%3Cstop offset=%270%27 stop-color=%27%232F2FE4%27/%3E%3Cstop offset=%271%27 stop-color=%27%23162E93%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d=%27M32 3 L56 13 L56 36 Q56 50 32 61 Q8 50 8 36 L8 13 Z%27 fill=%27url(%23a)%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27sans-serif%27 font-size=%2728%27 fill=%27white%27 font-weight=%27bold%27%3EG%3C/text%3E%3C/svg%3E">
+</head>
+<body data-nav="workout">
+<div class="bg-aurora"></div>
+<div id="nav-slot"></div>
+
+<div class="layout">
+  <div id="sidebar-slot"></div>
+
+  <main>
+    <!-- HERO BANNER -->
+    <section class="section-hero" data-fade>
+      <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80');"></div>
+      <div class="inner">
+        <div>
+          <div class="pillar-tag">💪 Pillar 2 of 7</div>
+          <h1>Workout Styles</h1>
+          <p class="lead">8 disciplines. One body. Train with intention — every rep should have a reason.</p>
+        </div>
+        <div id="hero-quote-slot"></div>
+      </div>
+    </section>
+
+    <!-- SMART SEARCH -->
+    <div data-search-mount="workout" data-fade></div>
+
+    <!-- Disciplines -->
+    <div data-fade style="margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.5rem;">Train Your Way</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Each style targets different adaptations. Mix to match your goal.</p>
+      <div class="grid grid-3">
+        <div class="glass" style="padding:1.6rem;"><div style="font-size:1.6rem;">🏋️</div><h4 style="margin:0.5rem 0;">Strength Training</h4><p style="color:var(--muted);font-size:0.9rem;margin:0;">3–6 reps · 80–95% 1RM · 3–5 min rest. Heavy compounds.</p></div>
+        <div class="glass" style="padding:1.6rem;"><div style="font-size:1.6rem;">💪</div><h4 style="margin:0.5rem 0;">Hypertrophy</h4><p style="color:var(--muted);font-size:0.9rem;margin:0;">8–12 reps · 65–80% 1RM · 60–90s rest. Volume + tension.</p></div>
+        <div class="glass" style="padding:1.6rem;"><div style="font-size:1.6rem;">⚡</div><h4 style="margin:0.5rem 0;">HIIT</h4><p style="color:var(--muted);font-size:0.9rem;margin:0;">20–40s on, 10–60s off. 15–25 min total. Anaerobic capacity.</p></div>
+        <div class="glass" style="padding:1.6rem;"><div style="font-size:1.6rem;">🏃</div><h4 style="margin:0.5rem 0;">Cardio</h4><p style="color:var(--muted);font-size:0.9rem;margin:0;">Z2 long & slow / Z4 intervals. Heart, lungs, longevity.</p></div>
+        <div class="glass" style="padding:1.6rem;"><div style="font-size:1.6rem;">🤸</div><h4 style="margin:0.5rem 0;">Calisthenics</h4><p style="color:var(--muted);font-size:0.9rem;margin:0;">Bodyweight mastery. Pull-ups → muscle-up → planche → flag.</p></div>
+        <div class="glass" style="padding:1.6rem;"><div style="font-size:1.6rem;">🔥</div><h4 style="margin:0.5rem 0;">CrossFit</h4><p style="color:var(--muted);font-size:0.9rem;margin:0;">Constantly varied. Functional. WODs at high intensity.</p></div>
+        <div class="glass" style="padding:1.6rem;"><div style="font-size:1.6rem;">🧘</div><h4 style="margin:0.5rem 0;">Yoga / Pilates</h4><p style="color:var(--muted);font-size:0.9rem;margin:0;">Mobility, core, breath, calm. The forgotten edge.</p></div>
+        <div class="glass" style="padding:1.6rem;"><div style="font-size:1.6rem;">⚙️</div><h4 style="margin:0.5rem 0;">Functional</h4><p style="color:var(--muted);font-size:0.9rem;margin:0;">Move well. Carry life. Train how you live.</p></div>
+      </div>
+    </div>
+
+    <!-- VISUAL DISCIPLINES -->
+    <div data-fade style="margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.5rem;">📸 Discipline in Motion</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Pick the world that calls to you — or stack a few.</p>
+      <div class="grid grid-3">
+        <div class="img-card" data-fade><div class="img-wrap"><div class="img-tag">IRON</div><div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&q=80');"></div></div><div class="body"><h4>Free Weights</h4><p>The barbell never lies. Compound lifts build foundation strength + size.</p></div></div>
+        <div class="img-card" data-fade><div class="img-wrap"><div class="img-tag">FLOW</div><div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80');"></div></div><div class="body"><h4>Calisthenics</h4><p>Master your bodyweight before you try to add to it. Pull-ups → muscle-ups → planche.</p></div></div>
+        <div class="img-card" data-fade><div class="img-wrap"><div class="img-tag">FIRE</div><div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80');"></div></div><div class="body"><h4>Conditioning</h4><p>Cardio + HIIT + sprints. The edge most lifters skip — and the one that ages best.</p></div></div>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE MUSCLE MAP -->
+    <div data-fade class="glass" style="padding:2rem;margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.4rem;">🗺️ Interactive Muscle Map</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Tap a muscle group to see top exercises.</p>
+      <div class="muscle-map">
+        <div class="muscle-svg">
+          <svg viewBox="0 0 200 380">
+            <defs>
+              <linearGradient id="mGrad" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0" stop-color="#9aa6ff"/><stop offset="1" stop-color="#2F2FE4"/>
+              </linearGradient>
+            </defs>
+            <!-- Head -->
+            <ellipse cx="100" cy="32" rx="22" ry="26" fill="rgba(120,120,255,0.08)" stroke="rgba(120,120,255,0.25)" stroke-width="1.2"/>
+            <!-- Neck -->
+            <rect x="92" y="56" width="16" height="14" fill="rgba(120,120,255,0.08)" stroke="rgba(120,120,255,0.25)" stroke-width="1"/>
+            <!-- Shoulders -->
+            <ellipse class="muscle" data-m="shoulders" cx="60" cy="86" rx="22" ry="14"/>
+            <ellipse class="muscle" data-m="shoulders" cx="140" cy="86" rx="22" ry="14"/>
+            <!-- Chest -->
+            <path class="muscle" data-m="chest" d="M 65 95 L 100 100 L 135 95 L 135 130 Q 100 145 65 130 Z"/>
+            <!-- Arms (biceps) -->
+            <ellipse class="muscle" data-m="arms" cx="48" cy="130" rx="14" ry="26"/>
+            <ellipse class="muscle" data-m="arms" cx="152" cy="130" rx="14" ry="26"/>
+            <!-- Forearms -->
+            <ellipse fill="rgba(120,120,255,0.08)" stroke="rgba(120,120,255,0.25)" stroke-width="1" cx="40" cy="180" rx="11" ry="22"/>
+            <ellipse fill="rgba(120,120,255,0.08)" stroke="rgba(120,120,255,0.25)" stroke-width="1" cx="160" cy="180" rx="11" ry="22"/>
+            <!-- Core -->
+            <path class="muscle" data-m="core" d="M 70 145 L 130 145 L 130 215 Q 100 225 70 215 Z"/>
+            <!-- Quads -->
+            <ellipse class="muscle" data-m="legs" cx="80" cy="260" rx="20" ry="42"/>
+            <ellipse class="muscle" data-m="legs" cx="120" cy="260" rx="20" ry="42"/>
+            <!-- Calves -->
+            <ellipse fill="rgba(120,120,255,0.08)" stroke="rgba(120,120,255,0.25)" stroke-width="1" cx="80" cy="335" rx="15" ry="28"/>
+            <ellipse fill="rgba(120,120,255,0.08)" stroke="rgba(120,120,255,0.25)" stroke-width="1" cx="120" cy="335" rx="15" ry="28"/>
+          </svg>
+        </div>
+        <div class="muscle-info" id="muscle-info">
+          <div style="color:var(--muted);font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;">Tap a muscle</div>
+          <h4>Pick a target</h4>
+          <p style="color:var(--muted);">Hover or tap any glowing muscle group on the silhouette to see the top 3 exercises.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUOTE BREAK -->
+    <div id="quote-mid"></div>
+
+    <!-- ============ EXERCISE DATABASE ============ -->
+    <div data-fade style="margin-top:4rem;">
+      <h2 class="display" style="font-size:2.2rem;margin:0 0 0.3rem;">📚 Exercise Database</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Every major lift — muscles worked, mechanics, recommended sets/reps.</p>
+
+      <div class="search-bar">
+        <span style="font-size:1.1rem;">🔍</span>
+        <input id="ex-search" placeholder="Search exercises (squat, deadlift, pull-up)…" />
+      </div>
+      <div class="chips" id="ex-chips">
+        <div class="chip active" data-cat="all">All</div>
+        <div class="chip" data-cat="chest">Chest</div>
+        <div class="chip" data-cat="back">Back</div>
+        <div class="chip" data-cat="legs">Legs</div>
+        <div class="chip" data-cat="shoulders">Shoulders</div>
+        <div class="chip" data-cat="arms">Arms</div>
+        <div class="chip" data-cat="core">Core</div>
+        <div class="chip" data-cat="compound">Compound</div>
+      </div>
+
+      <div class="grid grid-3" id="ex-grid"></div>
+    </div>
+
+    <!-- Split generator -->
+    <div data-fade class="glass" style="padding:2rem;margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.4rem;">🛠️ Workout Split Generator</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Pick days/week, goal, and experience — we build the split.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;">
+        <div class="form-group"><label>Days / week</label>
+          <select id="days"><option>3</option><option selected>4</option><option>5</option><option>6</option></select>
+        </div>
+        <div class="form-group"><label>Goal</label>
+          <select id="goal"><option value="hypertrophy" selected>Hypertrophy</option><option value="strength">Strength</option><option value="fatloss">Fat Loss</option></select>
+        </div>
+        <div class="form-group"><label>Experience</label>
+          <select id="exp"><option value="beginner">Beginner</option><option value="intermediate" selected>Intermediate</option><option value="advanced">Advanced</option></select>
+        </div>
+      </div>
+      <div id="split-out" style="margin-top:0.5rem;"></div>
+    </div>
+
+    <!-- Rep schemes science -->
+    <div data-fade class="glass" style="padding:2rem;margin-top:1.5rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.4rem;">🧪 The Science of Rep Ranges</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Adaptation depends on stimulus — match the rep range to your goal.</p>
+      <table class="table">
+        <thead><tr><th>Goal</th><th>Reps</th><th class="hide-mobile">% 1RM</th><th>Rest</th><th class="hide-mobile">Sets</th><th class="hide-mobile">Tempo</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Max Strength</strong></td><td>1–5</td><td class="hide-mobile">85–100%</td><td>3–5 min</td><td class="hide-mobile">3–6</td><td class="hide-mobile">3-0-X-0</td></tr>
+          <tr><td><strong>Hypertrophy</strong></td><td>6–12</td><td class="hide-mobile">65–80%</td><td>60–90 s</td><td class="hide-mobile">3–5</td><td class="hide-mobile">3-1-1-0</td></tr>
+          <tr><td><strong>Endurance</strong></td><td>15–25</td><td class="hide-mobile">50–65%</td><td>30–60 s</td><td class="hide-mobile">2–3</td><td class="hide-mobile">2-0-2-0</td></tr>
+          <tr><td><strong>Power</strong></td><td>3–6</td><td class="hide-mobile">50–70%</td><td>2–3 min</td><td class="hide-mobile">3–5</td><td class="hide-mobile">explosive</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ============ PERSONALIZED PLAN ============ -->
+    <div data-fade class="personalize-panel" style="margin-top:3rem;">
+      <span class="ribbon">₹299</span>
+      <div style="font-size:0.78rem;color:#9aa6ff;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;">⚡ Personalized Plan</div>
+      <h2 class="display" style="font-size:2rem;margin:0.4rem 0 0.5rem;">Build My Custom Program</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;max-width:600px;">12 weeks of progressive overload. Daily exercises, sets, reps, and substitutions for your gym setup.</p>
+
+      <form id="plan-form" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+        <div class="form-group"><label>Training Location</label>
+          <select name="location"><option value="gym">Full Gym</option><option value="home">Home Gym</option><option value="bodyweight">Bodyweight only</option></select>
+        </div>
+        <div class="form-group"><label>Sessions / week</label>
+          <select name="freq"><option>3</option><option selected>4</option><option>5</option><option>6</option></select>
+        </div>
+        <div class="form-group"><label>Session Length</label>
+          <select name="duration"><option value="45">45 min</option><option value="60" selected>60 min</option><option value="90">90 min</option></select>
+        </div>
+        <div class="form-group"><label>Limitations</label>
+          <input type="text" name="limit" placeholder="e.g. lower back, shoulder" />
+        </div>
+      </form>
+
+      <div id="plan-mount" style="margin-top:1.4rem;"></div>
+    </div>
+
+    <div id="pro-content" style="display:none;margin-top:1rem;">
+      <h3 class="display" style="font-size:1.6rem;margin:0 0 1rem;">Your Custom 12-Week Program</h3>
+      <div id="program-output"></div>
+    </div>
+  </main>
+</div>
+
+<div id="footer-slot"></div>
+<script src="../js/app.js"></script>
+<script>
+  document.getElementById('sidebar-slot').innerHTML = TGS.renderModuleSidebar('workout');
+
+  // Hero quote + mid-section quote break
+  document.getElementById('hero-quote-slot').innerHTML = TGS.Quotes.render(TGS.Quotes.forSection('workout'));
+  document.getElementById('quote-mid').innerHTML = TGS.Quotes.renderBreak({ t: 'The last three or four reps is what makes the muscle grow.', a: 'Arnold Schwarzenegger' });
+
+  // Muscle map
+  const muscleData = {
+    shoulders: { name: 'Shoulders', ex: ['Overhead Press 4×6–8', 'DB Lateral Raise 4×12–15', 'Face Pull 3×15–20'] },
+    chest:     { name: 'Chest',     ex: ['Barbell Bench Press 4×6–8', 'Incline DB Press 3×8–12', 'Cable Fly 3×12–15'] },
+    arms:      { name: 'Arms',      ex: ['Barbell Curl 3×8–12', 'Tricep Pushdown 3×10–12', 'Hammer Curl 3×10–12'] },
+    core:      { name: 'Core',      ex: ['Plank 3×60s', 'Hanging Leg Raise 3×8–12', 'Cable Crunch 3×12–15'] },
+    legs:      { name: 'Legs',      ex: ['Back Squat 4×5–8', 'Romanian Deadlift 3×8–10', 'Leg Press 3×10–15'] },
+  };
+  document.querySelectorAll('.muscle').forEach(el => {
+    el.addEventListener('mouseenter', () => showMuscle(el.dataset.m));
+    el.addEventListener('click', () => showMuscle(el.dataset.m));
+  });
+  function showMuscle(key) {
+    document.querySelectorAll('.muscle').forEach(m => m.classList.toggle('active', m.dataset.m === key));
+    const d = muscleData[key];
+    if (!d) return;
+    document.getElementById('muscle-info').innerHTML = `
+      <div style="color:#9aa6ff;font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;">Top exercises</div>
+      <h4>${d.name}</h4>
+      <ul class="ex-list">${d.ex.map(e => `<li>${e}</li>`).join('')}</ul>
+    `;
+  }
+
+  // ============ EXERCISE DATABASE ============
+  const EXERCISES = [
+    // Compound
+    { n: 'Back Squat', cat: ['legs','compound'], primary: 'Quads, Glutes', secondary: 'Hams, Core', mech: 'Compound · Barbell', sets: '4×5–8', notes: 'King of leg lifts. Knees track over toes, brace core.' },
+    { n: 'Conventional Deadlift', cat: ['back','legs','compound'], primary: 'Hams, Glutes, Spine', secondary: 'Lats, Traps, Core', mech: 'Compound · Barbell', sets: '3×3–5', notes: 'Full-body. Bar over mid-foot, hinge first.' },
+    { n: 'Barbell Bench Press', cat: ['chest','arms','compound'], primary: 'Chest', secondary: 'Triceps, Front Delts', mech: 'Compound · Barbell', sets: '4×6–8', notes: 'Retract scapula, slight arch, bar to mid-chest.' },
+    { n: 'Overhead Press', cat: ['shoulders','arms','compound'], primary: 'Shoulders', secondary: 'Triceps, Core', mech: 'Compound · Barbell', sets: '4×5–8', notes: 'Stack bar over mid-foot at lockout. Glutes tight.' },
+    { n: 'Pull-Up', cat: ['back','arms','compound'], primary: 'Lats', secondary: 'Biceps, Rhomboids', mech: 'Compound · Bodyweight', sets: '4×AMRAP', notes: 'Chin over bar. Squeeze shoulder blades down.' },
+    { n: 'Romanian Deadlift', cat: ['legs','back','compound'], primary: 'Hams, Glutes', secondary: 'Spine, Lats', mech: 'Compound · Barbell', sets: '3×8–10', notes: 'Hinge at hips, knees soft. Feel hamstrings stretch.' },
+    { n: 'Front Squat', cat: ['legs','core','compound'], primary: 'Quads', secondary: 'Glutes, Core', mech: 'Compound · Barbell', sets: '3×6–8', notes: 'Elbows up, torso vertical. Brutal on core.' },
+    // Chest
+    { n: 'Incline DB Press', cat: ['chest','arms'], primary: 'Upper Chest', secondary: 'Front Delts, Triceps', mech: 'Compound · Dumbbell', sets: '3×8–12', notes: '30° bench. Squeeze chest at top.' },
+    { n: 'Cable Fly', cat: ['chest'], primary: 'Chest', secondary: '', mech: 'Isolation · Cable', sets: '3×12–15', notes: 'Constant tension. Slight elbow bend.' },
+    { n: 'Dips', cat: ['chest','arms','compound'], primary: 'Lower Chest', secondary: 'Triceps, Front Delts', mech: 'Compound · Bodyweight', sets: '3×AMRAP', notes: 'Lean forward for chest, upright for triceps.' },
+    // Back
+    { n: 'Barbell Row', cat: ['back','compound'], primary: 'Lats, Mid-back', secondary: 'Biceps, Rear Delts', mech: 'Compound · Barbell', sets: '4×6–10', notes: 'Pull to lower chest. Don\'t round low back.' },
+    { n: 'Lat Pulldown', cat: ['back','arms'], primary: 'Lats', secondary: 'Biceps', mech: 'Compound · Cable', sets: '3×10–12', notes: 'Lean back ~15°. Drive elbows down.' },
+    { n: 'Seated Cable Row', cat: ['back','arms'], primary: 'Mid-back, Lats', secondary: 'Biceps', mech: 'Compound · Cable', sets: '3×10–12', notes: 'Squeeze shoulder blades, no torso swing.' },
+    { n: 'Face Pull', cat: ['shoulders','back'], primary: 'Rear Delts, Traps', secondary: 'Rotator Cuff', mech: 'Isolation · Cable', sets: '3×15–20', notes: 'Most underrated lift. Shoulder health gold.' },
+    // Legs
+    { n: 'Bulgarian Split Squat', cat: ['legs','compound'], primary: 'Quads, Glutes', secondary: 'Adductors, Core', mech: 'Compound · DB', sets: '3×8–12', notes: 'Single-leg work fixes imbalances.' },
+    { n: 'Hip Thrust', cat: ['legs'], primary: 'Glutes', secondary: 'Hams', mech: 'Compound · Barbell', sets: '4×8–12', notes: 'Pause at top. Drive through heels.' },
+    { n: 'Leg Press', cat: ['legs','compound'], primary: 'Quads', secondary: 'Glutes, Hams', mech: 'Compound · Machine', sets: '3×10–15', notes: 'Don\'t let knees cave in. Don\'t lock out.' },
+    { n: 'Leg Curl', cat: ['legs'], primary: 'Hamstrings', secondary: '', mech: 'Isolation · Machine', sets: '3×10–15', notes: 'Squeeze + control eccentric.' },
+    { n: 'Walking Lunge', cat: ['legs','compound'], primary: 'Quads, Glutes', secondary: 'Hams, Core', mech: 'Compound · DB', sets: '3×10–12 each', notes: 'Knee tracks over toes. Step long for glute focus.' },
+    // Shoulders
+    { n: 'DB Lateral Raise', cat: ['shoulders'], primary: 'Side Delts', secondary: '', mech: 'Isolation · Dumbbell', sets: '4×12–15', notes: 'Slight forward tilt. Lead with elbows.' },
+    { n: 'Arnold Press', cat: ['shoulders','arms'], primary: 'Shoulders', secondary: 'Triceps', mech: 'Compound · Dumbbell', sets: '3×8–12', notes: 'Rotation hits all 3 delt heads.' },
+    { n: 'Reverse Pec Deck', cat: ['shoulders','back'], primary: 'Rear Delts', secondary: '', mech: 'Isolation · Machine', sets: '3×12–15', notes: 'Posture saver. Squeeze + pause.' },
+    // Arms
+    { n: 'Barbell Curl', cat: ['arms'], primary: 'Biceps', secondary: 'Forearms', mech: 'Isolation · Barbell', sets: '3×8–12', notes: 'No swinging. Strict form > heavy.' },
+    { n: 'Tricep Pushdown', cat: ['arms'], primary: 'Triceps', secondary: '', mech: 'Isolation · Cable', sets: '3×10–12', notes: 'Elbows pinned to sides.' },
+    { n: 'Hammer Curl', cat: ['arms'], primary: 'Biceps, Brachialis', secondary: 'Forearms', mech: 'Isolation · Dumbbell', sets: '3×10–12', notes: 'Neutral grip. Builds arm thickness.' },
+    { n: 'Skull Crusher', cat: ['arms'], primary: 'Triceps', secondary: '', mech: 'Isolation · EZ Bar', sets: '3×10–12', notes: 'Elbows fixed in place. Long head emphasis.' },
+    // Core
+    { n: 'Plank', cat: ['core'], primary: 'Core, TVA', secondary: 'Glutes', mech: 'Isometric · Bodyweight', sets: '3× 45–60s', notes: 'Glutes squeezed. Stop when form breaks.' },
+    { n: 'Hanging Leg Raise', cat: ['core'], primary: 'Lower Abs', secondary: 'Hip Flexors', mech: 'Compound · Bodyweight', sets: '3×8–12', notes: 'Posterior pelvic tilt. No swing.' },
+    { n: 'Cable Crunch', cat: ['core'], primary: 'Abs', secondary: '', mech: 'Isolation · Cable', sets: '3×12–15', notes: 'Round spine, crunch into abs not hips.' },
+  ];
+  const CAT_COLOR = { chest:'#ff7a90', back:'#9aa6ff', legs:'#5dffaa', shoulders:'#ffc850', arms:'#5dd0ff', core:'#c87aff', compound:'#fff' };
+
+  function renderEx(filter='all', search='') {
+    const q = search.toLowerCase().trim();
+    const list = EXERCISES.filter(e =>
+      (filter === 'all' || e.cat.includes(filter)) &&
+      (!q || e.n.toLowerCase().includes(q) || e.primary.toLowerCase().includes(q))
+    );
+    document.getElementById('ex-grid').innerHTML = list.length === 0
+      ? `<div class="glass" style="padding:1.4rem;color:var(--muted);grid-column:1/-1;text-align:center;">No matches.</div>`
+      : list.map(e => `
+        <div class="glass" style="padding:1.4rem;display:flex;flex-direction:column;gap:0.5rem;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem;">
+            <strong style="font-size:1.05rem;">${e.n}</strong>
+            <span class="tag">${e.sets}</span>
+          </div>
+          <div style="font-size:0.78rem;color:var(--muted);letter-spacing:0.05em;">${e.mech}</div>
+          <div style="font-size:0.85rem;"><span style="color:#9aa6ff;font-weight:600;">Primary:</span> ${e.primary}</div>
+          ${e.secondary ? `<div style="font-size:0.85rem;"><span style="color:var(--muted);">Secondary:</span> ${e.secondary}</div>` : ''}
+          <div style="font-size:0.82rem;color:var(--muted);font-style:italic;border-top:1px solid var(--border);padding-top:0.5rem;margin-top:auto;">${e.notes}</div>
+        </div>
+      `).join('');
+  }
+  let exFilter = 'all';
+  document.getElementById('ex-search').addEventListener('input', e => renderEx(exFilter, e.target.value));
+  document.querySelectorAll('#ex-chips .chip').forEach(c => c.addEventListener('click', () => {
+    document.querySelectorAll('#ex-chips .chip').forEach(x => x.classList.remove('active'));
+    c.classList.add('active');
+    exFilter = c.dataset.cat;
+    renderEx(exFilter, document.getElementById('ex-search').value);
+  }));
+  renderEx();
+
+  // ============ SPLIT GENERATOR ============
+  const splits = {
+    3: ['Full Body A', 'Full Body B', 'Full Body C'],
+    4: ['Upper', 'Lower', 'Push/Pull', 'Legs/Core'],
+    5: ['Push', 'Pull', 'Legs', 'Upper', 'Lower'],
+    6: ['Push', 'Pull', 'Legs', 'Push', 'Pull', 'Legs']
+  };
+  function genSplit() {
+    const d = +document.getElementById('days').value;
+    const g = document.getElementById('goal').value;
+    const ex = document.getElementById('exp').value;
+    const days = splits[d];
+    const reps = g === 'strength' ? '4–6 reps × 4–5 sets' : g === 'fatloss' ? '12–15 reps × 3 sets + finishers' : '8–12 reps × 3–4 sets';
+    document.getElementById('split-out').innerHTML = `
+      <div class="grid grid-3" style="margin-bottom:0.8rem;">
+        ${days.map((d,i) => `<div class="glass" style="padding:1rem;text-align:center;"><div style="font-size:0.7rem;color:var(--muted);letter-spacing:0.15em;">DAY ${i+1}</div><div style="font-family:'Bebas Neue';font-size:1.5rem;">${d}</div></div>`).join('')}
+      </div>
+      <div style="background:rgba(47,47,228,0.08);border:1px solid rgba(120,120,255,0.2);padding:0.9rem 1.1rem;border-radius:12px;font-size:0.9rem;color:#cfd2ff;">
+        🎯 Programming: <strong>${reps}</strong> · Tier: ${ex}
+      </div>
+    `;
+  }
+  ['days','goal','exp'].forEach(id => document.getElementById(id).addEventListener('change', genSplit));
+  genSplit();
+
+  // ============ PERSONALIZED PROGRAM ============
+  const profile = TGS.Profile.get();
+  const planMount = document.getElementById('plan-mount');
+
+  function renderPlanCTA() {
+    const summary = profile
+      ? `Goal: <strong>${{'fat-loss':'Fat Loss','muscle-gain':'Muscle Gain','maintenance':'Recomposition','strength':'Strength'}[profile.goal]}</strong> · Experience: <strong>${profile.experience}</strong> · Activity: <strong>${profile.activity}</strong>`
+      : `Complete your <a href="../onboarding.html" style="color:#9aa6ff;">profile</a> for full personalization.`;
+    planMount.innerHTML = `
+      <div class="result-block">
+        <div style="color:var(--muted);font-size:0.9rem;margin-bottom:1rem;">${summary}</div>
+        <div class="locked-preview">
+          <div class="blur-bg" style="background-image:url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=1200&q=80');"></div>
+          <div class="blur-overlay"></div>
+          <div class="content">
+            <div class="lock-circle">🔒</div>
+            <h3 style="margin:0;font-family:'Bebas Neue';font-size:1.8rem;letter-spacing:0.02em;">Your 12-Week Program Awaits</h3>
+            <p style="color:var(--muted);max-width:440px;margin:0.5rem auto 0;">Tailored to your gym setup, frequency, and limitations.</p>
+            <div class="features-row">
+              <span class="tag">12-Week Plan</span><span class="tag">Progressive Overload</span><span class="tag">Form Cues</span><span class="tag">Substitutions</span><span class="tag">PR Tracker</span>
+            </div>
+            <button class="btn btn-primary pulse" onclick="TGS.showSubscribeModal('workout','Workout',299)">
+              🔓 Unlock Your Personalized Plan — ₹299
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderProProgram() {
+    const fd = new FormData(document.getElementById('plan-form'));
+    const loc = fd.get('location') || 'gym';
+    const freq = +(fd.get('freq') || 4);
+    const goal = profile?.goal || 'muscle-gain';
+    const program = generateProgram(loc, freq, goal);
+    document.getElementById('program-output').innerHTML = `
+      <div class="grid grid-2">
+        ${program.map(day => `
+          <div class="glass" style="padding:1.6rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+              <h4 style="margin:0;">${day.name}</h4>
+              <span class="tag">${day.focus}</span>
+            </div>
+            <ol style="padding-left:1.2rem;color:var(--muted);font-size:0.92rem;line-height:1.8;margin:0;">
+              ${day.lifts.map(l => `<li><strong style="color:white;">${l[0]}</strong> · ${l[1]}</li>`).join('')}
+            </ol>
+          </div>
+        `).join('')}
+      </div>
+      <div class="glass" style="padding:1.4rem;margin-top:1rem;">
+        <strong>Progression rule:</strong> When you hit the top of the rep range on all sets with good form, add 2.5kg next session. Deload week 4.
+      </div>
+    `;
+  }
+
+  function generateProgram(loc, freq, goal) {
+    const isHome = loc === 'home', isBW = loc === 'bodyweight';
+    const sets = goal === 'strength' ? '4×5' : goal === 'fat-loss' ? '3×12' : '3×8–10';
+    const sub = (gym, home, bw) => isBW ? bw : isHome ? home : gym;
+    const base = [
+      { name: 'Push Day', focus: 'Chest · Shoulders · Triceps', lifts: [
+        [sub('Barbell Bench Press', 'DB Bench Press', 'Push-up Variations'), sets],
+        [sub('Overhead Press', 'DB Shoulder Press', 'Pike Push-up'), sets],
+        [sub('Incline DB Press', 'Incline DB Press', 'Decline Push-up'), '3×10'],
+        ['Lateral Raise / Cable Fly', '3×12'],
+        ['Tricep Pushdown / Dip', '3×10']
+      ]},
+      { name: 'Pull Day', focus: 'Back · Biceps · Rear Delts', lifts: [
+        [sub('Deadlift', 'DB RDL', 'Single-leg Glute Bridge'), '3×5'],
+        [sub('Pull-Up', 'DB Row', 'Pull-Up'), sets],
+        [sub('Barbell Row', 'DB Row', 'Inverted Row'), sets],
+        ['Face Pull / Rear Delt Fly', '3×15'],
+        ['Curl Variation', '3×10']
+      ]},
+      { name: 'Leg Day', focus: 'Quads · Glutes · Hams', lifts: [
+        [sub('Back Squat', 'Goblet Squat', 'Bulgarian Split Squat'), sets],
+        [sub('Romanian Deadlift', 'DB RDL', 'Single-leg RDL'), sets],
+        [sub('Leg Press / Lunge', 'DB Lunge', 'Walking Lunge'), '3×10'],
+        ['Hip Thrust', '3×10'],
+        ['Calf Raise', '4×15']
+      ]},
+      { name: 'Upper / Conditioning', focus: 'Volume · GPP', lifts: [
+        ['Overhead Press', '3×8'],
+        ['Pull-Up / Row', '3×10'],
+        ['Push-up / DB Press', '3×AMRAP'],
+        ['Plank', '3×60s'],
+        ['HIIT Finisher', '5 rounds']
+      ]}
+    ];
+    return base.slice(0, freq);
+  }
+
+  if (TGS.Subs.has('workout')) {
+    planMount.innerHTML = `<div class="glass" style="padding:1.4rem;display:flex;justify-content:space-between;align-items:center;"><div><strong>✓ Workout Pro active</strong><div style="color:var(--muted);font-size:0.9rem;">Your custom program is below.</div></div><span class="badge badge-pro">PRO</span></div>`;
+    document.getElementById('pro-content').style.display = 'block';
+    renderProProgram();
+    document.getElementById('plan-form').addEventListener('change', renderProProgram);
+  } else {
+    renderPlanCTA();
+  }
+</script>
+</body>
+</html>

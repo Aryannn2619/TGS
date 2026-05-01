@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Beginner Hub · TheGrindSociety</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="Logo.png">
+</head>
+<body data-nav="beginner">
+<div class="bg-aurora"></div>
+<div id="nav-slot"></div>
+
+<section style="padding:2.5rem 1.5rem;">
+  <div class="container" style="max-width:1100px;">
+
+    <!-- Header / Path -->
+    <div data-fade>
+      <div style="color:#A5B4FC;letter-spacing:0.22em;text-transform:uppercase;font-size:0.78rem;font-weight:700;">Beginner Hub</div>
+      <h1 class="display gradient-text" id="hello" style="font-size:clamp(2.4rem,5vw,3.6rem);margin:0.4rem 0 0.4rem;">Welcome.</h1>
+      <p style="color:var(--muted);max-width:720px;margin:0 0 1.6rem;line-height:1.6;" id="welcome-line">Your beginner-friendly home base. Day 1 plan, gym simulator, fears answered, machines decoded — all in one place.</p>
+    </div>
+
+    <div class="path-callout" data-fade id="path-cta">
+      <div class="pc-ico">🧭</div>
+      <div style="flex:1;">
+        <div class="pc-label">Your path</div>
+        <div class="pc-name" id="path-name">General Fitness Path</div>
+      </div>
+      <a href="beginner-wizard.html" class="btn btn-ghost" style="padding:0.55rem 1rem;font-size:0.82rem;">Retake wizard</a>
+    </div>
+
+    <!-- Streak strip -->
+    <div class="streak-strip" data-fade>
+      <div class="streak-tile"><div class="num" id="st-current">0</div><div class="lbl">🔥 Current Streak</div></div>
+      <div class="streak-tile"><div class="num" id="st-best">0</div><div class="lbl">⚡ Best Streak</div></div>
+      <div class="streak-tile"><div class="num" id="st-badges">0</div><div class="lbl">🏆 Badges Earned</div></div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="bg-tabs" data-fade>
+      <button class="bg-tab active" data-tab="day1">🎯 Day 1 Plan</button>
+      <button class="bg-tab" data-tab="sim">🏋️ Gym Simulator</button>
+      <button class="bg-tab" data-tab="fears">😅 Fears</button>
+      <button class="bg-tab" data-tab="machines">⚙️ Machines</button>
+      <button class="bg-tab" data-tab="etiquette">📜 Etiquette</button>
+      <button class="bg-tab" data-tab="bodytype">🧬 Body Type</button>
+      <button class="bg-tab" data-tab="roadmap">📆 30-Day Roadmap</button>
+      <button class="bg-tab" data-tab="dont">🚫 Don't Do This</button>
+      <button class="bg-tab" data-tab="kit">🎒 Starter Kit</button>
+      <button class="bg-tab" data-tab="badges">🏆 Badges</button>
+    </div>
+
+    <!-- DAY 1 PLAN -->
+    <div class="bg-panel active" id="p-day1">
+      <h3 class="display" style="font-size:1.8rem;margin:0 0 1rem;" id="plan-title">Today's Plan</h3>
+      <div class="grid grid-3">
+        <div class="glass" style="padding:1.6rem;">
+          <div class="plan-h">🔥 Warmup (5 min)</div>
+          <ul id="plan-warmup" class="plan-block" style="margin:0;"></ul>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <div class="plan-h">💪 Main (15-20 min)</div>
+          <ul id="plan-main" class="plan-block" style="margin:0;"></ul>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <div class="plan-h">🧘 Cooldown (5 min)</div>
+          <ul id="plan-cooldown" class="plan-block" style="margin:0;"></ul>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:1.6rem;">
+        <button class="btn btn-primary pulse" id="checkin-day1">I did it — Check in 🔥</button>
+      </div>
+      <div class="glass" style="padding:1.4rem;margin-top:2rem;">
+        <div style="font-weight:700;margin-bottom:0.4rem;">💡 Confidence tip for today</div>
+        <p style="color:var(--muted);margin:0;line-height:1.55;" id="conf-tip">Walk in like you belong. Nobody knows it's your first day.</p>
+      </div>
+    </div>
+
+    <!-- GYM SIMULATOR -->
+    <div class="bg-panel" id="p-sim">
+      <div class="sim-stage">
+        <h4>Click any area to walk through it</h4>
+        <div class="sim-areas" id="sim-areas"></div>
+        <div id="sim-detail" class="sim-detail" style="display:none;"></div>
+      </div>
+    </div>
+
+    <!-- FEARS -->
+    <div class="bg-panel" id="p-fears">
+      <p style="color:var(--muted);margin:0 0 1.2rem;">Click any fear to get the real answer. Read all 8 to unlock the <strong>Fearless</strong> badge.</p>
+      <div class="grid grid-2" id="fears-grid"></div>
+    </div>
+
+    <!-- MACHINES -->
+    <div class="bg-panel" id="p-machines">
+      <p style="color:var(--muted);margin:0 0 1.2rem;">Each machine has a placard at the gym — but here's the friendly version. Click any card to study it (5 = <strong>Machine Savvy</strong> badge).</p>
+      <div class="grid grid-2" id="machines-grid"></div>
+    </div>
+
+    <!-- ETIQUETTE -->
+    <div class="bg-panel" id="p-etiquette">
+      <p style="color:var(--muted);margin:0 0 1.2rem;">The unwritten rules. Follow these and nobody will give you a second look — except to nod respect.</p>
+      <div class="grid grid-2" id="etiq-grid"></div>
+    </div>
+
+    <!-- BODY TYPE -->
+    <div class="bg-panel" id="p-bodytype">
+      <p style="color:var(--muted);margin:0 0 0.5rem;">Three rough body types. Yours is just a starting point — anyone can build any physique with consistency.</p>
+      <p style="color:var(--muted);margin:0 0 1rem;font-size:0.85rem;" id="bt-auto"></p>
+      <div class="bt-grid">
+        <div class="bt-card" data-bt="ectomorph">
+          <div class="silhouette">🚶‍♂️</div>
+          <h5>Ectomorph</h5>
+          <div class="sub">Lean, hard to gain</div>
+        </div>
+        <div class="bt-card" data-bt="mesomorph">
+          <div class="silhouette">🏃‍♂️</div>
+          <h5>Mesomorph</h5>
+          <div class="sub">Athletic, gains easily</div>
+        </div>
+        <div class="bt-card" data-bt="endomorph">
+          <div class="silhouette">🧍‍♂️</div>
+          <h5>Endomorph</h5>
+          <div class="sub">Stocky, holds weight</div>
+        </div>
+      </div>
+      <div id="bt-detail" style="margin-top:1.5rem;"></div>
+    </div>
+
+    <!-- ROADMAP -->
+    <div class="bg-panel" id="p-roadmap">
+      <p style="color:var(--muted);margin:0 0 1.2rem;">Tick boxes as you complete tasks. Finish a week to unlock its badge.</p>
+      <div id="roadmap-list"></div>
+    </div>
+
+    <!-- DON'T DO -->
+    <div class="bg-panel" id="p-dont">
+      <p style="color:var(--muted);margin:0 0 1.2rem;">The 8 mistakes that derail beginners. Avoid these and you're already ahead of 80%.</p>
+      <div class="grid grid-2" id="dont-grid"></div>
+    </div>
+
+    <!-- STARTER KIT -->
+    <div class="bg-panel" id="p-kit">
+      <p style="color:var(--muted);margin:0 0 1rem;">The bare minimum. Don't buy fancy gear before month two — earn it.</p>
+      <div class="glass" style="padding:1.4rem 1.6rem;" id="kit-list"></div>
+    </div>
+
+    <!-- BADGES -->
+    <div class="bg-panel" id="p-badges">
+      <p style="color:var(--muted);margin:0 0 1.2rem;">Small wins, real momentum. Earn one and the rest follow.</p>
+      <div class="badge-wall" id="badge-wall"></div>
+    </div>
+
+  </div>
+</section>
+
+<div id="footer-slot"></div>
+<script src="js/app.js"></script>
+<script>
+(function () {
+  // ===== Redirect to wizard if no beginner profile =====
+  const b = TGS.Beginner.get();
+  if (!b) { location.href = 'beginner-wizard.html'; return; }
+
+  // ===== Welcome line =====
+  const name = b.name ? `, ${b.name}` : '';
+  const conf = b.confidence || 'okay';
+  const greet = {
+    scared: `Welcome${name}. You're scared — that's normal, and we'll work with it. One step at a time.`,
+    okay: `Welcome${name}. Bit nervous, ready to try. That's the perfect headspace.`,
+    confident: `Welcome${name}. You've got the energy — let's give it direction.`
+  }[conf];
+  document.getElementById('hello').textContent = `Welcome${name}.`;
+  document.getElementById('welcome-line').textContent = greet;
+  document.getElementById('path-name').textContent = TGS.Beginner.pathLabel(b);
+
+  // ===== Tabs =====
+  document.querySelectorAll('.bg-tab').forEach(t => t.addEventListener('click', () => {
+    document.querySelectorAll('.bg-tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.bg-panel').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('p-' + t.dataset.tab).classList.add('active');
+  }));
+
+  // ===== Streak/Badge tiles =====
+  function refreshStrip() {
+    const s = TGS.Streaks.get() || { count: 0, best: 0 };
+    document.getElementById('st-current').textContent = TGS.Streaks.current();
+    document.getElementById('st-best').textContent = s.best || 0;
+    document.getElementById('st-badges').textContent = TGS.Badges.earned().length;
+  }
+  refreshStrip();
+
+  // ===== Day 1 plan =====
+  const plan = TGS.Beginner.todayPlan(b);
+  document.getElementById('plan-title').textContent = plan.title;
+  const fill = (id, arr) => document.getElementById(id).innerHTML = arr.map(x => `<li>${x}</li>`).join('');
+  fill('plan-warmup', plan.warmup);
+  fill('plan-main', plan.main);
+  fill('plan-cooldown', plan.cooldown);
+  const tips = {
+    scared: "Just walk in. You don't have to do everything. Even 10 minutes counts as a win today.",
+    okay: "Focus on form, not weight. Lighter than you think. The goal is finishing, not impressing anyone.",
+    confident: "Confidence is great — pair it with patience. Don't add weight until your form is clean."
+  };
+  document.getElementById('conf-tip').textContent = tips[conf];
+  document.getElementById('checkin-day1').addEventListener('click', () => {
+    const s = TGS.Streaks.checkIn();
+    TGS.toast(`🔥 Streak: ${s.count} day${s.count > 1 ? 's' : ''}! Keep going.`);
+    refreshStrip();
+    refreshBadges();
+  });
+
+  // ===== Gym Simulator =====
+  const SIM_AREAS = [
+    { id: 'cardio', icon: '🏃', name: 'Cardio Section', what: "Treadmills, bikes, ellipticals, stair climbers — anything that gets your heart rate up.", do: "Start here on Day 1. 5-10 minutes of easy walking or cycling is the perfect warmup. No pressure.", mistakes: "Going too hard on Day 1. Setting incline/resistance to ego levels. Watching others on machines instead of pacing yourself." },
+    { id: 'machines', icon: '⚙️', name: 'Weight Machines', what: "Cable stacks, plate-loaded machines, fixed-path equipment with seats and handles.", do: "Your best friend on Day 1. Each machine has a placard with a body diagram. Set the seat to your height, start with the lightest plate, do 8-10 controlled reps.", mistakes: "Wrong seat height. Loading too much weight. Not reading the placard. Holding your breath." },
+    { id: 'free', icon: '🏋️', name: 'Free Weights', what: "Dumbbells, barbells, benches, racks. Total freedom, total responsibility for form.", do: "Skip this on Day 1 unless a trainer is showing you. Start here in week 2-3 with light dumbbells (5kg) for goblet squats and shoulder press.", mistakes: "Going to the squat rack on day one. Bench pressing without a spotter. Dropping dumbbells." },
+    { id: 'floor', icon: '🧘', name: 'Stretching / Floor Area', what: "Mats, foam rollers, mobility tools. The most underused part of the gym.", do: "End every session here. 5 minutes of stretching the muscles you trained. Foam roll if you feel tight.", mistakes: "Skipping it. Bouncing in stretches. Stretching cold muscles before you've warmed up." },
+    { id: 'locker', icon: '🚪', name: 'Locker Room', what: "Where you store your stuff and freshen up.", do: "Lock your phone and wallet. Take a clean shirt + deodorant. Be quick — others are waiting.", mistakes: "Leaving valuables in an open locker. Long phone calls in there. Hogging the bench." },
+    { id: 'staff', icon: '👥', name: 'The Staff Desk', what: "Trainers and floor staff. They're paid to help — even if they don't volunteer.", do: "On Day 1, ask for a 5-minute layout tour or 'show me how this machine works' once. They've heard it 1000 times.", mistakes: "Being too proud to ask. Assuming asking once means you've signed up for personal training." }
+  ];
+  const simHost = document.getElementById('sim-areas');
+  simHost.innerHTML = SIM_AREAS.map(a => `<div class="sim-area" data-id="${a.id}"><span class="icon">${a.icon}</span>${a.name}</div>`).join('');
+  document.querySelectorAll('.sim-area').forEach(el => el.addEventListener('click', () => {
+    const a = SIM_AREAS.find(x => x.id === el.dataset.id);
+    const d = document.getElementById('sim-detail');
+    d.style.display = 'block';
+    d.innerHTML = `
+      <h5>${a.icon}  ${a.name}</h5>
+      <div class="sim-section"><strong>What it is</strong><p>${a.what}</p></div>
+      <div class="sim-section"><strong>Try this today</strong><p>${a.do}</p></div>
+      <div class="sim-section"><strong>Common mistakes</strong><p>${a.mistakes}</p></div>
+    `;
+    d.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }));
+
+  // ===== Fears =====
+  const FEARS = [
+    { q: "Everyone is judging me", a: "They're not. Quick truth: most people in the gym are buried in headphones counting their reps. The 5% who notice new lifters are usually rooting for you. The cost of looking 'awkward' for 3 weeks is paid by years of confidence." },
+    { q: "I don't know how to use the machines", a: "Read the placard — every machine has one with a muscle diagram and instructions. Set the lightest weight. Do 5 slow reps. If something feels wrong, stop. Asking a staff member 'is this how this works?' is normal — they hear it daily." },
+    { q: "I'm too skinny / too overweight", a: "Every body in the gym started somewhere. The lean guy was once skinny-fat. The big guy was once heavier. The gym is the place where bodies *change* — that's the entire point. You belong because you're working on it." },
+    { q: "I'll look stupid", a: "Day 1 you might. Day 30 you won't. Looking stupid for a month is the price of admission to looking strong forever. Everyone paid it." },
+    { q: "I'm not strong enough", a: "Correct — you're not. That's exactly why you're starting. Strength isn't a prerequisite, it's the result. If you were already strong you wouldn't need the gym." },
+    { q: "I don't know what to do", a: "That's literally what this site is for. Open Today's Plan. Follow the warmup, the 3-5 exercises, the cooldown. Don't think — just do the list. You'll know more in a week." },
+    { q: "What if I get hurt?", a: "Light weights + good form > heavy weights + ego. Beginner injuries almost always come from one thing: trying to lift what you saw someone else lift. Stay 30% lighter than you think for the first month. You can't progress if you're injured." },
+    { q: "What should I wear?", a: "T-shirt or tank you can move in. Shorts or track pants. Closed athletic shoes (running shoes are fine). One small towel + 1L water bottle. That's it. Everything else is optional and you can earn it later." }
+  ];
+  const fearHost = document.getElementById('fears-grid');
+  const fearsRead = JSON.parse(localStorage.getItem('tgs_fears_read') || '[]');
+  fearHost.innerHTML = FEARS.map((f, i) => `
+    <div class="fear-card" data-fear="${i}">
+      <div class="q">${fearsRead.includes(String(i)) ? '✓ ' : ''}${f.q}</div>
+      <div class="a">${f.a}</div>
+    </div>`).join('');
+  document.querySelectorAll('[data-fear]').forEach(el => el.addEventListener('click', () => {
+    TGS.Badges.markRead('fears', el.dataset.fear);
+    el.querySelector('.q').textContent = '✓ ' + el.querySelector('.q').textContent.replace(/^✓\s*/, '');
+    refreshBadges();
+    refreshStrip();
+  }));
+
+  // ===== Machine guide =====
+  const MACHINES = [
+    { id: 'treadmill', name: 'Treadmill', tag: 'safe', muscle: 'Cardio · whole body', steps: ['Step on while it\'s stopped (use the side rails).', 'Press start, set speed to 4-5 km/h walking pace.', 'Go for 5-10 minutes. Add 1-2 incline if it feels easy.'], mistake: 'Jumping on a moving belt at high speed. Holding the rails to "go faster" — that defeats the point.' },
+    { id: 'bike', name: 'Stationary Bike', tag: 'safe', muscle: 'Cardio · legs', steps: ['Adjust seat: when leg is at the bottom, knee should have a slight bend.', 'Start pedaling, increase resistance gradually.', '10-15 minutes is a great warmup or a full session for beginners.'], mistake: 'Seat too low (kills your knees) or too high (wobbles your hips).' },
+    { id: 'lat-pull', name: 'Lat Pulldown', tag: 'safe', muscle: 'Back · biceps', steps: ['Sit, knees under the pad. Grab the bar wider than shoulders.', 'Pull the bar to your upper chest, squeezing shoulder blades.', '3 sets of 8-10 reps. Light weight first session.'], mistake: 'Using momentum / leaning back too far. Pulling behind the neck — bad shoulder angle.' },
+    { id: 'chest-press', name: 'Chest Press Machine', tag: 'safe', muscle: 'Chest · shoulders · triceps', steps: ['Set seat so handles are at chest height.', 'Press handles forward smoothly until arms almost lock.', '3 sets of 8-10. Don\'t bounce the weights at the bottom.'], mistake: 'Setting the seat too high or low. Slamming the weight stack on the way back.' },
+    { id: 'leg-press', name: 'Leg Press', tag: 'safe', muscle: 'Quads · glutes · hamstrings', steps: ['Sit deep, feet shoulder-width on the platform.', 'Release the safety, lower until knees are ~90°, push back up.', '3 sets of 10. Start with just the sled or light plates.'], mistake: 'Locking knees fully at the top. Letting knees cave inward.' },
+    { id: 'cable-row', name: 'Seated Cable Row', tag: 'safe', muscle: 'Back · biceps', steps: ['Sit, feet on the platform, slight knee bend.', 'Pull handles to your stomach, elbows tight to ribs, squeeze.', '3 sets of 10. Keep your back straight, don\'t round.'], mistake: 'Rounding your lower back. Pulling with arms only and ignoring the back.' },
+    { id: 'squat-rack', name: 'Squat Rack (Barbell)', tag: 'avoid', muscle: 'Legs · core · everything', steps: ['Set safety bars to just below your bottom squat position.', 'Bar on upper traps (not neck), unrack, take 2 steps back.', 'Squat down to parallel, drive up. Re-rack carefully.'], mistake: 'Doing this on Day 1. Get a coach or wait until week 3 with empty bar only.' },
+    { id: 'bench', name: 'Free-Weight Bench Press', tag: 'avoid', muscle: 'Chest · shoulders · triceps', steps: ['You need a spotter. Lie down, eyes under the bar.', 'Unrack with straight arms, lower to mid-chest, press up.', 'Use the chest press machine instead until week 3-4.'], mistake: 'No spotter = pinned under the bar. Bouncing the bar off your chest.' }
+  ];
+  const machHost = document.getElementById('machines-grid');
+  const machRead = JSON.parse(localStorage.getItem('tgs_machines_read') || '[]');
+  machHost.innerHTML = MACHINES.map(m => `
+    <div class="machine-card" data-machine="${m.id}">
+      <div class="head">
+        <h4>${machRead.includes(m.id) ? '✓ ' : ''}${m.name}</h4>
+        <span class="machine-tag ${m.tag}">${m.tag === 'safe' ? '✅ Safe for beginners' : '⚠️ Avoid initially'}</span>
+      </div>
+      <div class="muscle">Works: ${m.muscle}</div>
+      <ol class="steps">${m.steps.map(s => `<li>${s}</li>`).join('')}</ol>
+      <div class="mistake">⚠️ ${m.mistake}</div>
+    </div>`).join('');
+  document.querySelectorAll('[data-machine]').forEach(el => el.addEventListener('click', () => {
+    TGS.Badges.markRead('machines', el.dataset.machine);
+    const h = el.querySelector('h4');
+    h.textContent = '✓ ' + h.textContent.replace(/^✓\s*/, '');
+    refreshBadges();
+    refreshStrip();
+  }));
+
+  // ===== Etiquette =====
+  const ETIQUETTE = [
+    { kind: 'do', text: 'Wipe down equipment with a towel/spray after every use.' },
+    { kind: 'do', text: 'Re-rack your weights — every plate, every dumbbell.' },
+    { kind: 'do', text: 'Let people work in between your sets. "How many sets left?" is a normal question.' },
+    { kind: 'do', text: 'Keep music in your headphones. Phone calls outside the gym floor.' },
+    { kind: 'do', text: 'Ask staff for help. They\'re paid to be there. It\'s not embarrassing — it\'s smart.' },
+    { kind: 'dont', text: 'Don\'t stare. Don\'t comment on someone\'s body, lifts, or outfit.' },
+    { kind: 'dont', text: 'Don\'t ego lift. Pinning yourself or dropping a weight ruins the room.' },
+    { kind: 'dont', text: 'Don\'t hog a machine on your phone between sets. 60-90 seconds rest, then move.' },
+    { kind: 'dont', text: 'Don\'t film others. Your gym selfie should not include a stranger\'s face.' },
+    { kind: 'dont', text: 'Don\'t drop dumbbells or weights unless it\'s an emergency.' }
+  ];
+  document.getElementById('etiq-grid').innerHTML = ETIQUETTE.map(e => `
+    <div class="etiq-card ${e.kind}">
+      <div class="label">${e.kind === 'do' ? '✅ Do' : '❌ Don\'t'}</div>
+      <div>${e.text}</div>
+    </div>`).join('');
+
+  // ===== Body type =====
+  const BT = {
+    ectomorph: { strengths: 'Lean naturally, low body fat, fast metabolism, looks athletic in clothes.', weaknesses: 'Hard to gain muscle. Easy to under-eat. Can look "skinny" without effort.', strategy: 'Eat in a calorie surplus (TDEE +300-500). Lift heavy compounds 3-4x/week. Limit cardio to walking. Patience: visible gains take 3-4 months.' },
+    mesomorph: { strengths: 'Builds muscle quickly. Holds shape easily. Athletic by default.', weaknesses: 'Easy to coast on genetics and never push hard. Can plateau without progressive overload.', strategy: 'Mix strength and hypertrophy. Track every workout. Add weight or reps weekly. Don\'t skip cardio — your aerobic base helps long-term gains.' },
+    endomorph: { strengths: 'Strong frame. Builds power and muscle naturally. Excellent for strength sports.', weaknesses: 'Holds body fat. Slower metabolism. Easy to over-eat without noticing.', strategy: 'Lift heavy 3-4x/week. Walk 8-10k steps daily (this matters more than gym cardio). Protein at every meal. Slight calorie deficit (TDEE -300) for fat loss.' }
+  };
+  const profile = TGS.Profile.get();
+  const auto = profile ? TGS.Profile.bodyType(profile) : null;
+  document.getElementById('bt-auto').textContent = auto ? `Based on your profile (BMI ${TGS.Profile.bmi(profile)}), you're likely closest to: ${auto}.` : '';
+  function selectBT(t) {
+    document.querySelectorAll('.bt-card').forEach(c => c.classList.toggle('active', c.dataset.bt === t));
+    const d = BT[t];
+    document.getElementById('bt-detail').innerHTML = `
+      <div class="glass" style="padding:1.6rem;">
+        <h4 style="margin:0 0 0.8rem;text-transform:capitalize;">${t}</h4>
+        <p style="color:var(--muted);margin:0 0 0.6rem;"><strong style="color:#4ADE80;">Strengths:</strong> ${d.strengths}</p>
+        <p style="color:var(--muted);margin:0 0 0.6rem;"><strong style="color:#ff7d7d;">Weaknesses:</strong> ${d.weaknesses}</p>
+        <p style="color:var(--muted);margin:0;"><strong style="color:#A5B4FC;">Best strategy:</strong> ${d.strategy}</p>
+      </div>`;
+  }
+  document.querySelectorAll('.bt-card').forEach(c => c.addEventListener('click', () => selectBT(c.dataset.bt)));
+  if (auto) selectBT(auto);
+
+  // ===== Roadmap =====
+  const ROADMAP = TGS.Beginner.roadmap();
+  function renderRoadmap() {
+    const host = document.getElementById('roadmap-list');
+    host.innerHTML = ROADMAP.map((wk, wi) => {
+      const done = wk.tasks.every((_, ti) => TGS.Beginner.isTaskDone(wi, ti));
+      return `
+        <div class="rm-week ${done ? 'complete' : ''}">
+          <div class="head">
+            <span class="wk">Week ${wk.week}</span>
+            <span style="font-weight:700;">${wk.title}</span>
+            ${done ? '<span class="badge badge-pro" style="margin-left:auto;">✓ Complete</span>' : ''}
+          </div>
+          <div class="focus">${wk.focus}</div>
+          ${wk.tasks.map((t, ti) => `
+            <div class="rm-task ${TGS.Beginner.isTaskDone(wi, ti) ? 'done' : ''}" data-wi="${wi}" data-ti="${ti}">
+              <div class="check">${TGS.Beginner.isTaskDone(wi, ti) ? '✓' : ''}</div>
+              <div class="label">${t}</div>
+            </div>`).join('')}
+        </div>`;
+    }).join('');
+    host.querySelectorAll('.rm-task').forEach(el => el.addEventListener('click', () => {
+      TGS.Beginner.toggleTask(+el.dataset.wi, +el.dataset.ti);
+      renderRoadmap();
+      refreshBadges();
+      refreshStrip();
+    }));
+  }
+  renderRoadmap();
+
+  // ===== Don't do this =====
+  const DONTS = [
+    { x: 'Skipping the warmup', why: 'Cold muscles tear. 5 minutes of light cardio + dynamic stretches prevent 90% of beginner strains.', ok: 'Always do 5 min of light cardio + arm circles + bodyweight squats before lifting.' },
+    { x: 'Lifting too heavy too soon', why: 'You\'ll either get hurt or build bad form. Both set you back weeks.', ok: 'Use a weight where you can do 8 clean reps with 2 in reserve. Add weight only when form is perfect.' },
+    { x: 'Inconsistency (going 5 days, then ghosting for 3 weeks)', why: 'Adaptation only happens with regular stimulus. 3x/week for 12 weeks beats 6x/week for 2 weeks.', ok: 'Pick 3 fixed days. Show up even when you don\'t feel like it. Bad workouts > skipped workouts.' },
+    { x: 'Copying advanced lifters\' programs', why: 'Their volume, intensity, and recovery needs are different. You\'ll overtrain and quit.', ok: 'Follow a beginner program for 3-6 months. Boring = effective at this stage.' },
+    { x: 'Not eating enough (especially protein)', why: 'Lifting without protein is renovation without bricks. You break down muscle but can\'t rebuild.', ok: 'Aim for 1g protein per pound of bodyweight. Eggs, chicken, paneer, dal, whey shakes.' },
+    { x: 'Comparing yourself to others', why: 'Their month 24 vs. your month 0 is a recipe for quitting. You\'re not playing the same game.', ok: 'Compare to last week\'s you. Beat that, every week.' },
+    { x: 'Spending 5+ minutes on phone between sets', why: 'Long rests cool the muscle, drop the heart rate, and double your gym time.', ok: 'Set a 60-90 second timer between sets. Phone in pocket during rest.' },
+    { x: 'Cardio-only or weights-only', why: 'Cardio without lifting = skinny-fat. Lifting without walking = stiff and short of breath.', ok: '3-4 lifting sessions + 8-10k daily steps is the proven combo for almost any goal.' }
+  ];
+  document.getElementById('dont-grid').innerHTML = DONTS.map(d => `
+    <div class="dont-card">
+      <div class="x">❌ ${d.x}</div>
+      <div class="why">${d.why}</div>
+      <div class="ok">✅ ${d.ok}</div>
+    </div>`).join('');
+
+  // ===== Starter kit =====
+  const KIT = [
+    { icon: '👟', name: 'Athletic shoes', note: 'Closed, supportive. Running shoes are fine to start; cross-trainers are better long-term.', price: '₹2,000–5,000' },
+    { icon: '🥤', name: 'Water bottle (1L)', note: 'Steel insulated keeps cold for 4-5 hours. Plastic is fine if budget is tight.', price: '₹200–500' },
+    { icon: '👕', name: 'Workout clothes', note: '2-3 t-shirts + 2 pairs of shorts/track pants. Cotton is okay; sweat-wicking is better.', price: '₹500–1,500' },
+    { icon: '🧻', name: 'Sweat towel', note: 'Wipe equipment, wipe yourself. Microfiber dries fastest.', price: '₹150–300' },
+    { icon: '🔒', name: 'Combination lock', note: 'For your locker. Combination > key (you\'ll lose the key).', price: '₹150–300' },
+    { icon: '🧤', name: 'Lifting gloves (optional)', note: 'Skip until you start barbell work. Calluses are fine.', price: '₹300–700' },
+    { icon: '🧰', name: 'Wrist wraps (optional)', note: 'Only useful for heavy pressing — month 3+.', price: '₹200–500' }
+  ];
+  document.getElementById('kit-list').innerHTML = KIT.map(k => `
+    <div class="kit-row">
+      <div class="kit-icon">${k.icon}</div>
+      <div class="kit-body">
+        <div class="kit-name">${k.name}</div>
+        <div class="kit-note">${k.note}</div>
+      </div>
+      <div class="kit-price">${k.price}</div>
+    </div>`).join('');
+
+  // ===== Badges =====
+  function refreshBadges() {
+    TGS.Badges.checkAll();
+    const earned = TGS.Badges.earned();
+    document.getElementById('badge-wall').innerHTML = TGS.Badges.defs.map(b => `
+      <div class="badge-tile ${earned.includes(b.id) ? 'earned' : 'locked'}">
+        <div class="ico">${b.icon}</div>
+        <h5>${b.name}</h5>
+        <div class="desc">${b.desc}</div>
+      </div>`).join('');
+    document.getElementById('st-badges').textContent = earned.length;
+  }
+  refreshBadges();
+})();
+</script>
+</body>
+</html>

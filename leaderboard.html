@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Leaderboard · TheGrindSociety</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cdefs%3E%3ClinearGradient id=%27a%27 x1=%270%27 y1=%270%27 x2=%2764%27 y2=%2764%27%3E%3Cstop offset=%270%27 stop-color=%27%232F2FE4%27/%3E%3Cstop offset=%271%27 stop-color=%27%23162E93%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d=%27M32 3 L56 13 L56 36 Q56 50 32 61 Q8 50 8 36 L8 13 Z%27 fill=%27url(%23a)%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27sans-serif%27 font-size=%2728%27 fill=%27white%27 font-weight=%27bold%27%3EG%3C/text%3E%3C/svg%3E">
+</head>
+<body data-nav="leaderboard">
+<div class="bg-aurora"></div>
+<div id="nav-slot"></div>
+
+<section style="padding:3rem 1.5rem;">
+  <div class="container">
+    <div data-fade style="text-align:center;margin-bottom:2.5rem;">
+      <div style="color:#A5B4FC;letter-spacing:0.2em;text-transform:uppercase;font-size:0.85rem;font-weight:600;">🏆 Hall of Grinders</div>
+      <h1 class="display" style="font-size:3.4rem;margin:0.4rem 0;">Leaderboard</h1>
+      <p style="color:var(--muted);">Climb the ranks. Earn the prize. Inspire the rest.</p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs" style="justify-content:center;">
+      <div class="tab active" data-board="weight-loss">Lose 10kg · ₹1,000</div>
+      <div class="tab" data-board="45-day">45 Days · ₹1,000</div>
+      <div class="tab" data-board="master-weights">Master Weights · ₹3,000</div>
+    </div>
+
+    <!-- Top 3 podium -->
+    <div data-fade class="grid grid-3" style="margin-bottom:2rem;align-items:end;">
+      <div class="glass" style="padding:1.8rem;text-align:center;order:1;transform:translateY(20px);">
+        <div style="font-size:2rem;">🥈</div>
+        <div class="avatar" style="width:60px;height:60px;font-size:1.4rem;margin:0.6rem auto;">P</div>
+        <h4 style="margin:0;">Priya Mehta</h4>
+        <div style="color:var(--muted);font-size:0.85rem;">Mumbai · 8.2 kg lost</div>
+        <div style="font-family:'Bebas Neue';font-size:2.2rem;color:#A5B4FC;">#2</div>
+      </div>
+      <div class="glass" style="padding:2rem;text-align:center;border-color:rgba(255,200,80,0.5);box-shadow:0 0 60px rgba(255,200,80,0.15);">
+        <div style="font-size:2.4rem;">👑</div>
+        <div class="avatar" style="width:80px;height:80px;font-size:1.8rem;margin:0.6rem auto;background:linear-gradient(135deg,#ffc850,#ff7a90);">A</div>
+        <h4 style="margin:0;font-size:1.2rem;">Arjun Kapoor</h4>
+        <div style="color:var(--muted);font-size:0.85rem;">Pune · 9.6 kg lost</div>
+        <div style="font-family:'Bebas Neue';font-size:3rem;color:#ffc850;">#1</div>
+        <div style="font-size:0.75rem;color:#ffc850;letter-spacing:0.15em;text-transform:uppercase;">Champion</div>
+      </div>
+      <div class="glass" style="padding:1.8rem;text-align:center;order:3;transform:translateY(20px);">
+        <div style="font-size:2rem;">🥉</div>
+        <div class="avatar" style="width:60px;height:60px;font-size:1.4rem;margin:0.6rem auto;">R</div>
+        <h4 style="margin:0;">Riya Shah</h4>
+        <div style="color:var(--muted);font-size:0.85rem;">Bangalore · 7.8 kg lost</div>
+        <div style="font-family:'Bebas Neue';font-size:2.2rem;color:#A5B4FC;">#3</div>
+      </div>
+    </div>
+
+    <!-- Full table -->
+    <div class="glass" style="padding:1rem;" data-fade>
+      <table class="table">
+        <thead><tr><th style="width:60px;">Rank</th><th>Member</th><th class="hide-mobile">City</th><th>Progress</th><th class="hide-mobile">Streak</th><th></th></tr></thead>
+        <tbody id="lb-body"></tbody>
+      </table>
+    </div>
+
+    <div data-fade style="margin-top:2.5rem;text-align:center;">
+      <p style="color:var(--muted);">Want your name up there? <a href="index.html#challenges" style="color:#A5B4FC;">Join an active challenge →</a></p>
+    </div>
+  </div>
+</section>
+
+<div id="footer-slot"></div>
+<script src="js/app.js"></script>
+<script>
+  const boards = {
+    'weight-loss': [
+      ['Arjun Kapoor', 'Pune', '9.6 kg', 88],
+      ['Priya Mehta', 'Mumbai', '8.2 kg', 76],
+      ['Riya Shah', 'Bangalore', '7.8 kg', 72],
+      ['Karan Singh', 'Delhi', '7.4 kg', 68],
+      ['Neha Iyer', 'Chennai', '6.9 kg', 64],
+      ['Vikram Joshi', 'Hyderabad', '6.5 kg', 60],
+      ['Sneha Rao', 'Kolkata', '6.0 kg', 56],
+      ['Rohit Verma', 'Jaipur', '5.8 kg', 53],
+      ['Anjali Das', 'Lucknow', '5.4 kg', 50],
+      ['Aman Gupta', 'Indore', '5.0 kg', 47],
+    ],
+    '45-day': [
+      ['Sanya Kapoor', 'Mumbai', 'Day 41', 91],
+      ['Dhruv Mehta', 'Pune', 'Day 39', 87],
+      ['Ishaan Reddy', 'Hyderabad', 'Day 38', 84],
+      ['Tara Bhatt', 'Bangalore', 'Day 36', 80],
+      ['Yash Khanna', 'Delhi', 'Day 34', 76],
+      ['Meera Patel', 'Ahmedabad', 'Day 33', 73],
+      ['Aditya Roy', 'Kolkata', 'Day 31', 69],
+      ['Pooja Nair', 'Kochi', 'Day 28', 62],
+      ['Kabir Anand', 'Chandigarh', 'Day 26', 58],
+      ['Diya Bose', 'Bhubaneswar', 'Day 24', 53],
+    ],
+    'master-weights': [
+      ['Vivaan Malhotra', 'Mumbai', 'Wk 11', 92],
+      ['Zara Sheikh', 'Delhi', 'Wk 10', 84],
+      ['Aarav Shah', 'Pune', 'Wk 10', 81],
+      ['Nyra Pillai', 'Bangalore', 'Wk 9', 75],
+      ['Rudra Saxena', 'Lucknow', 'Wk 9', 73],
+      ['Ananya Bose', 'Kolkata', 'Wk 8', 67],
+      ['Reyansh Bhatt', 'Surat', 'Wk 7', 59],
+      ['Saanvi Iyer', 'Chennai', 'Wk 7', 57],
+      ['Kiaan Bansal', 'Jaipur', 'Wk 6', 50],
+      ['Avni Khurana', 'Gurgaon', 'Wk 5', 41],
+    ]
+  };
+
+  function render(key) {
+    const rows = boards[key];
+    document.getElementById('lb-body').innerHTML = rows.map((r, i) => `
+      <tr style="${i < 3 ? 'background:rgba(79,70,229,0.06);' : ''}">
+        <td><strong style="font-family:'Bebas Neue';font-size:1.3rem;${i===0?'color:#ffc850':i===1?'color:#A5B4FC':i===2?'color:#ff7a90':''};">#${i+1}</strong></td>
+        <td><div style="display:flex;align-items:center;gap:0.7rem;"><div class="avatar">${r[0][0]}</div><strong>${r[0]}</strong></div></td>
+        <td class="hide-mobile" style="color:var(--muted);">${r[1]}</td>
+        <td><div style="display:flex;gap:0.7rem;align-items:center;"><div class="progress" style="flex:1;margin:0;max-width:140px;"><div class="progress-fill" style="width:${r[3]}%;"></div></div><span style="color:var(--muted);font-size:0.85rem;">${r[2]}</span></div></td>
+        <td class="hide-mobile" style="color:#4ADE80;">🔥 ${Math.max(7, Math.round(r[3]/3))}d</td>
+        <td><a href="#" style="color:#A5B4FC;font-size:0.85rem;text-decoration:none;">View →</a></td>
+      </tr>
+    `).join('');
+  }
+  document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    render(t.dataset.board);
+  }));
+  render('weight-loss');
+</script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Recovery · TheGrindSociety</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cdefs%3E%3ClinearGradient id=%27a%27 x1=%270%27 y1=%270%27 x2=%2764%27 y2=%2764%27%3E%3Cstop offset=%270%27 stop-color=%27%232F2FE4%27/%3E%3Cstop offset=%271%27 stop-color=%27%23162E93%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d=%27M32 3 L56 13 L56 36 Q56 50 32 61 Q8 50 8 36 L8 13 Z%27 fill=%27url(%23a)%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27sans-serif%27 font-size=%2728%27 fill=%27white%27 font-weight=%27bold%27%3EG%3C/text%3E%3C/svg%3E">
+</head>
+<body data-nav="recovery">
+<div class="bg-aurora"></div>
+<div id="nav-slot"></div>
+
+<div class="layout">
+  <div id="sidebar-slot"></div>
+
+  <main>
+    <!-- HERO BANNER -->
+    <section class="section-hero" data-fade>
+      <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1600&q=80');"></div>
+      <div class="inner">
+        <div>
+          <div class="pillar-tag">😴 Pillar 3 of 7</div>
+          <h1>Recovery</h1>
+          <p class="lead">You don't grow in the gym — you grow when you recover. Sleep is the most anabolic tool you own.</p>
+        </div>
+        <div id="hero-quote-slot"></div>
+      </div>
+    </section>
+
+    <!-- SMART SEARCH -->
+    <div data-search-mount="recovery" data-fade></div>
+
+    <!-- Recovery score -->
+    <div data-fade class="glass" style="padding:2rem;margin-top:3rem;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;">
+        <div>
+          <h2 class="display" style="font-size:1.8rem;margin:0;">Today's Recovery Score</h2>
+          <p style="color:var(--muted);margin:0.3rem 0 0;">Based on sleep, soreness, mood, and HRV.</p>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:'Bebas Neue';font-size:4rem;line-height:1;background:linear-gradient(135deg,#5dffaa,#2F2FE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">82</div>
+          <div style="color:var(--muted);font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;">Optimal</div>
+        </div>
+      </div>
+      <div class="grid grid-3">
+        <div><div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.4rem;"><span>Sleep</span><span style="color:#5dffaa;">88%</span></div><div class="progress"><div class="progress-fill" style="width:88%;background:linear-gradient(90deg,#5dffaa,#2F2FE4);"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.4rem;"><span>Soreness</span><span>72%</span></div><div class="progress"><div class="progress-fill" style="width:72%;"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.4rem;"><span>HRV</span><span>85%</span></div><div class="progress"><div class="progress-fill" style="width:85%;"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Sleep stages education -->
+    <div data-fade class="glass" style="padding:2rem;margin-top:1.5rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.4rem;">🧬 The 4 Sleep Stages</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Each stage has a job. Disrupt one, lose the gains.</p>
+      <div class="grid grid-4">
+        <div class="glass" style="padding:1.2rem;background:rgba(154,166,255,0.04);">
+          <div style="font-family:'Bebas Neue';font-size:2rem;color:#9aa6ff;">N1</div>
+          <h4 style="margin:0;">Light Onset</h4>
+          <p style="color:var(--muted);font-size:0.85rem;margin:0.4rem 0 0;">5% of night · 5–10 min · brain & body slow down. Easy to wake.</p>
+        </div>
+        <div class="glass" style="padding:1.2rem;background:rgba(154,166,255,0.04);">
+          <div style="font-family:'Bebas Neue';font-size:2rem;color:#9aa6ff;">N2</div>
+          <h4 style="margin:0;">Light Sleep</h4>
+          <p style="color:var(--muted);font-size:0.85rem;margin:0.4rem 0 0;">45–55% · memory consolidation, motor learning, body temp drops.</p>
+        </div>
+        <div class="glass" style="padding:1.2rem;background:rgba(80,255,170,0.04);">
+          <div style="font-family:'Bebas Neue';font-size:2rem;color:#5dffaa;">N3</div>
+          <h4 style="margin:0;">Deep Sleep</h4>
+          <p style="color:var(--muted);font-size:0.85rem;margin:0.4rem 0 0;">15–25% · physical recovery, GH peak, immune repair. THE anabolic stage.</p>
+        </div>
+        <div class="glass" style="padding:1.2rem;background:rgba(255,200,80,0.04);">
+          <div style="font-family:'Bebas Neue';font-size:2rem;color:#ffc850;">REM</div>
+          <h4 style="margin:0;">REM Sleep</h4>
+          <p style="color:var(--muted);font-size:0.85rem;margin:0.4rem 0 0;">20–25% · dreams, brain detox, memory & mood. Alcohol kills it.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sleep tracker -->
+    <div data-fade class="glass" style="padding:2rem;margin-top:1.5rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.4rem;">📊 7-Day Sleep Tracker</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Aim for 7–9 hours of quality sleep. Consistency &gt; duration.</p>
+      <div class="chart">
+        <div class="bar" style="height:80%;" data-day="M"></div>
+        <div class="bar" style="height:65%;" data-day="T"></div>
+        <div class="bar" style="height:90%;" data-day="W"></div>
+        <div class="bar" style="height:75%;" data-day="T"></div>
+        <div class="bar" style="height:50%;" data-day="F"></div>
+        <div class="bar" style="height:95%;" data-day="S"></div>
+        <div class="bar" style="height:85%;" data-day="S"></div>
+      </div>
+      <div style="margin-top:2rem;display:flex;justify-content:space-between;color:var(--muted);font-size:0.85rem;">
+        <span>Avg: 7h 38min</span><span>Best: 9h 12min · Sat</span>
+      </div>
+    </div>
+
+    <!-- VISUAL RECOVERY -->
+    <div data-fade style="margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.5rem;">📸 The Recovery Pyramid</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Stack from the bottom up — sleep is non-negotiable, the rest amplifies.</p>
+      <div class="grid grid-3">
+        <div class="img-card" data-fade><div class="img-wrap"><div class="img-tag">FOUNDATION</div><div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1631157769375-a075ed72fe79?w=800&q=80');"></div></div><div class="body"><h4>Deep Sleep</h4><p>The single highest-leverage recovery tool. Cool, dark, consistent. Phone outside the room.</p></div></div>
+        <div class="img-card" data-fade><div class="img-wrap"><div class="img-tag">MOBILITY</div><div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80');"></div></div><div class="body"><h4>Daily Stretch</h4><p>10 minutes a day prevents 90% of nagging injuries. Hips, T-spine, ankles.</p></div></div>
+        <div class="img-card" data-fade><div class="img-wrap"><div class="img-tag">CONTRAST</div><div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1552693673-1bf958298935?w=800&q=80');"></div></div><div class="body"><h4>Sauna + Cold</h4><p>Heat shock proteins + adrenaline + dopamine spike. Stack 3–4× a week.</p></div></div>
+      </div>
+    </div>
+
+    <!-- QUOTE BREAK -->
+    <div id="quote-mid"></div>
+
+    <!-- ============ MODALITIES DATABASE ============ -->
+    <div data-fade style="margin-top:4rem;">
+      <h2 class="display" style="font-size:2.2rem;margin:0 0 0.3rem;">📚 Recovery Toolkit</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">12 evidence-backed protocols. Stack 3–4 daily.</p>
+      <div class="grid grid-3">
+        <div class="glass" style="padding:1.6rem;">
+          <div style="font-size:1.6rem;">😴</div><h4>Sleep Optimization</h4>
+          <p style="color:var(--muted);font-size:0.9rem;margin:0.4rem 0;">Cool, dark, consistent. 90-min cycles. Phone out of bedroom.</p>
+          <div class="tag">7–9 h · Daily</div>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <div style="font-size:1.6rem;">☀️</div><h4>Morning Sunlight</h4>
+          <p style="color:var(--muted);font-size:0.9rem;margin:0.4rem 0;">10 min in eyes within 30 min of waking. Anchors circadian rhythm.</p>
+          <div class="tag">10 min · Daily</div>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <div style="font-size:1.6rem;">🚶</div><h4>Active Recovery</h4>
+          <p style="color:var(--muted);font-size:0.9rem;margin:0.4rem 0;">Z2 walks, light cycling, swims. Move blood, not muscle.</p>
+          <div class="tag">30–45 min · 2–3×/wk</div>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <div style="font-size:1.6rem;">🧘</div><h4>Mobility Flow</h4>
+          <p style="color:var(--muted);font-size:0.9rem;margin:0.4rem 0;">10-min daily routine. Hips, T-spine, ankles, shoulders.</p>
+          <div class="tag">10 min · Daily</div>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <div style="font-size:1.6rem;">🧊</div><h4>Cold Therapy</h4>
+          <p style="color:var(--muted);font-size:0.9rem;margin:0.4rem 0;">3-min cold plunge / shower @ 10–14°C. Mood + alertness.</p>
+          <div class="tag">3 min · 3–4×/wk</div>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <div style="font-size:1.6rem;">🔥</div><h4>Sauna Therapy</h4>
+          <p style="color:var(--muted);font-size:0.9rem;margin:0.4rem 0;">15–20 min @ 80°C. Heat shock proteins. Cardiovascular benefits.</p>
+          <div class="tag">15–20 min · 2–4×/wk</div>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <div style="font-size:1.6rem;">💆</div><h4>Soft Tissue Work</h4>
+          <p style="color:var(--muted);font-size:0.9rem;margin:0.4rem 0;">Foam roll, percussion gun. Pre-workout activation, post-workout flush.</p>
+          <div class="tag">10 min · Daily</div>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <div style="font-size:1.6rem;">🌬️</div><h4>Breathwork</h4>
+          <p style="color:var(--muted);font-size:0.9rem;margin:0.4rem 0;">Box breathing, physiological sigh. Switch from sympathetic → parasympathetic.</p>
+          <div class="tag">5 min · 1–2×/day</div>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <div style="font-size:1.6rem;">🥶</div><h4>Contrast Showers</h4>
+          <p style="color:var(--muted);font-size:0.9rem;margin:0.4rem 0;">3 min hot · 30 sec cold · repeat 3×. Vascular flush.</p>
+          <div class="tag">10 min · 2–3×/wk</div>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <div style="font-size:1.6rem;">🌳</div><h4>Nature Time</h4>
+          <p style="color:var(--muted);font-size:0.9rem;margin:0.4rem 0;">120 min/week in green/blue spaces. Stress hormone reduction.</p>
+          <div class="tag">120 min · Weekly</div>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <div style="font-size:1.6rem;">🛏️</div><h4>NSDR / Yoga Nidra</h4>
+          <p style="color:var(--muted);font-size:0.9rem;margin:0.4rem 0;">20-min guided rest. Replenishes dopamine. Better than naps for some.</p>
+          <div class="tag">20 min · 2–4×/wk</div>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <div style="font-size:1.6rem;">📵</div><h4>Digital Sundown</h4>
+          <p style="color:var(--muted);font-size:0.9rem;margin:0.4rem 0;">No screens 60 min before bed. Blue light delays melatonin by 90 min.</p>
+          <div class="tag">60 min · Daily</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stretch routines -->
+    <div data-fade style="margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.5rem;">🧘 10-Min Daily Mobility Flow</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Done in order. 60s each. Breath through every position.</p>
+      <ol class="steps">
+        <li><strong>Cat-Cow</strong> · 10 reps · spine warm-up, breath sync</li>
+        <li><strong>World's Greatest Stretch</strong> · 5 each side · hips, T-spine, hams</li>
+        <li><strong>90/90 Hip Switches</strong> · 10 reps · internal/external hip rotation</li>
+        <li><strong>Couch Stretch</strong> · 60s each side · hip flexors</li>
+        <li><strong>Pigeon Pose</strong> · 60s each side · glutes, hip mobility</li>
+        <li><strong>Thoracic Bridge</strong> · 30s holds · upper back extension</li>
+        <li><strong>Wall Slides</strong> · 10 reps · shoulder mobility, posture</li>
+        <li><strong>Deep Squat Hold</strong> · 60s · hips, ankles, decompression</li>
+        <li><strong>Child's Pose</strong> · 60s · spine, lats, breath reset</li>
+      </ol>
+    </div>
+
+    <!-- ============ PERSONALIZED PLAN ============ -->
+    <div data-fade class="personalize-panel" style="margin-top:3rem;">
+      <span class="ribbon">₹299</span>
+      <div style="font-size:0.78rem;color:#9aa6ff;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;">⚡ Personalized Plan</div>
+      <h2 class="display" style="font-size:2rem;margin:0.4rem 0 0.5rem;">Build My Recovery Stack</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;max-width:600px;">A daily protocol built around your training load, sleep quality, and lifestyle. Sleep, mobility, and stress dialed in.</p>
+
+      <form id="plan-form" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+        <div class="form-group"><label>Average Sleep</label>
+          <select name="sleep"><option value="poor">&lt; 6 hours</option><option value="ok" selected>6–7 hours</option><option value="good">7–9 hours</option></select>
+        </div>
+        <div class="form-group"><label>Stress Level</label>
+          <select name="stress"><option value="low">Low</option><option value="med" selected>Moderate</option><option value="high">High</option></select>
+        </div>
+        <div class="form-group"><label>Soreness</label>
+          <select name="sore"><option value="low">Rarely</option><option value="med" selected>Often</option><option value="high">Constant</option></select>
+        </div>
+        <div class="form-group"><label>Equipment</label>
+          <select name="equip"><option value="none">None</option><option value="basic" selected>Foam Roller</option><option value="full">Sauna + Plunge</option></select>
+        </div>
+      </form>
+
+      <div id="plan-mount" style="margin-top:1.4rem;"></div>
+    </div>
+
+    <div id="pro-content" style="display:none;margin-top:1rem;">
+      <h3 class="display" style="font-size:1.6rem;margin:0 0 1rem;">Your Custom Recovery Stack</h3>
+      <div id="recovery-output"></div>
+    </div>
+  </main>
+</div>
+
+<div id="footer-slot"></div>
+<script src="../js/app.js"></script>
+<script>
+  document.getElementById('sidebar-slot').innerHTML = TGS.renderModuleSidebar('recovery');
+
+  // Hero quote + mid-section quote break
+  document.getElementById('hero-quote-slot').innerHTML = TGS.Quotes.render(TGS.Quotes.forSection('recovery'));
+  document.getElementById('quote-mid').innerHTML = TGS.Quotes.renderBreak({ t: 'Rest when you\'re weary. Refresh and renew yourself, your body, your mind, your spirit.', a: 'Ralph Marston' });
+  const profile = TGS.Profile.get();
+  const planMount = document.getElementById('plan-mount');
+
+  function renderPlanCTA() {
+    planMount.innerHTML = `
+      <div class="result-block">
+        <div style="color:var(--muted);font-size:0.9rem;margin-bottom:1rem;">${profile ? 'Profile detected — we\'ll match this to your training intensity.' : 'Add your <a href="../onboarding.html" style="color:#9aa6ff;">profile</a> for full personalization.'}</div>
+        <div class="locked-preview">
+          <div class="blur-bg" style="background-image:url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1200&q=80');"></div>
+          <div class="blur-overlay"></div>
+          <div class="content">
+            <div class="lock-circle">🔒</div>
+            <h3 style="margin:0;font-family:'Bebas Neue';font-size:1.8rem;letter-spacing:0.02em;">Your Recovery Stack Awaits</h3>
+            <p style="color:var(--muted);max-width:440px;margin:0.5rem auto 0;">Sleep, mobility, and stress dialed in to your training load.</p>
+            <div class="features-row">
+              <span class="tag">Daily Protocol</span><span class="tag">Sleep Coaching</span><span class="tag">Mobility Routine</span><span class="tag">HRV Tracking</span>
+            </div>
+            <button class="btn btn-primary pulse" onclick="TGS.showSubscribeModal('recovery','Recovery',299)">
+              🔓 Unlock Your Personalized Plan — ₹299
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderProRecovery() {
+    const fd = new FormData(document.getElementById('plan-form'));
+    const sleep = fd.get('sleep') || 'ok';
+    const stress = fd.get('stress') || 'med';
+    const equip = fd.get('equip') || 'basic';
+
+    const morning = ['10 min sunlight in eyes', sleep === 'poor' ? 'Delay caffeine 90 min' : 'Caffeine after 30 min', '5 min mobility flow'];
+    const post = ['10 min walk', equip === 'full' ? '15 min sauna' : 'Foam roll + breathwork', 'Stretch tight areas'];
+    const evening = ['Digital sundown by 9 PM', 'Magnesium glycinate 400mg', stress === 'high' ? '15 min NSDR' : 'Light reading + tea', 'Bed by 10:30 PM'];
+
+    document.getElementById('recovery-output').innerHTML = `
+      <div class="grid grid-3">
+        <div class="glass" style="padding:1.8rem;">
+          <h4 style="margin:0 0 1rem;">🌅 Morning</h4>
+          <ul class="checklist">${morning.map(x => `<li><span class="box"></span><span>${x}</span></li>`).join('')}</ul>
+        </div>
+        <div class="glass" style="padding:1.8rem;">
+          <h4 style="margin:0 0 1rem;">🏋️ Post-Workout</h4>
+          <ul class="checklist">${post.map(x => `<li><span class="box"></span><span>${x}</span></li>`).join('')}</ul>
+        </div>
+        <div class="glass" style="padding:1.8rem;">
+          <h4 style="margin:0 0 1rem;">🌙 Evening</h4>
+          <ul class="checklist">${evening.map(x => `<li><span class="box"></span><span>${x}</span></li>`).join('')}</ul>
+        </div>
+      </div>
+      <div class="glass" style="padding:1.4rem;margin-top:1rem;">
+        <strong>Weekly:</strong> 2× sauna sessions · 3× cold exposure · 1× full mobility class · 1× rest day with no training.
+      </div>
+    `;
+    document.querySelectorAll('.checklist li').forEach(li => li.addEventListener('click', () => li.classList.toggle('done')));
+  }
+
+  if (TGS.Subs.has('recovery')) {
+    planMount.innerHTML = `<div class="glass" style="padding:1.4rem;display:flex;justify-content:space-between;align-items:center;"><div><strong>✓ Recovery Pro active</strong><div style="color:var(--muted);font-size:0.9rem;">Your custom stack is below.</div></div><span class="badge badge-pro">PRO</span></div>`;
+    document.getElementById('pro-content').style.display = 'block';
+    renderProRecovery();
+    document.getElementById('plan-form').addEventListener('change', renderProRecovery);
+  } else {
+    renderPlanCTA();
+  }
+</script>
+</body>
+</html>

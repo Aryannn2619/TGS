@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Supplements · TheGrindSociety</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cdefs%3E%3ClinearGradient id=%27a%27 x1=%270%27 y1=%270%27 x2=%2764%27 y2=%2764%27%3E%3Cstop offset=%270%27 stop-color=%27%232F2FE4%27/%3E%3Cstop offset=%271%27 stop-color=%27%23162E93%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d=%27M32 3 L56 13 L56 36 Q56 50 32 61 Q8 50 8 36 L8 13 Z%27 fill=%27url(%23a)%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27sans-serif%27 font-size=%2728%27 fill=%27white%27 font-weight=%27bold%27%3EG%3C/text%3E%3C/svg%3E">
+</head>
+<body data-nav="supplements">
+<div class="bg-aurora"></div>
+<div id="nav-slot"></div>
+
+<div class="layout">
+  <div id="sidebar-slot"></div>
+
+  <main>
+    <!-- HERO BANNER -->
+    <section class="section-hero" data-fade>
+      <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&q=80');"></div>
+      <div class="inner">
+        <div>
+          <div class="pillar-tag">💊 Pillar 5 of 7</div>
+          <h1>Supplements</h1>
+          <p class="lead">Supplements support, they don't replace. Build the foundation first, stack smart on top.</p>
+        </div>
+        <div id="hero-quote-slot"></div>
+      </div>
+    </section>
+
+    <!-- SMART SEARCH -->
+    <div data-search-mount="supplements" data-fade></div>
+
+    <!-- Tier picker -->
+    <div data-fade style="margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.5rem;">Pick Your Stack Tier</h2>
+      <p style="color:var(--muted);margin:0 0 1rem;">Tap a tier to see the recommended stack.</p>
+      <div class="tabs">
+        <div class="tab active" data-tier="beginner">Beginner</div>
+        <div class="tab" data-tier="intermediate">Intermediate</div>
+        <div class="tab" data-tier="advanced">Advanced</div>
+      </div>
+      <div id="stack-out" class="grid grid-3"></div>
+    </div>
+
+    <!-- VISUAL STACK -->
+    <div data-fade style="margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.5rem;">📸 The Stack</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">What every gym bag should carry — backed by evidence, not marketing.</p>
+      <div class="grid grid-3">
+        <div class="img-card" data-fade><div class="img-wrap"><div class="img-tag">★★★★★</div><div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=800&q=80');"></div></div><div class="body"><h4>Whey Isolate</h4><p>30g per serving · 25g protein, 1g carbs, 1g fat. Post-workout or as a meal extender.</p></div></div>
+        <div class="img-card" data-fade><div class="img-wrap"><div class="img-tag">★★★★★</div><div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1626197031507-c17099f7e96e?w=800&q=80');"></div></div><div class="body"><h4>Creatine Mono</h4><p>5g daily · No loading. Decades of research. Strength + power + cellular hydration.</p></div></div>
+        <div class="img-card" data-fade><div class="img-wrap"><div class="img-tag">★★★★★</div><div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=800&q=80');"></div></div><div class="body"><h4>D3 + Omega-3</h4><p>Hormones, mood, joints, brain. Test your levels first — then dose accordingly.</p></div></div>
+      </div>
+    </div>
+
+    <!-- QUOTE BREAK -->
+    <div id="quote-mid"></div>
+
+    <!-- ============ SUPPLEMENT DATABASE ============ -->
+    <div data-fade style="margin-top:4rem;">
+      <h2 class="display" style="font-size:2.2rem;margin:0 0 0.3rem;">📚 Supplement Database</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Mechanism · Dose · Timing · Evidence · Side Effects.</p>
+
+      <div class="search-bar">
+        <span style="font-size:1.1rem;">🔍</span>
+        <input id="sup-search" placeholder="Search supplements (creatine, whey, ashwagandha)…" />
+      </div>
+      <div class="chips" id="sup-chips">
+        <div class="chip active" data-cat="all">All</div>
+        <div class="chip" data-cat="muscle">Muscle</div>
+        <div class="chip" data-cat="performance">Performance</div>
+        <div class="chip" data-cat="health">Health</div>
+        <div class="chip" data-cat="sleep">Sleep</div>
+        <div class="chip" data-cat="recovery">Recovery</div>
+      </div>
+
+      <div class="grid grid-2" id="sup-grid"></div>
+    </div>
+
+    <!-- Safety -->
+    <div data-fade class="glass" style="padding:2rem;margin-top:2rem;border:1px solid rgba(255,200,80,0.3);background:rgba(255,200,80,0.04);">
+      <h3 style="margin:0 0 0.5rem;color:#ffc850;">⚠️ Safety Protocol</h3>
+      <ul style="color:var(--muted);margin:0;padding-left:1.2rem;line-height:1.8;font-size:0.92rem;">
+        <li><strong>Get blood work first.</strong> Vitamin D, ferritin, B12, lipids, hormones. You can't supplement what you don't measure.</li>
+        <li><strong>Buy third-party tested.</strong> Look for NSF Certified for Sport, Informed Sport, USP, or LabDoor stamps.</li>
+        <li><strong>Pregnant, on meds, under 18?</strong> Doctor first, supplement second. Always.</li>
+        <li><strong>More is not better.</strong> Megadosing fat-soluble vitamins (A, D, E, K) is toxic.</li>
+        <li><strong>Whole food &gt; pills.</strong> No supplement beats real protein, vegetables, and sleep.</li>
+        <li><strong>Cycle stimulants.</strong> Caffeine tolerance builds in 7–10 days. Pre-workouts: max 5 days/week.</li>
+      </ul>
+    </div>
+
+    <!-- Timing chart -->
+    <div data-fade class="glass" style="padding:2rem;margin-top:2rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.4rem;">⏰ When to Take What</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Timing matters for some, not for others.</p>
+      <table class="table">
+        <thead><tr><th>Time</th><th>Supplement</th><th class="hide-mobile">Why</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Morning</strong></td><td>Vitamin D + K2 · Multivitamin · Omega-3</td><td class="hide-mobile" style="color:var(--muted);font-size:0.88rem;">Fat-soluble — take with food.</td></tr>
+          <tr><td><strong>Pre-workout (30 min)</strong></td><td>Caffeine 3 mg/kg · Citrulline 8g · Beta-Alanine 3.2g</td><td class="hide-mobile" style="color:var(--muted);font-size:0.88rem;">Performance peak.</td></tr>
+          <tr><td><strong>Intra-workout</strong></td><td>Electrolytes (long sessions only)</td><td class="hide-mobile" style="color:var(--muted);font-size:0.88rem;">If &gt;75 min or hot training.</td></tr>
+          <tr><td><strong>Post-workout</strong></td><td>Whey 25–40g · Creatine 5g</td><td class="hide-mobile" style="color:var(--muted);font-size:0.88rem;">Anabolic window is hours, not minutes.</td></tr>
+          <tr><td><strong>Dinner</strong></td><td>Zinc · Iron (if low)</td><td class="hide-mobile" style="color:var(--muted);font-size:0.88rem;">With food. Never with calcium/coffee.</td></tr>
+          <tr><td><strong>1 hour before bed</strong></td><td>Magnesium glycinate 400mg · L-Theanine</td><td class="hide-mobile" style="color:var(--muted);font-size:0.88rem;">Sleep quality + recovery.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ============ PERSONALIZED STACK ============ -->
+    <div data-fade class="personalize-panel" style="margin-top:3rem;">
+      <span class="ribbon">₹299</span>
+      <div style="font-size:0.78rem;color:#9aa6ff;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;">⚡ Personalized Stack</div>
+      <h2 class="display" style="font-size:2rem;margin:0.4rem 0 0.5rem;">Build My Custom Stack</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;max-width:600px;">Based on your goal, training style, body, and budget. Brands, dosages, timing, and what to skip.</p>
+
+      <form id="plan-form" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+        <div class="form-group"><label>Diet Type</label>
+          <select name="diet"><option value="omni">Non-vegetarian</option><option value="veg">Vegetarian</option><option value="vegan">Vegan</option></select>
+        </div>
+        <div class="form-group"><label>Budget / month</label>
+          <select name="budget"><option value="low">₹1,000–2,000</option><option value="mid" selected>₹2,000–4,000</option><option value="high">₹4,000+</option></select>
+        </div>
+        <div class="form-group"><label>Caffeine</label>
+          <select name="caf"><option value="yes" selected>Yes</option><option value="no">No / sensitive</option></select>
+        </div>
+        <div class="form-group"><label>Concerns</label>
+          <input type="text" name="concerns" placeholder="e.g. low iron, sleep issues" />
+        </div>
+      </form>
+
+      <div id="plan-mount" style="margin-top:1.4rem;"></div>
+    </div>
+
+    <div id="pro-content" style="display:none;margin-top:1rem;">
+      <h3 class="display" style="font-size:1.6rem;margin:0 0 1rem;">Your Custom Stack</h3>
+      <div id="stack-output"></div>
+    </div>
+  </main>
+</div>
+
+<div id="footer-slot"></div>
+<script src="../js/app.js"></script>
+<script>
+  document.getElementById('sidebar-slot').innerHTML = TGS.renderModuleSidebar('supplements');
+
+  // Hero quote + mid-section quote break
+  document.getElementById('hero-quote-slot').innerHTML = TGS.Quotes.render(TGS.Quotes.forSection('supplements'));
+  document.getElementById('quote-mid').innerHTML = TGS.Quotes.renderBreak({ t: 'You can\'t out-supplement a bad diet. But the right stack pushes a good one further.', a: 'TGS' });
+
+  // ============ SUPPLEMENT DATABASE ============
+  const SUPS = [
+    { n: 'Creatine Monohydrate', cat: ['muscle','performance'], dose: '5g daily', timing: 'Anytime', evidence: '★★★★★', mech: 'Restores ATP via phosphocreatine. Forces water into muscle cells (anabolic).', sides: 'Mild GI initially. No loading needed.' },
+    { n: 'Whey Protein Isolate', cat: ['muscle','recovery'], dose: '25–40g per serving', timing: 'Post-workout / between meals', evidence: '★★★★★', mech: 'Fastest-digesting complete protein. Hits leucine threshold for MPS.', sides: 'Lactose-sensitive: pick isolate. Excessive intake → bloating.' },
+    { n: 'Caffeine', cat: ['performance'], dose: '3–6 mg/kg bodyweight', timing: '30–45 min pre-workout', evidence: '★★★★★', mech: 'Adenosine receptor antagonist. Boosts power, endurance, focus.', sides: 'Disrupts sleep if taken after 2 PM. Tolerance builds in 7–10 days.' },
+    { n: 'Beta-Alanine', cat: ['performance'], dose: '3.2–6.4g daily (split)', timing: 'Pre-workout or split through day', evidence: '★★★★', mech: 'Buffers H+ ions. Best for 30s–10min efforts.', sides: 'Tingling (paresthesia) — harmless.' },
+    { n: 'Citrulline Malate', cat: ['performance'], dose: '6–8g', timing: '30–45 min pre-workout', evidence: '★★★★', mech: 'Boosts nitric oxide → blood flow → pump + endurance.', sides: 'Mild GI at high doses.' },
+    { n: 'Vitamin D3 + K2', cat: ['health'], dose: '2000–5000 IU D3 + 100mcg K2', timing: 'Morning with fat', evidence: '★★★★★', mech: 'Hormone-like. Bones, immunity, testosterone, mood.', sides: 'Toxic above 10,000 IU long-term. Test blood levels.' },
+    { n: 'Omega-3 (EPA/DHA)', cat: ['health','recovery'], dose: '2–3g combined EPA + DHA', timing: 'With dinner', evidence: '★★★★★', mech: 'Anti-inflammatory. Brain, joints, cardiovascular.', sides: 'Fishy burps. Buy enteric-coated. Vegan: algae oil.' },
+    { n: 'Magnesium Glycinate', cat: ['sleep','recovery'], dose: '300–400mg', timing: '1 hour before bed', evidence: '★★★★', mech: '300+ enzymatic reactions. Muscle relaxation, GABA, sleep quality.', sides: 'Glycinate form is gentle. Citrate causes loose stool.' },
+    { n: 'Zinc', cat: ['health'], dose: '15–30mg', timing: 'With dinner (not with calcium/coffee)', evidence: '★★★★', mech: 'Testosterone, immune function, wound healing.', sides: 'Take with food — nausea on empty stomach.' },
+    { n: 'Ashwagandha (KSM-66)', cat: ['recovery','sleep'], dose: '600mg daily', timing: 'Evening', evidence: '★★★', mech: 'Adaptogen. Lowers cortisol, may boost testosterone, improves sleep.', sides: 'Avoid if hyperthyroid or on thyroid meds.' },
+    { n: 'L-Theanine', cat: ['sleep','performance'], dose: '100–200mg', timing: 'With caffeine OR before bed', evidence: '★★★', mech: 'Promotes alpha brainwaves. Smooths caffeine, calms anxiety.', sides: 'None notable.' },
+    { n: 'Glutamine', cat: ['recovery'], dose: '5–10g', timing: 'Post-workout / before bed', evidence: '★★', mech: 'Gut health, immune. Most overrated for muscle gain.', sides: 'None at recommended dose.' },
+    { n: 'BCAAs / EAAs', cat: ['muscle'], dose: '5–10g', timing: 'Intra-workout if fasted', evidence: '★★', mech: 'Mostly redundant if you hit your protein. Useful only fasted.', sides: 'None. Often a waste of money for non-fasted lifters.' },
+    { n: 'Casein Protein', cat: ['muscle','recovery'], dose: '30g', timing: 'Before bed', evidence: '★★★★', mech: 'Slow-digesting. Provides amino acids overnight.', sides: 'Some find it heavy. Skip if dairy-sensitive.' },
+    { n: 'Iron (bisglycinate)', cat: ['health'], dose: '18–25mg (women), only if deficient', timing: 'With Vitamin C, away from coffee', evidence: '★★★★', mech: 'Hemoglobin, oxygen transport, energy.', sides: 'Constipation common. Test ferritin first. Don\'t mega-dose.' },
+    { n: 'Multivitamin', cat: ['health'], dose: '1 daily', timing: 'With breakfast', evidence: '★★', mech: 'Insurance against gaps. Not a substitute for whole foods.', sides: 'Quality varies hugely. Pick a reputable brand.' },
+    { n: 'Electrolytes', cat: ['performance','recovery'], dose: '500–1000mg sodium per liter', timing: 'During training (long sessions)', evidence: '★★★★', mech: 'Hydration + nerve/muscle function.', sides: 'Watch sodium if hypertensive.' },
+    { n: 'Curcumin (with piperine)', cat: ['recovery','health'], dose: '500–1000mg', timing: 'With meals', evidence: '★★★', mech: 'Anti-inflammatory. Joint pain, exercise recovery.', sides: 'Without piperine, poor absorption. Mild blood thinning.' },
+  ];
+
+  function renderSups(filter='all', search='') {
+    const q = search.toLowerCase().trim();
+    const list = SUPS.filter(s =>
+      (filter === 'all' || s.cat.includes(filter)) &&
+      (!q || s.n.toLowerCase().includes(q) || s.mech.toLowerCase().includes(q))
+    );
+    document.getElementById('sup-grid').innerHTML = list.length === 0
+      ? `<div class="glass" style="padding:1.4rem;color:var(--muted);grid-column:1/-1;text-align:center;">No matches.</div>`
+      : list.map(s => `
+        <div class="glass" style="padding:1.6rem;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem;margin-bottom:0.5rem;">
+            <strong style="font-size:1.1rem;">${s.n}</strong>
+            <span style="color:#ffc850;font-size:0.85rem;letter-spacing:0.05em;">${s.evidence}</span>
+          </div>
+          <div style="display:flex;gap:0.8rem;flex-wrap:wrap;margin-bottom:0.8rem;">
+            <span class="tag">💊 ${s.dose}</span>
+            <span class="tag">⏰ ${s.timing}</span>
+          </div>
+          <div style="font-size:0.88rem;margin-bottom:0.5rem;"><strong style="color:#9aa6ff;">How:</strong> <span style="color:var(--muted);">${s.mech}</span></div>
+          <div style="font-size:0.82rem;color:var(--muted);font-style:italic;border-top:1px solid var(--border);padding-top:0.5rem;"><strong style="color:#ffc850;font-style:normal;">Side notes:</strong> ${s.sides}</div>
+        </div>
+      `).join('');
+  }
+  let supFilter = 'all';
+  document.getElementById('sup-search').addEventListener('input', e => renderSups(supFilter, e.target.value));
+  document.querySelectorAll('#sup-chips .chip').forEach(c => c.addEventListener('click', () => {
+    document.querySelectorAll('#sup-chips .chip').forEach(x => x.classList.remove('active'));
+    c.classList.add('active');
+    supFilter = c.dataset.cat;
+    renderSups(supFilter, document.getElementById('sup-search').value);
+  }));
+  renderSups();
+
+  // Tier stacks
+  const stacks = {
+    beginner: [
+      { name: 'Whey Protein', dose: '1 scoop / day', why: 'Cover protein gap easily.' },
+      { name: 'Creatine Mono', dose: '5g / day', why: 'Strength + size. No loading needed.' },
+      { name: 'Multivitamin', dose: '1 / day', why: 'Insurance against gaps.' }
+    ],
+    intermediate: [
+      { name: 'Whey Isolate', dose: '1–2 scoops / day', why: 'High-quality protein, low lactose.' },
+      { name: 'Creatine Mono', dose: '5g / day', why: 'Daily. Forever.' },
+      { name: 'Vitamin D3 + K2', dose: '3000 IU', why: 'Hormones, mood, bones.' },
+      { name: 'Omega-3', dose: '2g EPA+DHA', why: 'Inflammation, recovery.' },
+      { name: 'Caffeine', dose: '150–250mg pre-WO', why: 'Performance edge.' }
+    ],
+    advanced: [
+      { name: 'Whey Isolate + Casein', dose: '40g / 30g', why: 'Day vs night protein.' },
+      { name: 'Creatine + Beta-Alanine', dose: '5g / 3.2g', why: 'ATP + buffering.' },
+      { name: 'Citrulline Malate', dose: '8g pre-WO', why: 'Pump + endurance.' },
+      { name: 'Ashwagandha', dose: '600mg', why: 'Cortisol + recovery.' },
+      { name: 'Magnesium Glycinate', dose: '400mg', why: 'Sleep + muscle.' },
+      { name: 'L-Theanine', dose: '200mg', why: 'Stack with caffeine, kill jitters.' }
+    ]
+  };
+  function renderStack(tier) {
+    document.getElementById('stack-out').innerHTML = stacks[tier].map(s => `
+      <div class="glass" style="padding:1.4rem;">
+        <h4 style="margin:0 0 0.4rem;">${s.name}</h4>
+        <div style="font-size:0.85rem;color:#9aa6ff;letter-spacing:0.05em;">${s.dose}</div>
+        <p style="color:var(--muted);font-size:0.9rem;margin:0.5rem 0 0;">${s.why}</p>
+      </div>
+    `).join('');
+  }
+  document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    renderStack(t.dataset.tier);
+  }));
+  renderStack('beginner');
+
+  // ============ PERSONALIZED STACK ============
+  const profile = TGS.Profile.get();
+  const planMount = document.getElementById('plan-mount');
+
+  function renderPlanCTA() {
+    planMount.innerHTML = `
+      <div class="result-block">
+        <div style="color:var(--muted);font-size:0.9rem;margin-bottom:1rem;">${profile ? `Goal: <strong>${profile.goal}</strong> · Experience: <strong>${profile.experience}</strong>` : 'Add your <a href="../onboarding.html" style="color:#9aa6ff;">profile</a> for full personalization.'}</div>
+        <div class="locked-preview">
+          <div class="blur-bg" style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80');"></div>
+          <div class="blur-overlay"></div>
+          <div class="content">
+            <div class="lock-circle">🔒</div>
+            <h3 style="margin:0;font-family:'Bebas Neue';font-size:1.8rem;letter-spacing:0.02em;">Your Custom Stack Awaits</h3>
+            <p style="color:var(--muted);max-width:440px;margin:0.5rem auto 0;">Tailored to your goal, diet, budget, and caffeine tolerance.</p>
+            <div class="features-row">
+              <span class="tag">Custom Stack</span><span class="tag">Brand Picks</span><span class="tag">Monthly Cost</span><span class="tag">Cycling Plan</span>
+            </div>
+            <button class="btn btn-primary pulse" onclick="TGS.showSubscribeModal('supplements','Supplements',299)">
+              🔓 Unlock Your Personalized Plan — ₹299
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderProStack() {
+    const fd = new FormData(document.getElementById('plan-form'));
+    const diet = fd.get('diet') || 'omni';
+    const budget = fd.get('budget') || 'mid';
+    const caf = fd.get('caf') || 'yes';
+
+    const core = [
+      ['Whey Isolate', '30g post-WO', '₹2,400/kg', 'Optimum / Avvatar / MyProtein'],
+      ['Creatine Monohydrate', '5g daily', '₹400/250g', 'Optimum / MyProtein / OneScience'],
+      ['Vitamin D3 + K2', '3000 IU + 100 mcg', '₹500/3 mo', 'NOW Foods / Carbamide'],
+      ['Omega-3', '2g EPA+DHA', '₹800/mo', 'Carlson / Wellcore'],
+      ['Magnesium Glycinate', '400mg pre-bed', '₹600/mo', 'NOW / Setu'],
+    ];
+    if (diet === 'vegan') {
+      core[0] = ['Plant Protein Blend', '30g', '₹2,000/kg', 'OZiva / MyProtein vegan'];
+      core[3] = ['Algae Omega-3', '500mg', '₹1,200/mo', 'Nordic Naturals / Wellcore'];
+      core.push(['Vitamin B12', '500 mcg', '₹300/3 mo', 'NOW / HealthKart']);
+    }
+    if (caf === 'yes') core.push(['Caffeine + L-Theanine', '200mg + 200mg pre-WO', '₹500/mo', 'Bulk capsules']);
+    if (budget === 'high') {
+      core.push(['Ashwagandha (KSM-66)', '600mg PM', '₹600/mo', 'KAPIVA / Himalaya']);
+      core.push(['Citrulline Malate', '8g pre-WO', '₹700/mo', 'MyProtein']);
+    }
+
+    const total = budget === 'low' ? 1800 : budget === 'high' ? 5500 : 3400;
+
+    document.getElementById('stack-output').innerHTML = `
+      <div class="glass" style="padding:1.8rem;">
+        <table class="table">
+          <thead><tr><th>Supplement</th><th>Dose</th><th class="hide-mobile">Cost</th><th class="hide-mobile">Brand Picks</th></tr></thead>
+          <tbody>${core.map(c => `<tr><td><strong>${c[0]}</strong></td><td>${c[1]}</td><td class="hide-mobile" style="color:#5dffaa;">${c[2]}</td><td class="hide-mobile" style="color:var(--muted);font-size:0.88rem;">${c[3]}</td></tr>`).join('')}</tbody>
+        </table>
+        <div style="margin-top:1rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);padding-top:1rem;">
+          <span style="color:var(--muted);">Estimated monthly cost</span>
+          <strong style="font-family:'Bebas Neue';font-size:1.6rem;color:#5dffaa;">~₹${total}</strong>
+        </div>
+      </div>
+      <div class="glass" style="padding:1.4rem;margin-top:1rem;">
+        <strong>Cycling rules:</strong> Caffeine 5 days/wk · pre-workouts 4 days/wk max · take 1 week off ashwagandha every 8 weeks.
+      </div>
+    `;
+  }
+
+  if (TGS.Subs.has('supplements')) {
+    planMount.innerHTML = `<div class="glass" style="padding:1.4rem;display:flex;justify-content:space-between;align-items:center;"><div><strong>✓ Supplements Pro active</strong><div style="color:var(--muted);font-size:0.9rem;">Your stack is below.</div></div><span class="badge badge-pro">PRO</span></div>`;
+    document.getElementById('pro-content').style.display = 'block';
+    renderProStack();
+    document.getElementById('plan-form').addEventListener('change', renderProStack);
+  } else {
+    renderPlanCTA();
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nutrition · TheGrindSociety</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cdefs%3E%3ClinearGradient id=%27a%27 x1=%270%27 y1=%270%27 x2=%2764%27 y2=%2764%27%3E%3Cstop offset=%270%27 stop-color=%27%232F2FE4%27/%3E%3Cstop offset=%271%27 stop-color=%27%23162E93%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d=%27M32 3 L56 13 L56 36 Q56 50 32 61 Q8 50 8 36 L8 13 Z%27 fill=%27url(%23a)%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27sans-serif%27 font-size=%2728%27 fill=%27white%27 font-weight=%27bold%27%3EG%3C/text%3E%3C/svg%3E">
+</head>
+<body data-nav="nutrition">
+<div class="bg-aurora"></div>
+<div id="nav-slot"></div>
+
+<div class="layout">
+  <div id="sidebar-slot"></div>
+
+  <main>
+    <!-- HERO BANNER -->
+    <section class="section-hero" data-fade>
+      <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1600&q=80');"></div>
+      <div class="inner">
+        <div>
+          <div class="pillar-tag">🥗 Pillar 1 of 7</div>
+          <h1>Nutrition</h1>
+          <p class="lead">Food is the most powerful drug you take 3–5 times a day. Master your macros, master your body.</p>
+        </div>
+        <div id="hero-quote-slot"></div>
+      </div>
+    </section>
+
+    <!-- SMART SEARCH -->
+    <div data-search-mount="nutrition" data-fade></div>
+
+    <!-- Diet styles -->
+    <div data-fade style="margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.5rem;">Diet Strategies</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Pick the framework that fits your goal & life.</p>
+      <div class="grid grid-3">
+        <div class="glass" style="padding:1.5rem;"><h4>Bulking</h4><p style="color:var(--muted);font-size:0.92rem;margin:0;">+250–500 kcal surplus. Maximize muscle growth without excessive fat gain.</p></div>
+        <div class="glass" style="padding:1.5rem;"><h4>Cutting</h4><p style="color:var(--muted);font-size:0.92rem;margin:0;">−400–600 kcal deficit. Lose fat, retain muscle. Increase protein.</p></div>
+        <div class="glass" style="padding:1.5rem;"><h4>Maintenance</h4><p style="color:var(--muted);font-size:0.92rem;margin:0;">Hold the line. Recomp at TDEE — slow but sustainable changes.</p></div>
+        <div class="glass" style="padding:1.5rem;"><h4>Intermittent Fasting</h4><p style="color:var(--muted);font-size:0.92rem;margin:0;">16:8 / 18:6 protocols. Insulin sensitivity boost, simpler eating.</p></div>
+        <div class="glass" style="padding:1.5rem;"><h4>Keto / Low Carb</h4><p style="color:var(--muted);font-size:0.92rem;margin:0;">&lt;50g carbs/day. Fat-adapted energy. 70% fat / 25% protein / 5% carbs.</p></div>
+        <div class="glass" style="padding:1.5rem;"><h4>Vegan / Plant-based</h4><p style="color:var(--muted);font-size:0.92rem;margin:0;">100% plants. Combine sources for full amino profile. B12 + creatine non-negotiable.</p></div>
+      </div>
+    </div>
+
+    <!-- ============ FOOD DATABASE ============ -->
+    <div data-fade style="margin-top:4rem;">
+      <h2 class="display" style="font-size:2.2rem;margin:0 0 0.3rem;">📚 Food Database</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Per-100g macros for every staple. Filter by category. Search by name.</p>
+
+      <div class="search-bar">
+        <span style="font-size:1.1rem;">🔍</span>
+        <input id="food-search" placeholder="Search foods (e.g. paneer, salmon, oats)…" />
+      </div>
+      <div class="chips" id="food-chips">
+        <div class="chip active" data-cat="all">All</div>
+        <div class="chip" data-cat="protein">High Protein</div>
+        <div class="chip" data-cat="meat">Meat</div>
+        <div class="chip" data-cat="fish">Fish</div>
+        <div class="chip" data-cat="dairy">Dairy</div>
+        <div class="chip" data-cat="veg">Vegetarian</div>
+        <div class="chip" data-cat="carbs">Carbs</div>
+        <div class="chip" data-cat="fats">Healthy Fats</div>
+      </div>
+
+      <div class="grid grid-4" id="food-grid"></div>
+    </div>
+
+    <!-- VISUAL KNOWLEDGE CARDS -->
+    <div data-fade style="margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.5rem;">📸 The Plate Method</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">A visual cheat-code: assemble your meal by zones, not by counting.</p>
+      <div class="grid grid-3">
+        <div class="img-card" data-fade>
+          <div class="img-wrap">
+            <div class="img-tag">PROTEIN ZONE</div>
+            <div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1559054663-e9d62fce8b94?w=800&q=80');"></div>
+          </div>
+          <div class="body">
+            <h4>1/4 Plate · Lean Protein</h4>
+            <p>Palm-sized portion (~150–200g cooked). Chicken, fish, paneer, tofu, eggs.</p>
+          </div>
+        </div>
+        <div class="img-card" data-fade>
+          <div class="img-wrap">
+            <div class="img-tag">CARB ZONE</div>
+            <div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80');"></div>
+          </div>
+          <div class="body">
+            <h4>1/4 Plate · Smart Carbs</h4>
+            <p>Cupped-hand serving. Rice, oats, sweet potato, quinoa, whole-wheat roti.</p>
+          </div>
+        </div>
+        <div class="img-card" data-fade>
+          <div class="img-wrap">
+            <div class="img-tag">FIBRE ZONE</div>
+            <div class="img-bg" style="background-image:url('https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&q=80');"></div>
+          </div>
+          <div class="body">
+            <h4>1/2 Plate · Vegetables</h4>
+            <p>Two fistfuls minimum. Leafy greens, cruciferous, colored peppers. Volume hack.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUOTE BREAK -->
+    <div id="quote-mid"></div>
+
+    <!-- Top 10 protein leaderboard -->
+    <div data-fade class="glass" style="padding:2rem;margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.4rem;">🥇 Top Protein Sources</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Ranked by grams of protein per 100g (cooked).</p>
+      <table class="table">
+        <thead><tr><th>#</th><th>Food</th><th class="hide-mobile">Type</th><th>Protein</th><th class="hide-mobile">kcal</th><th>Per 100g</th></tr></thead>
+        <tbody>
+          <tr><td><strong style="font-family:'Bebas Neue';font-size:1.3rem;color:#ffc850;">1</strong></td><td><strong>Whey Isolate</strong></td><td class="hide-mobile"><span class="tag tag-dairy">Powder</span></td><td><strong style="color:#5dffaa;">90 g</strong></td><td class="hide-mobile">370</td><td style="color:var(--muted);font-size:0.85rem;">P 90 · C 1 · F 1</td></tr>
+          <tr><td><strong style="font-family:'Bebas Neue';font-size:1.3rem;color:#9aa6ff;">2</strong></td><td><strong>Chicken Breast (cooked)</strong></td><td class="hide-mobile"><span class="tag tag-meat">Meat</span></td><td><strong style="color:#5dffaa;">31 g</strong></td><td class="hide-mobile">165</td><td style="color:var(--muted);font-size:0.85rem;">P 31 · C 0 · F 3.6</td></tr>
+          <tr><td><strong style="font-family:'Bebas Neue';font-size:1.3rem;color:#ff7a90;">3</strong></td><td><strong>Tuna (canned in water)</strong></td><td class="hide-mobile"><span class="tag tag-fish">Fish</span></td><td><strong style="color:#5dffaa;">29 g</strong></td><td class="hide-mobile">132</td><td style="color:var(--muted);font-size:0.85rem;">P 29 · C 0 · F 1.3</td></tr>
+          <tr><td><strong style="font-family:'Bebas Neue';font-size:1.3rem;">4</strong></td><td>Lean Beef (sirloin)</td><td class="hide-mobile"><span class="tag tag-meat">Meat</span></td><td><strong style="color:#5dffaa;">27 g</strong></td><td class="hide-mobile">183</td><td style="color:var(--muted);font-size:0.85rem;">P 27 · C 0 · F 8</td></tr>
+          <tr><td><strong style="font-family:'Bebas Neue';font-size:1.3rem;">5</strong></td><td>Salmon (Atlantic)</td><td class="hide-mobile"><span class="tag tag-fish">Fish</span></td><td><strong style="color:#5dffaa;">25 g</strong></td><td class="hide-mobile">208</td><td style="color:var(--muted);font-size:0.85rem;">P 25 · C 0 · F 13</td></tr>
+          <tr><td><strong style="font-family:'Bebas Neue';font-size:1.3rem;">6</strong></td><td>Paneer</td><td class="hide-mobile"><span class="tag tag-dairy">Dairy</span></td><td><strong style="color:#5dffaa;">18 g</strong></td><td class="hide-mobile">265</td><td style="color:var(--muted);font-size:0.85rem;">P 18 · C 1.2 · F 21</td></tr>
+          <tr><td><strong style="font-family:'Bebas Neue';font-size:1.3rem;">7</strong></td><td>Greek Yogurt (0% fat)</td><td class="hide-mobile"><span class="tag tag-dairy">Dairy</span></td><td><strong style="color:#5dffaa;">10 g</strong></td><td class="hide-mobile">59</td><td style="color:var(--muted);font-size:0.85rem;">P 10 · C 3.6 · F 0.4</td></tr>
+          <tr><td><strong style="font-family:'Bebas Neue';font-size:1.3rem;">8</strong></td><td>Whole Eggs</td><td class="hide-mobile"><span class="tag tag-veg">Veg</span></td><td><strong style="color:#5dffaa;">13 g</strong></td><td class="hide-mobile">155</td><td style="color:var(--muted);font-size:0.85rem;">P 13 · C 1.1 · F 11</td></tr>
+          <tr><td><strong style="font-family:'Bebas Neue';font-size:1.3rem;">9</strong></td><td>Tofu (firm)</td><td class="hide-mobile"><span class="tag tag-veg">Veg</span></td><td><strong style="color:#5dffaa;">17 g</strong></td><td class="hide-mobile">144</td><td style="color:var(--muted);font-size:0.85rem;">P 17 · C 2.8 · F 8.7</td></tr>
+          <tr><td><strong style="font-family:'Bebas Neue';font-size:1.3rem;">10</strong></td><td>Lentils (cooked)</td><td class="hide-mobile"><span class="tag tag-veg">Veg</span></td><td><strong style="color:#5dffaa;">9 g</strong></td><td class="hide-mobile">116</td><td style="color:var(--muted);font-size:0.85rem;">P 9 · C 20 · F 0.4</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Calorie calculator -->
+    <div data-fade class="glass" style="padding:2rem;margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.4rem;">🧮 Calorie & Macro Calculator</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Mifflin-St Jeor formula. Adjusts for activity & goal.</p>
+      <form id="cal-form" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;">
+        <div class="form-group"><label>Age</label><input type="number" name="age" value="25" min="14" max="90" required /></div>
+        <div class="form-group"><label>Sex</label><select name="sex"><option value="male">Male</option><option value="female">Female</option></select></div>
+        <div class="form-group"><label>Weight (kg)</label><input type="number" name="weight" value="70" step="0.1" required /></div>
+        <div class="form-group"><label>Height (cm)</label><input type="number" name="height" value="175" required /></div>
+        <div class="form-group"><label>Activity</label>
+          <select name="activity">
+            <option value="1.2">Sedentary</option><option value="1.375">Light</option>
+            <option value="1.55" selected>Moderate</option><option value="1.725">Active</option><option value="1.9">Athlete</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Goal</label>
+          <select name="goal"><option value="0">Maintain</option><option value="-500">Cut</option><option value="350">Bulk</option></select>
+        </div>
+      </form>
+      <div id="cal-result" class="grid grid-3" style="margin-top:1rem;"></div>
+    </div>
+
+    <!-- Body type recommendations -->
+    <div data-fade style="margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 0.5rem;">Body Type Diet</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;">Tailor your macro split to your somatotype.</p>
+      <div class="grid grid-3">
+        <div class="glass" style="padding:1.6rem;">
+          <div style="font-size:1.6rem;margin-bottom:0.4rem;">⚡</div>
+          <h4>Ectomorph</h4>
+          <p style="color:var(--muted);font-size:0.9rem;">Lean frame, fast metabolism, hard gainer. Eat big, lift heavy, prioritize carbs.</p>
+          <div class="macro-bar"><span class="p" style="width:25%;"></span><span class="c" style="width:55%;"></span><span class="f" style="width:20%;"></span></div>
+          <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-top:0.4rem;color:var(--muted);"><span>P 25%</span><span>C 55%</span><span>F 20%</span></div>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <div style="font-size:1.6rem;margin-bottom:0.4rem;">🏛️</div>
+          <h4>Mesomorph</h4>
+          <p style="color:var(--muted);font-size:0.9rem;">Athletic, builds muscle easily, V-taper. Balanced macros work best.</p>
+          <div class="macro-bar"><span class="p" style="width:35%;"></span><span class="c" style="width:40%;"></span><span class="f" style="width:25%;"></span></div>
+          <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-top:0.4rem;color:var(--muted);"><span>P 35%</span><span>C 40%</span><span>F 25%</span></div>
+        </div>
+        <div class="glass" style="padding:1.6rem;">
+          <div style="font-size:1.6rem;margin-bottom:0.4rem;">🛡️</div>
+          <h4>Endomorph</h4>
+          <p style="color:var(--muted);font-size:0.9rem;">Solid, holds fat, slower metabolism. Lower carbs, higher protein and healthy fats.</p>
+          <div class="macro-bar"><span class="p" style="width:40%;"></span><span class="c" style="width:30%;"></span><span class="f" style="width:30%;"></span></div>
+          <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-top:0.4rem;color:var(--muted);"><span>P 40%</span><span>C 30%</span><span>F 30%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ PERSONALIZED PLAN ============ -->
+    <div data-fade class="personalize-panel" style="margin-top:3rem;">
+      <span class="ribbon">₹299</span>
+      <div style="font-size:0.78rem;color:#9aa6ff;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;">⚡ Personalized Plan</div>
+      <h2 class="display" style="font-size:2rem;margin:0.4rem 0 0.5rem;">Build My Custom Diet</h2>
+      <p style="color:var(--muted);margin:0 0 1.5rem;max-width:600px;">Tell us your body and preferences. We'll generate your full meal plan, grocery list, and macro split — tailored to your goal.</p>
+
+      <form id="plan-form" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+        <div class="form-group"><label>Diet Preference</label>
+          <select name="diet">
+            <option value="omni">Non-vegetarian</option>
+            <option value="veg">Vegetarian</option>
+            <option value="vegan">Vegan</option>
+            <option value="eggetarian">Eggetarian</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Meals / day</label>
+          <select name="meals"><option>3</option><option selected>4</option><option>5</option><option>6</option></select>
+        </div>
+        <div class="form-group"><label>Cuisine</label>
+          <select name="cuisine">
+            <option value="indian">Indian</option><option value="continental">Continental</option><option value="mediterranean">Mediterranean</option><option value="mixed" selected>Mixed</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Allergies</label>
+          <input type="text" name="allergies" placeholder="e.g. peanuts, lactose" />
+        </div>
+      </form>
+
+      <div id="plan-mount" style="margin-top:1.4rem;"></div>
+    </div>
+
+    <!-- Pro content (rendered if subscribed) -->
+    <div id="pro-content" style="display:none;margin-top:1rem;">
+      <h3 class="display" style="font-size:1.6rem;margin:0 0 1rem;">Your Custom Meal Plan</h3>
+      <div id="meal-plan-output"></div>
+    </div>
+
+    <!-- Steps -->
+    <div data-fade style="margin-top:3rem;">
+      <h2 class="display" style="font-size:1.8rem;margin:0 0 1rem;">The 5 Habits That Outweigh Everything Else</h2>
+      <ol class="steps">
+        <li><strong>Track everything for 7 days.</strong> Awareness is the first lever. Most people undercount by 30%.</li>
+        <li><strong>Hit your protein floor.</strong> 1.6–2.2g per kg bodyweight. Spread across 3–5 meals.</li>
+        <li><strong>Pre-log meals.</strong> Decide ahead — willpower fails when hungry.</li>
+        <li><strong>Whole foods 80% of the time.</strong> 80/20 rule. Restrictive diets fail; flexible ones win.</li>
+        <li><strong>Review weekly.</strong> Adjust based on the scale + mirror + lifts. Small tweaks, not crashes.</li>
+      </ol>
+    </div>
+  </main>
+</div>
+
+<div id="footer-slot"></div>
+<script src="../js/app.js"></script>
+<script>
+  document.getElementById('sidebar-slot').innerHTML = TGS.renderModuleSidebar('nutrition');
+
+  // Hero quote + mid-section quote
+  document.getElementById('hero-quote-slot').innerHTML = TGS.Quotes.render(TGS.Quotes.forSection('nutrition'));
+  document.getElementById('quote-mid').innerHTML = TGS.Quotes.renderBreak({ t: 'You can\'t out-train a bad diet.', a: 'Mark Rippetoe' });
+
+  // ============ FOOD DATABASE ============
+  const FOODS = [
+    // Meat
+    { n: 'Chicken Breast', cat: ['protein','meat'], tag: 'meat', kcal: 165, p: 31, c: 0, f: 3.6, serv: 'per 100g cooked' },
+    { n: 'Lean Beef Sirloin', cat: ['protein','meat'], tag: 'meat', kcal: 183, p: 27, c: 0, f: 8, serv: 'per 100g cooked' },
+    { n: 'Turkey Breast', cat: ['protein','meat'], tag: 'meat', kcal: 135, p: 30, c: 0, f: 1, serv: 'per 100g cooked' },
+    { n: 'Pork Tenderloin', cat: ['protein','meat'], tag: 'meat', kcal: 143, p: 26, c: 0, f: 3.5, serv: 'per 100g cooked' },
+    { n: 'Lamb Loin', cat: ['protein','meat'], tag: 'meat', kcal: 263, p: 25, c: 0, f: 18, serv: 'per 100g cooked' },
+    // Fish
+    { n: 'Salmon (Atlantic)', cat: ['protein','fish'], tag: 'fish', kcal: 208, p: 25, c: 0, f: 13, serv: 'per 100g cooked' },
+    { n: 'Tuna (canned, water)', cat: ['protein','fish'], tag: 'fish', kcal: 132, p: 29, c: 0, f: 1.3, serv: 'per 100g' },
+    { n: 'Cod', cat: ['protein','fish'], tag: 'fish', kcal: 105, p: 23, c: 0, f: 0.9, serv: 'per 100g cooked' },
+    { n: 'Shrimp', cat: ['protein','fish'], tag: 'fish', kcal: 99, p: 24, c: 0.2, f: 0.3, serv: 'per 100g cooked' },
+    { n: 'Mackerel', cat: ['protein','fish'], tag: 'fish', kcal: 305, p: 19, c: 0, f: 25, serv: 'per 100g cooked' },
+    // Dairy
+    { n: 'Whey Isolate', cat: ['protein','dairy'], tag: 'dairy', kcal: 370, p: 90, c: 1, f: 1, serv: 'per 100g powder' },
+    { n: 'Greek Yogurt (0%)', cat: ['protein','dairy'], tag: 'dairy', kcal: 59, p: 10, c: 3.6, f: 0.4, serv: 'per 100g' },
+    { n: 'Cottage Cheese', cat: ['protein','dairy'], tag: 'dairy', kcal: 98, p: 11, c: 3.4, f: 4.3, serv: 'per 100g' },
+    { n: 'Paneer', cat: ['protein','dairy','veg'], tag: 'dairy', kcal: 265, p: 18, c: 1.2, f: 21, serv: 'per 100g' },
+    { n: 'Skyr', cat: ['protein','dairy'], tag: 'dairy', kcal: 63, p: 11, c: 4, f: 0.2, serv: 'per 100g' },
+    // Veg / Plant protein
+    { n: 'Whole Eggs', cat: ['protein','veg'], tag: 'veg', kcal: 155, p: 13, c: 1.1, f: 11, serv: 'per 100g (~2 eggs)' },
+    { n: 'Tofu (firm)', cat: ['protein','veg'], tag: 'veg', kcal: 144, p: 17, c: 2.8, f: 8.7, serv: 'per 100g' },
+    { n: 'Tempeh', cat: ['protein','veg'], tag: 'veg', kcal: 192, p: 20, c: 7.6, f: 11, serv: 'per 100g' },
+    { n: 'Lentils (cooked)', cat: ['protein','veg'], tag: 'veg', kcal: 116, p: 9, c: 20, f: 0.4, serv: 'per 100g cooked' },
+    { n: 'Chickpeas (cooked)', cat: ['protein','veg'], tag: 'veg', kcal: 164, p: 9, c: 27, f: 2.6, serv: 'per 100g cooked' },
+    { n: 'Black Beans', cat: ['protein','veg'], tag: 'veg', kcal: 132, p: 9, c: 24, f: 0.5, serv: 'per 100g cooked' },
+    { n: 'Edamame', cat: ['protein','veg'], tag: 'veg', kcal: 122, p: 11, c: 10, f: 5, serv: 'per 100g cooked' },
+    { n: 'Seitan', cat: ['protein','veg'], tag: 'veg', kcal: 370, p: 75, c: 14, f: 1.9, serv: 'per 100g' },
+    // Carbs
+    { n: 'Brown Rice (cooked)', cat: ['carbs','veg'], tag: 'veg', kcal: 112, p: 2.6, c: 23, f: 0.9, serv: 'per 100g cooked' },
+    { n: 'Rolled Oats', cat: ['carbs','veg'], tag: 'veg', kcal: 379, p: 13, c: 67, f: 7, serv: 'per 100g dry' },
+    { n: 'Sweet Potato', cat: ['carbs','veg'], tag: 'veg', kcal: 86, p: 1.6, c: 20, f: 0.1, serv: 'per 100g' },
+    { n: 'White Potato', cat: ['carbs','veg'], tag: 'veg', kcal: 77, p: 2, c: 17, f: 0.1, serv: 'per 100g' },
+    { n: 'Quinoa (cooked)', cat: ['carbs','veg'], tag: 'veg', kcal: 120, p: 4.4, c: 21, f: 1.9, serv: 'per 100g cooked' },
+    { n: 'Whole Wheat Roti', cat: ['carbs','veg'], tag: 'veg', kcal: 297, p: 11, c: 56, f: 4, serv: 'per 100g' },
+    { n: 'Banana', cat: ['carbs','veg'], tag: 'veg', kcal: 89, p: 1.1, c: 23, f: 0.3, serv: 'per 100g' },
+    { n: 'Apple', cat: ['carbs','veg'], tag: 'veg', kcal: 52, p: 0.3, c: 14, f: 0.2, serv: 'per 100g' },
+    { n: 'Berries (mixed)', cat: ['carbs','veg'], tag: 'veg', kcal: 57, p: 0.7, c: 14, f: 0.3, serv: 'per 100g' },
+    // Fats
+    { n: 'Avocado', cat: ['fats','veg'], tag: 'veg', kcal: 160, p: 2, c: 9, f: 15, serv: 'per 100g' },
+    { n: 'Almonds', cat: ['fats','veg'], tag: 'veg', kcal: 579, p: 21, c: 22, f: 50, serv: 'per 100g' },
+    { n: 'Walnuts', cat: ['fats','veg'], tag: 'veg', kcal: 654, p: 15, c: 14, f: 65, serv: 'per 100g' },
+    { n: 'Peanut Butter', cat: ['fats','veg'], tag: 'veg', kcal: 588, p: 25, c: 20, f: 50, serv: 'per 100g' },
+    { n: 'Olive Oil', cat: ['fats','veg'], tag: 'veg', kcal: 884, p: 0, c: 0, f: 100, serv: 'per 100g' },
+    { n: 'Chia Seeds', cat: ['fats','veg'], tag: 'veg', kcal: 486, p: 17, c: 42, f: 31, serv: 'per 100g' },
+    { n: 'Coconut (dried)', cat: ['fats','veg'], tag: 'veg', kcal: 660, p: 7, c: 24, f: 65, serv: 'per 100g' },
+    { n: 'Dark Chocolate (85%)', cat: ['fats','veg'], tag: 'veg', kcal: 598, p: 7.8, c: 46, f: 43, serv: 'per 100g' },
+  ];
+  const TAG_LABEL = { meat:'Meat', fish:'Fish', dairy:'Dairy', veg:'Veg' };
+  function renderFoods(filter = 'all', search = '') {
+    const q = search.toLowerCase().trim();
+    const list = FOODS.filter(f =>
+      (filter === 'all' || f.cat.includes(filter)) &&
+      (!q || f.n.toLowerCase().includes(q))
+    );
+    document.getElementById('food-grid').innerHTML = list.length === 0
+      ? `<div class="glass" style="padding:1.4rem;color:var(--muted);grid-column:1/-1;text-align:center;">No matches.</div>`
+      : list.map(f => `
+        <div class="glass db-card">
+          <div class="name"><strong>${f.n}</strong><span class="tag tag-${f.tag}">${TAG_LABEL[f.tag] || ''}</span></div>
+          <div class="serving">${f.serv}</div>
+          <div class="kcal">${f.kcal} <small>kcal</small></div>
+          <div class="macros">
+            <div class="macro-pill protein"><div class="lab">Protein</div><div class="val">${f.p}g</div></div>
+            <div class="macro-pill carbs"><div class="lab">Carbs</div><div class="val">${f.c}g</div></div>
+            <div class="macro-pill fats"><div class="lab">Fats</div><div class="val">${f.f}g</div></div>
+          </div>
+        </div>
+      `).join('');
+  }
+  let foodFilter = 'all';
+  document.getElementById('food-search').addEventListener('input', e => renderFoods(foodFilter, e.target.value));
+  document.querySelectorAll('#food-chips .chip').forEach(c => c.addEventListener('click', () => {
+    document.querySelectorAll('#food-chips .chip').forEach(x => x.classList.remove('active'));
+    c.classList.add('active');
+    foodFilter = c.dataset.cat;
+    renderFoods(foodFilter, document.getElementById('food-search').value);
+  }));
+  renderFoods();
+
+  // ============ CALORIE CALC ============
+  function calc() {
+    const fd = new FormData(document.getElementById('cal-form'));
+    const age = +fd.get('age'), w = +fd.get('weight'), h = +fd.get('height');
+    const sex = fd.get('sex'), act = +fd.get('activity'), goal = +fd.get('goal');
+    if (!age || !w || !h) return;
+    const s = sex === 'male' ? 5 : -161;
+    const bmr = 10 * w + 6.25 * h - 5 * age + s;
+    const tdee = Math.round(bmr * act);
+    const target = tdee + goal;
+    const protein = Math.round(w * 2);
+    const fats = Math.round((target * 0.25) / 9);
+    const carbs = Math.round((target - (protein * 4 + fats * 9)) / 4);
+    document.getElementById('cal-result').innerHTML = `
+      <div class="glass stat-tile"><div class="label">Calories / day</div><div class="value">${target}</div><div class="delta up">TDEE: ${tdee}</div></div>
+      <div class="glass stat-tile"><div class="label">Protein</div><div class="value">${protein}g</div><div class="delta">${Math.round(protein*4)} kcal</div></div>
+      <div class="glass stat-tile"><div class="label">Carbs / Fats</div><div class="value">${carbs}/${fats}g</div><div class="delta">${Math.round(carbs*4 + fats*9)} kcal</div></div>
+    `;
+  }
+  document.getElementById('cal-form').addEventListener('input', calc);
+  calc();
+
+  // ============ PERSONALIZED PLAN ============
+  const profile = TGS.Profile.get();
+  const planMount = document.getElementById('plan-mount');
+
+  function renderPlanCTA() {
+    const macros = profile ? TGS.Profile.macroSplit(profile) : { calories: 2200, protein: 140, carbs: 220, fats: 60 };
+    const summary = profile
+      ? `Goal: <strong>${{'fat-loss':'Fat Loss','muscle-gain':'Muscle Gain','maintenance':'Maintenance','strength':'Strength'}[profile.goal]}</strong> · Body type: <strong>${TGS.Profile.bodyType(profile)}</strong> · Target: <strong>${macros.calories} kcal/day</strong>`
+      : `Complete your <a href="../onboarding.html" style="color:#9aa6ff;">profile</a> for full personalization (showing sample).`;
+    planMount.innerHTML = `
+      <div class="result-block">
+        <div style="color:var(--muted);font-size:0.9rem;margin-bottom:0.6rem;">${summary}</div>
+        <div class="grid grid-4" style="gap:0.6rem;margin-bottom:1.2rem;">
+          <div class="glass stat-tile" style="padding:1rem;"><div class="label">Calories</div><div class="value" style="font-size:1.5rem;">${macros.calories}</div></div>
+          <div class="glass stat-tile" style="padding:1rem;"><div class="label">Protein</div><div class="value" style="font-size:1.5rem;color:#5dffaa;">${macros.protein}g</div></div>
+          <div class="glass stat-tile" style="padding:1rem;"><div class="label">Carbs</div><div class="value" style="font-size:1.5rem;color:#9aa6ff;">${macros.carbs}g</div></div>
+          <div class="glass stat-tile" style="padding:1rem;"><div class="label">Fats</div><div class="value" style="font-size:1.5rem;color:#ffc850;">${macros.fats}g</div></div>
+        </div>
+        <div class="locked-preview">
+          <div class="blur-bg" style="background-image:url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1200&q=80');"></div>
+          <div class="blur-overlay"></div>
+          <div class="content">
+            <div class="lock-circle">🔒</div>
+            <h3 style="margin:0;font-family:'Bebas Neue';font-size:1.8rem;letter-spacing:0.02em;">Your 7-Day Meal Plan Awaits</h3>
+            <p style="color:var(--muted);max-width:440px;margin:0.5rem auto 0;">Tailored to your macros, body, and dietary preferences.</p>
+            <div class="features-row">
+              <span class="tag">7-Day Meal Plan</span><span class="tag">Grocery List</span><span class="tag">Prep Schedule</span><span class="tag">Eat-Out Cheats</span>
+            </div>
+            <button class="btn btn-primary pulse" onclick="TGS.showSubscribeModal('nutrition','Nutrition',299)">
+              🔓 Unlock Your Personalized Plan — ₹299
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderProMealPlan() {
+    const fd = new FormData(document.getElementById('plan-form'));
+    const diet = fd.get('diet') || 'omni';
+    const macros = profile ? TGS.Profile.macroSplit(profile) : { calories: 2200, protein: 140, carbs: 220, fats: 60 };
+    const meals = generateMeals(diet, macros);
+    document.getElementById('meal-plan-output').innerHTML = `
+      <div class="grid grid-2">
+        <div class="glass" style="padding:1.8rem;">
+          <h4 style="margin:0 0 1rem;">Today's Plan · ${macros.calories} kcal</h4>
+          <ul class="checklist">
+            ${meals.map(m => `<li><span class="box"></span><span><strong>${m.t}</strong> · ${m.dish} <span style="color:var(--muted);font-size:0.85rem;">(${m.kcal} kcal · P${m.p} C${m.c} F${m.f})</span></span></li>`).join('')}
+          </ul>
+          <div style="margin-top:1rem;color:var(--muted);font-size:0.85rem;">
+            Total: ${meals.reduce((a,m)=>a+m.kcal,0)} kcal · P ${meals.reduce((a,m)=>a+m.p,0)}g · C ${meals.reduce((a,m)=>a+m.c,0)}g · F ${meals.reduce((a,m)=>a+m.f,0)}g
+          </div>
+        </div>
+        <div class="glass" style="padding:1.8rem;">
+          <h4 style="margin:0 0 1rem;">Weekly Grocery List</h4>
+          <ul class="checklist">
+            ${groceryList(diet).map(g => `<li><span class="box"></span><span>${g}</span></li>`).join('')}
+          </ul>
+        </div>
+      </div>
+    `;
+  }
+
+  function generateMeals(diet, m) {
+    const sets = {
+      omni: [
+        { t: 'Breakfast', dish: 'Oats + whey + banana + almonds', kcal: 520, p: 35, c: 70, f: 12 },
+        { t: 'Lunch', dish: 'Chicken breast 200g + rice 150g + salad', kcal: 640, p: 55, c: 70, f: 12 },
+        { t: 'Pre-WO', dish: 'Apple + black coffee', kcal: 100, p: 1, c: 25, f: 0 },
+        { t: 'Dinner', dish: 'Salmon 180g + sweet potato + greens', kcal: 600, p: 38, c: 45, f: 24 },
+        { t: 'Snack', dish: 'Greek yogurt + berries', kcal: 200, p: 18, c: 22, f: 4 },
+      ],
+      veg: [
+        { t: 'Breakfast', dish: 'Oats + whey + banana + peanut butter', kcal: 540, p: 32, c: 68, f: 16 },
+        { t: 'Lunch', dish: 'Paneer 150g + roti 2 + dal + salad', kcal: 680, p: 42, c: 70, f: 22 },
+        { t: 'Pre-WO', dish: 'Apple + black coffee', kcal: 100, p: 1, c: 25, f: 0 },
+        { t: 'Dinner', dish: 'Tofu 200g + quinoa + roasted veg', kcal: 580, p: 36, c: 55, f: 18 },
+        { t: 'Snack', dish: 'Greek yogurt + berries + chia', kcal: 220, p: 19, c: 22, f: 6 },
+      ],
+      vegan: [
+        { t: 'Breakfast', dish: 'Oats + soy milk + banana + chia', kcal: 480, p: 22, c: 72, f: 12 },
+        { t: 'Lunch', dish: 'Tempeh 150g + brown rice + lentil dal', kcal: 660, p: 38, c: 80, f: 14 },
+        { t: 'Pre-WO', dish: 'Date + black coffee', kcal: 90, p: 1, c: 22, f: 0 },
+        { t: 'Dinner', dish: 'Tofu 200g + quinoa + roasted veg + olive oil', kcal: 600, p: 32, c: 50, f: 22 },
+        { t: 'Snack', dish: 'Plant protein shake + almonds', kcal: 280, p: 28, c: 14, f: 12 },
+      ],
+      eggetarian: [
+        { t: 'Breakfast', dish: '4 whole eggs + oats + banana', kcal: 540, p: 34, c: 60, f: 18 },
+        { t: 'Lunch', dish: 'Paneer 150g + roti 2 + dal + salad', kcal: 680, p: 42, c: 70, f: 22 },
+        { t: 'Pre-WO', dish: 'Apple + black coffee', kcal: 100, p: 1, c: 25, f: 0 },
+        { t: 'Dinner', dish: 'Egg bhurji (5 eggs) + quinoa + greens', kcal: 580, p: 38, c: 50, f: 22 },
+        { t: 'Snack', dish: 'Greek yogurt + berries', kcal: 200, p: 18, c: 22, f: 4 },
+      ]
+    };
+    return sets[diet] || sets.omni;
+  }
+
+  function groceryList(diet) {
+    const common = ['Rolled oats — 1 kg', 'Whey protein — 1 tub', 'Bananas — 7', 'Apples — 7', 'Greek yogurt — 1 kg', 'Mixed berries — 500g', 'Spinach + greens — 500g', 'Sweet potato — 1 kg', 'Brown rice — 1 kg', 'Olive oil', 'Almonds — 200g'];
+    const extras = {
+      omni: ['Chicken breast — 1.4 kg', 'Salmon — 700 g', 'Eggs — 1 dozen'],
+      veg: ['Paneer — 600 g', 'Tofu — 600 g', 'Quinoa — 500 g', 'Yellow dal — 500g'],
+      vegan: ['Tofu — 800 g', 'Tempeh — 400 g', 'Lentils — 500g', 'Soy/almond milk', 'Plant protein — 1 tub'],
+      eggetarian: ['Eggs — 3 dozen', 'Paneer — 600 g', 'Quinoa — 500 g']
+    };
+    return [...(extras[diet] || extras.omni), ...common];
+  }
+
+  if (TGS.Subs.has('nutrition')) {
+    planMount.innerHTML = `<div class="glass" style="padding:1.4rem;display:flex;justify-content:space-between;align-items:center;"><div><strong>✓ Nutrition Pro active</strong><div style="color:var(--muted);font-size:0.9rem;">Your custom plan is below.</div></div><span class="badge badge-pro">PRO</span></div>`;
+    document.getElementById('pro-content').style.display = 'block';
+    renderProMealPlan();
+    document.getElementById('plan-form').addEventListener('change', renderProMealPlan);
+  } else {
+    renderPlanCTA();
+  }
+</script>
+</body>
+</html>
